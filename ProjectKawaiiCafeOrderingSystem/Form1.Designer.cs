@@ -40,7 +40,6 @@
             this.lblID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
-            this.textBoxType = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
@@ -165,17 +164,8 @@
             this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblType.Location = new System.Drawing.Point(571, 419);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(74, 25);
+            this.lblType.Size = new System.Drawing.Size(0, 25);
             this.lblType.TabIndex = 11;
-            this.lblType.Text = "Type :";
-            // 
-            // textBoxType
-            // 
-            this.textBoxType.Location = new System.Drawing.Point(661, 419);
-            this.textBoxType.Multiline = true;
-            this.textBoxType.Name = "textBoxType";
-            this.textBoxType.Size = new System.Drawing.Size(235, 25);
-            this.textBoxType.TabIndex = 12;
             // 
             // btnNext
             // 
@@ -195,7 +185,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.textBoxType);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.lblID);
@@ -231,7 +220,6 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.Button btnNext;
     }
 }
