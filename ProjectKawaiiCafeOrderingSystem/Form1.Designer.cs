@@ -41,6 +41,10 @@
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
+            this.labelType = new System.Windows.Forms.Label();
+            this.radioBtnSilver = new System.Windows.Forms.RadioButton();
+            this.radioBtnGold = new System.Windows.Forms.RadioButton();
+            this.radioBtnPremium = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +180,53 @@
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
+            // labelType
+            // 
+            this.labelType.AutoSize = true;
+            this.labelType.BackColor = System.Drawing.Color.Gainsboro;
+            this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelType.Location = new System.Drawing.Point(570, 419);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(74, 25);
+            this.labelType.TabIndex = 14;
+            this.labelType.Text = "Type :";
+            // 
+            // radioBtnSilver
+            // 
+            this.radioBtnSilver.AutoSize = true;
+            this.radioBtnSilver.BackColor = System.Drawing.Color.Wheat;
+            this.radioBtnSilver.Location = new System.Drawing.Point(663, 422);
+            this.radioBtnSilver.Name = "radioBtnSilver";
+            this.radioBtnSilver.Size = new System.Drawing.Size(62, 20);
+            this.radioBtnSilver.TabIndex = 15;
+            this.radioBtnSilver.TabStop = true;
+            this.radioBtnSilver.Text = "Silver";
+            this.radioBtnSilver.UseVisualStyleBackColor = false;
+            // 
+            // radioBtnGold
+            // 
+            this.radioBtnGold.AutoSize = true;
+            this.radioBtnGold.BackColor = System.Drawing.Color.Wheat;
+            this.radioBtnGold.Location = new System.Drawing.Point(741, 422);
+            this.radioBtnGold.Name = "radioBtnGold";
+            this.radioBtnGold.Size = new System.Drawing.Size(57, 20);
+            this.radioBtnGold.TabIndex = 16;
+            this.radioBtnGold.TabStop = true;
+            this.radioBtnGold.Text = "Gold";
+            this.radioBtnGold.UseVisualStyleBackColor = false;
+            // 
+            // radioBtnPremium
+            // 
+            this.radioBtnPremium.AutoSize = true;
+            this.radioBtnPremium.BackColor = System.Drawing.Color.Wheat;
+            this.radioBtnPremium.Location = new System.Drawing.Point(815, 422);
+            this.radioBtnPremium.Name = "radioBtnPremium";
+            this.radioBtnPremium.Size = new System.Drawing.Size(81, 20);
+            this.radioBtnPremium.TabIndex = 17;
+            this.radioBtnPremium.TabStop = true;
+            this.radioBtnPremium.Text = "Premium";
+            this.radioBtnPremium.UseVisualStyleBackColor = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -184,6 +235,10 @@
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.radioBtnPremium);
+            this.Controls.Add(this.radioBtnGold);
+            this.Controls.Add(this.radioBtnSilver);
+            this.Controls.Add(this.labelType);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.textBoxID);
@@ -221,6 +276,10 @@
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label labelType;
+        private System.Windows.Forms.RadioButton radioBtnSilver;
+        private System.Windows.Forms.RadioButton radioBtnGold;
+        private System.Windows.Forms.RadioButton radioBtnPremium;
     }
 }
 
