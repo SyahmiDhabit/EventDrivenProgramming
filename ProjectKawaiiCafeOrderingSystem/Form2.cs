@@ -16,5 +16,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
         }
+
+        private void menuForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
