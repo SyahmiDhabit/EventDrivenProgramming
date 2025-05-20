@@ -140,9 +140,9 @@
             this.checkBoxMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMenu1.Location = new System.Drawing.Point(20, 40);
             this.checkBoxMenu1.Name = "checkBoxMenu1";
-            this.checkBoxMenu1.Size = new System.Drawing.Size(165, 24);
+            this.checkBoxMenu1.Size = new System.Drawing.Size(160, 24);
             this.checkBoxMenu1.TabIndex = 15;
-            this.checkBoxMenu1.Text = "Chicken Lasagna ";
+            this.checkBoxMenu1.Text = "Chicken Lasagna";
             this.checkBoxMenu1.UseVisualStyleBackColor = true;
             // 
             // checkBoxMenu2
