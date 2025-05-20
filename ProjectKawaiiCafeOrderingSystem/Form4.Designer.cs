@@ -1,6 +1,6 @@
 ﻿namespace ProjectKawaiiCafeOrderingSystem
 {
-    partial class Form4
+    partial class receiptForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // receiptForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form4";
+            this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Name = "receiptForm";
+            this.Text = "~ Receipt ";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

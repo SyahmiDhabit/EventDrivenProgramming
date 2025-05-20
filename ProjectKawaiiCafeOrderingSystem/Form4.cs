@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
-    public partial class Form4 : Form
+    public partial class receiptForm : Form
     {
-        public Form4()
+        public receiptForm()
         {
             InitializeComponent();
         }
