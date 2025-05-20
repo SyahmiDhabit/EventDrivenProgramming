@@ -21,5 +21,15 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFood_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

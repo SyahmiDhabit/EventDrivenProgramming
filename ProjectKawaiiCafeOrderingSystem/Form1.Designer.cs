@@ -40,7 +40,7 @@
             this.lblID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.labelType = new System.Windows.Forms.Label();
             this.radioBtnSilver = new System.Windows.Forms.RadioButton();
             this.radioBtnGold = new System.Windows.Forms.RadioButton();
@@ -134,11 +134,11 @@
             // 
             this.labelKawaiTittle.AutoSize = true;
             this.labelKawaiTittle.BackColor = System.Drawing.Color.Transparent;
-            this.labelKawaiTittle.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKawaiTittle.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKawaiTittle.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelKawaiTittle.Location = new System.Drawing.Point(4, 23);
             this.labelKawaiTittle.Name = "labelKawaiTittle";
-            this.labelKawaiTittle.Size = new System.Drawing.Size(556, 82);
+            this.labelKawaiTittle.Size = new System.Drawing.Size(576, 82);
             this.labelKawaiTittle.TabIndex = 8;
             this.labelKawaiTittle.Text = "Kawaii Cafe Ordering";
             // 
@@ -171,14 +171,15 @@
             this.lblType.Size = new System.Drawing.Size(0, 25);
             this.lblType.TabIndex = 11;
             // 
-            // btnNext
+            // btnContinue
             // 
-            this.btnNext.Location = new System.Drawing.Point(974, 505);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(109, 53);
-            this.btnNext.TabIndex = 13;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnContinue.BackColor = System.Drawing.Color.LightGray;
+            this.btnContinue.Location = new System.Drawing.Point(1031, 518);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(118, 53);
+            this.btnContinue.TabIndex = 13;
+            this.btnContinue.Text = " Continue";
+            this.btnContinue.UseVisualStyleBackColor = false;
             // 
             // labelType
             // 
@@ -231,15 +232,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
-            this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackColor = System.Drawing.Color.Gray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
             this.Controls.Add(this.radioBtnPremium);
             this.Controls.Add(this.radioBtnGold);
             this.Controls.Add(this.radioBtnSilver);
             this.Controls.Add(this.labelType);
-            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.lblID);
@@ -275,7 +275,7 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Label labelType;
         private System.Windows.Forms.RadioButton radioBtnSilver;
         private System.Windows.Forms.RadioButton radioBtnGold;
