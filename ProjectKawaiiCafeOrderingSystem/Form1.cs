@@ -16,5 +16,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
         }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
