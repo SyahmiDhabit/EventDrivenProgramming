@@ -43,6 +43,7 @@
             this.btnFood = new System.Windows.Forms.Button();
             this.groupBoxFood = new System.Windows.Forms.GroupBox();
             this.listFood = new System.Windows.Forms.ListBox();
+            this.labelMenu = new System.Windows.Forms.Label();
             checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
             this.groupBoxFood.SuspendLayout();
             this.SuspendLayout();
@@ -210,7 +211,7 @@
             this.groupBoxFood.Controls.Add(this.checkBoxMenu5);
             this.groupBoxFood.Controls.Add(this.checkBoxMenu2);
             this.groupBoxFood.Controls.Add(this.checkBoxMenu1);
-            this.groupBoxFood.Location = new System.Drawing.Point(29, 66);
+            this.groupBoxFood.Location = new System.Drawing.Point(29, 114);
             this.groupBoxFood.Name = "groupBoxFood";
             this.groupBoxFood.Size = new System.Drawing.Size(371, 267);
             this.groupBoxFood.TabIndex = 21;
@@ -221,18 +222,31 @@
             // 
             this.listFood.FormattingEnabled = true;
             this.listFood.ItemHeight = 16;
-            this.listFood.Location = new System.Drawing.Point(29, 357);
+            this.listFood.Location = new System.Drawing.Point(29, 400);
             this.listFood.Name = "listFood";
             this.listFood.Size = new System.Drawing.Size(371, 164);
             this.listFood.TabIndex = 22;
+            // 
+            // labelMenu
+            // 
+            this.labelMenu.AutoSize = true;
+            this.labelMenu.BackColor = System.Drawing.Color.Transparent;
+            this.labelMenu.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelMenu.Location = new System.Drawing.Point(15, 18);
+            this.labelMenu.Name = "labelMenu";
+            this.labelMenu.Size = new System.Drawing.Size(453, 82);
+            this.labelMenu.TabIndex = 23;
+            this.labelMenu.Text = "Enjoy Our Menu";
             // 
             // menuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.Gray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.labelMenu);
             this.Controls.Add(this.listFood);
             this.Controls.Add(this.groupBoxFood);
             this.Controls.Add(this.btnCheckOut);
@@ -249,6 +263,7 @@
             this.groupBoxFood.ResumeLayout(false);
             this.groupBoxFood.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,5 +282,6 @@
         private System.Windows.Forms.Button btnFood;
         private System.Windows.Forms.GroupBox groupBoxFood;
         private System.Windows.Forms.ListBox listFood;
+        private System.Windows.Forms.Label labelMenu;
     }
 }
