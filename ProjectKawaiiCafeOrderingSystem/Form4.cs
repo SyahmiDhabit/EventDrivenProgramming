@@ -16,5 +16,32 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
         }
+
+        
+
+        private void receiptForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblThanks_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
