@@ -16,5 +16,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
         }
+
+        private void checkPaymentMethod_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
