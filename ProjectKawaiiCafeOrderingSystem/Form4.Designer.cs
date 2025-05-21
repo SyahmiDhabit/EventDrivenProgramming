@@ -399,6 +399,7 @@
             this.Controls.Add(this.gbCustomer);
             this.Name = "receiptForm";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.Text = "~ Receipt Form";
             this.Load += new System.EventHandler(this.receiptForm_Load);
             this.gbCustomer.ResumeLayout(false);
@@ -406,6 +407,8 @@
             this.gbOrder.ResumeLayout(false);
             this.gbOrder.PerformLayout();
 =======
+=======
+>>>>>>> Stashed changes
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "~ Receipt ";
 >>>>>>> Stashed changes
