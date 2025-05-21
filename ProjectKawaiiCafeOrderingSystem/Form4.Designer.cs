@@ -52,10 +52,10 @@
             this.gbCustomer = new System.Windows.Forms.GroupBox();
             this.lblD2 = new System.Windows.Forms.Label();
             this.gbOrder = new System.Windows.Forms.GroupBox();
-            this.lblD3 = new System.Windows.Forms.Label();
+            this.lblOrdername = new System.Windows.Forms.Label();
             this.lblQty = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.lblOrdername = new System.Windows.Forms.Label();
+            this.lblD3 = new System.Windows.Forms.Label();
             this.lblD4 = new System.Windows.Forms.Label();
             this.gbCustomer.SuspendLayout();
             this.gbOrder.SuspendLayout();
@@ -320,16 +320,15 @@
             this.gbOrder.TabStop = false;
             this.gbOrder.Text = "Order Details";
             // 
-            // lblD3
+            // lblOrdername
             // 
-            this.lblD3.AutoSize = true;
-            this.lblD3.Location = new System.Drawing.Point(251, 643);
-            this.lblD3.Name = "lblD3";
-            this.lblD3.Size = new System.Drawing.Size(550, 16);
-            this.lblD3.TabIndex = 30;
-            this.lblD3.Text = "................................................................................." +
-    "................................................................................" +
-    "....................";
+            this.lblOrdername.AutoSize = true;
+            this.lblOrdername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrdername.Location = new System.Drawing.Point(31, 74);
+            this.lblOrdername.Name = "lblOrdername";
+            this.lblOrdername.Size = new System.Drawing.Size(48, 18);
+            this.lblOrdername.TabIndex = 31;
+            this.lblOrdername.Text = "Name";
             // 
             // lblQty
             // 
@@ -351,15 +350,16 @@
             this.lblPrice.TabIndex = 33;
             this.lblPrice.Text = "Price";
             // 
-            // lblOrdername
+            // lblD3
             // 
-            this.lblOrdername.AutoSize = true;
-            this.lblOrdername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrdername.Location = new System.Drawing.Point(31, 74);
-            this.lblOrdername.Name = "lblOrdername";
-            this.lblOrdername.Size = new System.Drawing.Size(48, 18);
-            this.lblOrdername.TabIndex = 31;
-            this.lblOrdername.Text = "Name";
+            this.lblD3.AutoSize = true;
+            this.lblD3.Location = new System.Drawing.Point(251, 643);
+            this.lblD3.Name = "lblD3";
+            this.lblD3.Size = new System.Drawing.Size(550, 16);
+            this.lblD3.TabIndex = 30;
+            this.lblD3.Text = "................................................................................." +
+    "................................................................................" +
+    "....................";
             // 
             // lblD4
             // 
