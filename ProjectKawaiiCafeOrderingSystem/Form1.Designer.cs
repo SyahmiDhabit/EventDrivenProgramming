@@ -196,7 +196,7 @@
             // radioBtnSilver
             // 
             this.radioBtnSilver.AutoSize = true;
-            this.radioBtnSilver.BackColor = System.Drawing.Color.Wheat;
+            this.radioBtnSilver.BackColor = System.Drawing.Color.Silver;
             this.radioBtnSilver.Location = new System.Drawing.Point(663, 422);
             this.radioBtnSilver.Name = "radioBtnSilver";
             this.radioBtnSilver.Size = new System.Drawing.Size(62, 20);
@@ -208,7 +208,7 @@
             // radioBtnGold
             // 
             this.radioBtnGold.AutoSize = true;
-            this.radioBtnGold.BackColor = System.Drawing.Color.Wheat;
+            this.radioBtnGold.BackColor = System.Drawing.Color.Silver;
             this.radioBtnGold.Location = new System.Drawing.Point(741, 422);
             this.radioBtnGold.Name = "radioBtnGold";
             this.radioBtnGold.Size = new System.Drawing.Size(57, 20);
@@ -220,7 +220,7 @@
             // radioBtnPremium
             // 
             this.radioBtnPremium.AutoSize = true;
-            this.radioBtnPremium.BackColor = System.Drawing.Color.Wheat;
+            this.radioBtnPremium.BackColor = System.Drawing.Color.Silver;
             this.radioBtnPremium.Location = new System.Drawing.Point(815, 422);
             this.radioBtnPremium.Name = "radioBtnPremium";
             this.radioBtnPremium.Size = new System.Drawing.Size(81, 20);
