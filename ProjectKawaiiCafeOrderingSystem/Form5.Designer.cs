@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(merchandiseForm));
             this.labelMerchTittle = new System.Windows.Forms.Label();
             this.pictureBoxMerch = new System.Windows.Forms.PictureBox();
             this.buttonNext = new System.Windows.Forms.Button();
@@ -43,6 +42,8 @@
             this.labelDescription = new System.Windows.Forms.Label();
             this.labelProPrice = new System.Windows.Forms.Label();
             this.buttonPurchase = new System.Windows.Forms.Button();
+            this.checkBoxCustName = new System.Windows.Forms.CheckBox();
+            this.textBoxCustName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMerch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQty)).BeginInit();
             this.SuspendLayout();
@@ -71,28 +72,29 @@
             // 
             this.buttonNext.BackColor = System.Drawing.Color.LightGray;
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNext.Location = new System.Drawing.Point(413, 527);
+            this.buttonNext.Location = new System.Drawing.Point(400, 506);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(80, 38);
+            this.buttonNext.Size = new System.Drawing.Size(93, 52);
             this.buttonNext.TabIndex = 11;
-            this.buttonNext.Text = "Next >";
+            this.buttonNext.Text = "Next Product >";
             this.buttonNext.UseVisualStyleBackColor = false;
             // 
             // buttonBack
             // 
             this.buttonBack.BackColor = System.Drawing.Color.LightGray;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBack.Location = new System.Drawing.Point(49, 527);
+            this.buttonBack.Location = new System.Drawing.Point(49, 506);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(80, 38);
+            this.buttonBack.Size = new System.Drawing.Size(93, 52);
             this.buttonBack.TabIndex = 12;
-            this.buttonBack.Text = "< Back";
+            this.buttonBack.Text = "< Previous Product";
             this.buttonBack.UseVisualStyleBackColor = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // comboBoxColor
             // 
             this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(662, 396);
+            this.comboBoxColor.Location = new System.Drawing.Point(667, 371);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(167, 24);
             this.comboBoxColor.TabIndex = 13;
@@ -102,7 +104,7 @@
             this.labelColor.AutoSize = true;
             this.labelColor.BackColor = System.Drawing.Color.Gainsboro;
             this.labelColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelColor.Location = new System.Drawing.Point(564, 395);
+            this.labelColor.Location = new System.Drawing.Point(569, 370);
             this.labelColor.Name = "labelColor";
             this.labelColor.Size = new System.Drawing.Size(77, 25);
             this.labelColor.TabIndex = 14;
@@ -113,7 +115,7 @@
             this.labelQty.AutoSize = true;
             this.labelQty.BackColor = System.Drawing.Color.Gainsboro;
             this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQty.Location = new System.Drawing.Point(535, 356);
+            this.labelQty.Location = new System.Drawing.Point(540, 331);
             this.labelQty.Name = "labelQty";
             this.labelQty.Size = new System.Drawing.Size(106, 25);
             this.labelQty.TabIndex = 15;
@@ -121,7 +123,7 @@
             // 
             // numericUpDownQty
             // 
-            this.numericUpDownQty.Location = new System.Drawing.Point(662, 356);
+            this.numericUpDownQty.Location = new System.Drawing.Point(667, 331);
             this.numericUpDownQty.Name = "numericUpDownQty";
             this.numericUpDownQty.Size = new System.Drawing.Size(165, 22);
             this.numericUpDownQty.TabIndex = 16;
@@ -136,7 +138,7 @@
             // 
             this.labelProName.AutoSize = true;
             this.labelProName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProName.Location = new System.Drawing.Point(516, 126);
+            this.labelProName.Location = new System.Drawing.Point(534, 119);
             this.labelProName.Name = "labelProName";
             this.labelProName.Size = new System.Drawing.Size(206, 32);
             this.labelProName.TabIndex = 17;
@@ -147,17 +149,19 @@
             this.labelDescription.AutoSize = true;
             this.labelDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(523, 249);
+            this.labelDescription.Location = new System.Drawing.Point(540, 237);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(432, 68);
             this.labelDescription.TabIndex = 18;
-            this.labelDescription.Text = resources.GetString("labelDescription.Text");
+            this.labelDescription.Text = "Product Description...............................\r\n............................." +
+    ".........................................\r\n....................................." +
+    ".................................\r\n";
             // 
             // labelProPrice
             // 
             this.labelProPrice.AutoSize = true;
             this.labelProPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProPrice.Location = new System.Drawing.Point(520, 183);
+            this.labelProPrice.Location = new System.Drawing.Point(535, 177);
             this.labelProPrice.Name = "labelProPrice";
             this.labelProPrice.Size = new System.Drawing.Size(122, 29);
             this.labelProPrice.TabIndex = 19;
@@ -171,8 +175,25 @@
             this.buttonPurchase.Name = "buttonPurchase";
             this.buttonPurchase.Size = new System.Drawing.Size(118, 53);
             this.buttonPurchase.TabIndex = 20;
-            this.buttonPurchase.Text = "Purchase";
+            this.buttonPurchase.Text = "Next";
             this.buttonPurchase.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxCustName
+            // 
+            this.checkBoxCustName.AutoSize = true;
+            this.checkBoxCustName.Location = new System.Drawing.Point(574, 412);
+            this.checkBoxCustName.Name = "checkBoxCustName";
+            this.checkBoxCustName.Size = new System.Drawing.Size(142, 20);
+            this.checkBoxCustName.TabIndex = 21;
+            this.checkBoxCustName.Text = "Add Custom Name";
+            this.checkBoxCustName.UseVisualStyleBackColor = true;
+            // 
+            // textBoxCustName
+            // 
+            this.textBoxCustName.Location = new System.Drawing.Point(574, 438);
+            this.textBoxCustName.Name = "textBoxCustName";
+            this.textBoxCustName.Size = new System.Drawing.Size(260, 22);
+            this.textBoxCustName.TabIndex = 22;
             // 
             // merchandiseForm
             // 
@@ -180,6 +201,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.textBoxCustName);
+            this.Controls.Add(this.checkBoxCustName);
             this.Controls.Add(this.buttonPurchase);
             this.Controls.Add(this.labelProPrice);
             this.Controls.Add(this.labelDescription);
@@ -217,5 +240,7 @@
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Label labelProPrice;
         private System.Windows.Forms.Button buttonPurchase;
+        private System.Windows.Forms.CheckBox checkBoxCustName;
+        private System.Windows.Forms.TextBox textBoxCustName;
     }
 }
