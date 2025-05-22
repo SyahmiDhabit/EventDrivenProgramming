@@ -57,6 +57,7 @@
             this.lblMembership = new System.Windows.Forms.Label();
             this.lblNameValue = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnExportPDF = new System.Windows.Forms.Button();
             this.gbOrder.SuspendLayout();
             this.gbCustomer.SuspendLayout();
             this.SuspendLayout();
@@ -211,7 +212,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(366, 937);
+            this.btnClose.Location = new System.Drawing.Point(273, 936);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 54);
             this.btnClose.TabIndex = 82;
@@ -368,11 +369,21 @@
             this.lblName.TabIndex = 3;
             this.lblName.Text = "Name:";
             // 
+            // btnExportPDF
+            // 
+            this.btnExportPDF.Location = new System.Drawing.Point(425, 936);
+            this.btnExportPDF.Name = "btnExportPDF";
+            this.btnExportPDF.Size = new System.Drawing.Size(111, 54);
+            this.btnExportPDF.TabIndex = 92;
+            this.btnExportPDF.Text = "Export to PDF";
+            this.btnExportPDF.UseVisualStyleBackColor = true;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 1011);
+            this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.lblD4);
             this.Controls.Add(this.lblD3);
             this.Controls.Add(this.gbOrder);
@@ -435,5 +446,6 @@
         private System.Windows.Forms.Label lblMembership;
         private System.Windows.Forms.Label lblNameValue;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnExportPDF;
     }
 }
