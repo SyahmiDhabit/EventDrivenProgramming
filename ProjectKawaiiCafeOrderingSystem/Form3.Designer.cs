@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelcheckout = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listFoodDesert = new System.Windows.Forms.ListBox();
             this.labelMembership = new System.Windows.Forms.Label();
             this.labelDiscount = new System.Windows.Forms.Label();
             this.labelPercentage = new System.Windows.Forms.Label();
@@ -42,6 +42,10 @@
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.buttonCheckout = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
+            this.labelCardNum = new System.Windows.Forms.Label();
+            this.textBoxCardNum = new System.Windows.Forms.TextBox();
+            this.labelCVV = new System.Windows.Forms.Label();
+            this.textBoxCVV = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelcheckout
@@ -57,14 +61,14 @@
             this.labelcheckout.Text = "Kawaii CheckOut\r\n";
             this.labelcheckout.Click += new System.EventHandler(this.labelcheckout_Click);
             // 
-            // listBox1
+            // listFoodDesert
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 110);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(374, 292);
-            this.listBox1.TabIndex = 10;
+            this.listFoodDesert.FormattingEnabled = true;
+            this.listFoodDesert.ItemHeight = 16;
+            this.listFoodDesert.Location = new System.Drawing.Point(12, 110);
+            this.listFoodDesert.Name = "listFoodDesert";
+            this.listFoodDesert.Size = new System.Drawing.Size(374, 372);
+            this.listFoodDesert.TabIndex = 10;
             // 
             // labelMembership
             // 
@@ -101,7 +105,7 @@
             // 
             this.labelPaymentMethod.AutoSize = true;
             this.labelPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPaymentMethod.Location = new System.Drawing.Point(420, 179);
+            this.labelPaymentMethod.Location = new System.Drawing.Point(418, 259);
             this.labelPaymentMethod.Name = "labelPaymentMethod";
             this.labelPaymentMethod.Size = new System.Drawing.Size(171, 25);
             this.labelPaymentMethod.TabIndex = 14;
@@ -110,7 +114,7 @@
             // radioCash
             // 
             this.radioCash.AutoSize = true;
-            this.radioCash.Location = new System.Drawing.Point(609, 184);
+            this.radioCash.Location = new System.Drawing.Point(607, 264);
             this.radioCash.Name = "radioCash";
             this.radioCash.Size = new System.Drawing.Size(59, 20);
             this.radioCash.TabIndex = 15;
@@ -121,7 +125,7 @@
             // radioDebit
             // 
             this.radioDebit.AutoSize = true;
-            this.radioDebit.Location = new System.Drawing.Point(692, 184);
+            this.radioDebit.Location = new System.Drawing.Point(690, 264);
             this.radioDebit.Name = "radioDebit";
             this.radioDebit.Size = new System.Drawing.Size(60, 20);
             this.radioDebit.TabIndex = 16;
@@ -132,7 +136,7 @@
             // radioQR
             // 
             this.radioQR.AutoSize = true;
-            this.radioQR.Location = new System.Drawing.Point(783, 184);
+            this.radioQR.Location = new System.Drawing.Point(781, 264);
             this.radioQR.Name = "radioQR";
             this.radioQR.Size = new System.Drawing.Size(48, 20);
             this.radioQR.TabIndex = 17;
@@ -143,7 +147,7 @@
             // buttonCalculate
             // 
             this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalculate.Location = new System.Drawing.Point(423, 355);
+            this.buttonCalculate.Location = new System.Drawing.Point(423, 164);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(133, 47);
             this.buttonCalculate.TabIndex = 18;
@@ -153,10 +157,10 @@
             // labelRM
             // 
             this.labelRM.AutoSize = true;
-            this.labelRM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRM.Location = new System.Drawing.Point(589, 364);
+            this.labelRM.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRM.Location = new System.Drawing.Point(579, 172);
             this.labelRM.Name = "labelRM";
-            this.labelRM.Size = new System.Drawing.Size(42, 25);
+            this.labelRM.Size = new System.Drawing.Size(70, 39);
             this.labelRM.TabIndex = 19;
             this.labelRM.Text = "RM";
             // 
@@ -164,7 +168,7 @@
             // 
             this.labelTotalPrice.AutoSize = true;
             this.labelTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalPrice.Location = new System.Drawing.Point(668, 364);
+            this.labelTotalPrice.Location = new System.Drawing.Point(668, 183);
             this.labelTotalPrice.Name = "labelTotalPrice";
             this.labelTotalPrice.Size = new System.Drawing.Size(0, 25);
             this.labelTotalPrice.TabIndex = 20;
@@ -189,12 +193,56 @@
             this.buttonPrevious.Text = "Previous";
             this.buttonPrevious.UseVisualStyleBackColor = true;
             // 
+            // labelCardNum
+            // 
+            this.labelCardNum.AutoSize = true;
+            this.labelCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCardNum.Location = new System.Drawing.Point(449, 322);
+            this.labelCardNum.Name = "labelCardNum";
+            this.labelCardNum.Size = new System.Drawing.Size(140, 25);
+            this.labelCardNum.TabIndex = 23;
+            this.labelCardNum.Text = "Card Number :";
+            this.labelCardNum.Visible = false;
+            // 
+            // textBoxCardNum
+            // 
+            this.textBoxCardNum.Location = new System.Drawing.Point(607, 322);
+            this.textBoxCardNum.Multiline = true;
+            this.textBoxCardNum.Name = "textBoxCardNum";
+            this.textBoxCardNum.Size = new System.Drawing.Size(222, 25);
+            this.textBoxCardNum.TabIndex = 24;
+            this.textBoxCardNum.Visible = false;
+            // 
+            // labelCVV
+            // 
+            this.labelCVV.AutoSize = true;
+            this.labelCVV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCVV.Location = new System.Drawing.Point(523, 373);
+            this.labelCVV.Name = "labelCVV";
+            this.labelCVV.Size = new System.Drawing.Size(66, 25);
+            this.labelCVV.TabIndex = 25;
+            this.labelCVV.Text = "CVV :";
+            this.labelCVV.Visible = false;
+            // 
+            // textBoxCVV
+            // 
+            this.textBoxCVV.Location = new System.Drawing.Point(607, 373);
+            this.textBoxCVV.Multiline = true;
+            this.textBoxCVV.Name = "textBoxCVV";
+            this.textBoxCVV.Size = new System.Drawing.Size(222, 25);
+            this.textBoxCVV.TabIndex = 26;
+            this.textBoxCVV.Visible = false;
+            // 
             // checkoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.textBoxCVV);
+            this.Controls.Add(this.labelCVV);
+            this.Controls.Add(this.textBoxCardNum);
+            this.Controls.Add(this.labelCardNum);
             this.Controls.Add(this.buttonPrevious);
             this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.labelTotalPrice);
@@ -207,7 +255,7 @@
             this.Controls.Add(this.labelPercentage);
             this.Controls.Add(this.labelDiscount);
             this.Controls.Add(this.labelMembership);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listFoodDesert);
             this.Controls.Add(this.labelcheckout);
             this.Name = "checkoutForm";
             this.Text = "~ Check Out";
@@ -219,7 +267,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelcheckout;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listFoodDesert;
         private System.Windows.Forms.Label labelMembership;
         private System.Windows.Forms.Label labelDiscount;
         private System.Windows.Forms.Label labelPercentage;
@@ -232,5 +280,9 @@
         private System.Windows.Forms.Label labelTotalPrice;
         private System.Windows.Forms.Button buttonCheckout;
         private System.Windows.Forms.Button buttonPrevious;
+        private System.Windows.Forms.Label labelCardNum;
+        private System.Windows.Forms.TextBox textBoxCardNum;
+        private System.Windows.Forms.Label labelCVV;
+        private System.Windows.Forms.TextBox textBoxCVV;
     }
 }
