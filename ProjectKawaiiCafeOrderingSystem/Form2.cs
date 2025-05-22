@@ -31,5 +31,30 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBoxDessert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemoveDessert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxFood_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

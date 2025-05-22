@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
-    public partial class receiptForm : Form
+    public partial class merchandiseForm : Form
     {
-        public receiptForm()
+        public merchandiseForm()
         {
             InitializeComponent();
+        }
+
+        private void merchandiseForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

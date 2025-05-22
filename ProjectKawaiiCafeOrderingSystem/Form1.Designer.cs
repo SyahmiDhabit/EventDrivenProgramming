@@ -40,11 +40,7 @@
             this.lblID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
-            this.btnContinue = new System.Windows.Forms.Button();
-            this.labelType = new System.Windows.Forms.Label();
-            this.radioBtnSilver = new System.Windows.Forms.RadioButton();
-            this.radioBtnGold = new System.Windows.Forms.RadioButton();
-            this.radioBtnPremium = new System.Windows.Forms.RadioButton();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +58,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(565, 125);
             this.lblName.Name = "lblName";
@@ -73,7 +69,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblAddress.BackColor = System.Drawing.Color.Transparent;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.Location = new System.Drawing.Point(538, 202);
             this.lblAddress.Name = "lblAddress";
@@ -84,7 +80,7 @@
             // lblNoHp
             // 
             this.lblNoHp.AutoSize = true;
-            this.lblNoHp.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblNoHp.BackColor = System.Drawing.Color.Transparent;
             this.lblNoHp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoHp.Location = new System.Drawing.Point(558, 162);
             this.lblNoHp.Name = "lblNoHp";
@@ -137,7 +133,7 @@
             this.labelKawaiTittle.BackColor = System.Drawing.Color.Transparent;
             this.labelKawaiTittle.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKawaiTittle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelKawaiTittle.Location = new System.Drawing.Point(4, 23);
+            this.labelKawaiTittle.Location = new System.Drawing.Point(12, 23);
             this.labelKawaiTittle.Name = "labelKawaiTittle";
             this.labelKawaiTittle.Size = new System.Drawing.Size(576, 82);
             this.labelKawaiTittle.TabIndex = 8;
@@ -146,7 +142,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblID.BackColor = System.Drawing.Color.Transparent;
             this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.Location = new System.Drawing.Point(597, 381);
             this.lblID.Name = "lblID";
@@ -172,75 +168,24 @@
             this.lblType.Size = new System.Drawing.Size(0, 25);
             this.lblType.TabIndex = 11;
             // 
-            // btnContinue
+            // btnNext
             // 
-            this.btnContinue.BackColor = System.Drawing.Color.LightGray;
-            this.btnContinue.Location = new System.Drawing.Point(1031, 518);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(118, 53);
-            this.btnContinue.TabIndex = 13;
-            this.btnContinue.Text = " Continue";
-            this.btnContinue.UseVisualStyleBackColor = false;
-            // 
-            // labelType
-            // 
-            this.labelType.AutoSize = true;
-            this.labelType.BackColor = System.Drawing.Color.Gainsboro;
-            this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelType.Location = new System.Drawing.Point(570, 419);
-            this.labelType.Name = "labelType";
-            this.labelType.Size = new System.Drawing.Size(74, 25);
-            this.labelType.TabIndex = 14;
-            this.labelType.Text = "Type :";
-            // 
-            // radioBtnSilver
-            // 
-            this.radioBtnSilver.AutoSize = true;
-            this.radioBtnSilver.BackColor = System.Drawing.Color.Silver;
-            this.radioBtnSilver.Location = new System.Drawing.Point(663, 422);
-            this.radioBtnSilver.Name = "radioBtnSilver";
-            this.radioBtnSilver.Size = new System.Drawing.Size(62, 20);
-            this.radioBtnSilver.TabIndex = 15;
-            this.radioBtnSilver.TabStop = true;
-            this.radioBtnSilver.Text = "Silver";
-            this.radioBtnSilver.UseVisualStyleBackColor = false;
-            // 
-            // radioBtnGold
-            // 
-            this.radioBtnGold.AutoSize = true;
-            this.radioBtnGold.BackColor = System.Drawing.Color.Silver;
-            this.radioBtnGold.Location = new System.Drawing.Point(741, 422);
-            this.radioBtnGold.Name = "radioBtnGold";
-            this.radioBtnGold.Size = new System.Drawing.Size(57, 20);
-            this.radioBtnGold.TabIndex = 16;
-            this.radioBtnGold.TabStop = true;
-            this.radioBtnGold.Text = "Gold";
-            this.radioBtnGold.UseVisualStyleBackColor = false;
-            // 
-            // radioBtnPremium
-            // 
-            this.radioBtnPremium.AutoSize = true;
-            this.radioBtnPremium.BackColor = System.Drawing.Color.Silver;
-            this.radioBtnPremium.Location = new System.Drawing.Point(815, 422);
-            this.radioBtnPremium.Name = "radioBtnPremium";
-            this.radioBtnPremium.Size = new System.Drawing.Size(81, 20);
-            this.radioBtnPremium.TabIndex = 17;
-            this.radioBtnPremium.TabStop = true;
-            this.radioBtnPremium.Text = "Premium";
-            this.radioBtnPremium.UseVisualStyleBackColor = false;
+            this.btnNext.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNext.Location = new System.Drawing.Point(1031, 518);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(118, 53);
+            this.btnNext.TabIndex = 13;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = false;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
-            this.Controls.Add(this.radioBtnPremium);
-            this.Controls.Add(this.radioBtnGold);
-            this.Controls.Add(this.radioBtnSilver);
-            this.Controls.Add(this.labelType);
-            this.Controls.Add(this.btnContinue);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.lblID);
@@ -276,11 +221,7 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.Button btnContinue;
-        private System.Windows.Forms.Label labelType;
-        private System.Windows.Forms.RadioButton radioBtnSilver;
-        private System.Windows.Forms.RadioButton radioBtnGold;
-        private System.Windows.Forms.RadioButton radioBtnPremium;
+        private System.Windows.Forms.Button btnNext;
     }
 }
 

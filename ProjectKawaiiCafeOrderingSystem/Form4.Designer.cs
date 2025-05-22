@@ -1,6 +1,6 @@
 ﻿namespace ProjectKawaiiCafeOrderingSystem
 {
-    partial class Form4
+    partial class receiptForm
     {
         /// <summary>
         /// Required designer variable.
@@ -382,6 +382,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(848, 1011);
             this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.lblD4);
@@ -404,8 +405,8 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.gbCustomer);
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Name = "receiptForm";
+            this.Text = "~ Receipt";
             this.gbOrder.ResumeLayout(false);
             this.gbOrder.PerformLayout();
             this.gbCustomer.ResumeLayout(false);

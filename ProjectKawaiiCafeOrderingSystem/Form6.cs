@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
-    public partial class receiptForm : Form
+    public partial class Form6 : Form
     {
-        public receiptForm()
+        public Form6()
         {
             InitializeComponent();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

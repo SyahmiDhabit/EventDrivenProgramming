@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
-    public partial class checkOutForm : Form
+    public partial class checkoutForm : Form
     {
-        public checkOutForm()
+        public checkoutForm()
         {
             InitializeComponent();
+        }
+
+        private void labelcheckout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDiscount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
