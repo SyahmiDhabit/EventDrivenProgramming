@@ -133,7 +133,7 @@
             this.labelKawaiTittle.BackColor = System.Drawing.Color.Transparent;
             this.labelKawaiTittle.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKawaiTittle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelKawaiTittle.Location = new System.Drawing.Point(4, 23);
+            this.labelKawaiTittle.Location = new System.Drawing.Point(12, 23);
             this.labelKawaiTittle.Name = "labelKawaiTittle";
             this.labelKawaiTittle.Size = new System.Drawing.Size(576, 82);
             this.labelKawaiTittle.TabIndex = 8;

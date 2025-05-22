@@ -279,7 +279,7 @@
             // 
             // numericUpDownFood
             // 
-            this.numericUpDownFood.Location = new System.Drawing.Point(84, 151);
+            this.numericUpDownFood.Location = new System.Drawing.Point(86, 151);
             this.numericUpDownFood.Name = "numericUpDownFood";
             this.numericUpDownFood.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownFood.TabIndex = 23;
@@ -289,22 +289,22 @@
             this.labelQtyMenu.AutoSize = true;
             this.labelQtyMenu.Location = new System.Drawing.Point(20, 153);
             this.labelQtyMenu.Name = "labelQtyMenu";
-            this.labelQtyMenu.Size = new System.Drawing.Size(61, 16);
+            this.labelQtyMenu.Size = new System.Drawing.Size(58, 16);
             this.labelQtyMenu.TabIndex = 24;
-            this.labelQtyMenu.Text = "Quantity: ";
+            this.labelQtyMenu.Text = "Quantity:";
             // 
             // labelQtyDessert
             // 
             this.labelQtyDessert.AutoSize = true;
             this.labelQtyDessert.Location = new System.Drawing.Point(20, 155);
             this.labelQtyDessert.Name = "labelQtyDessert";
-            this.labelQtyDessert.Size = new System.Drawing.Size(61, 16);
+            this.labelQtyDessert.Size = new System.Drawing.Size(58, 16);
             this.labelQtyDessert.TabIndex = 26;
-            this.labelQtyDessert.Text = "Quantity: ";
+            this.labelQtyDessert.Text = "Quantity:";
             // 
             // numericUpDownDessert
             // 
-            this.numericUpDownDessert.Location = new System.Drawing.Point(84, 153);
+            this.numericUpDownDessert.Location = new System.Drawing.Point(86, 153);
             this.numericUpDownDessert.Name = "numericUpDownDessert";
             this.numericUpDownDessert.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownDessert.TabIndex = 25;
@@ -314,13 +314,13 @@
             this.labelQtyDrink.AutoSize = true;
             this.labelQtyDrink.Location = new System.Drawing.Point(20, 156);
             this.labelQtyDrink.Name = "labelQtyDrink";
-            this.labelQtyDrink.Size = new System.Drawing.Size(61, 16);
+            this.labelQtyDrink.Size = new System.Drawing.Size(58, 16);
             this.labelQtyDrink.TabIndex = 27;
-            this.labelQtyDrink.Text = "Quantity: ";
+            this.labelQtyDrink.Text = "Quantity:";
             // 
             // numericUpDownDrink
             // 
-            this.numericUpDownDrink.Location = new System.Drawing.Point(84, 154);
+            this.numericUpDownDrink.Location = new System.Drawing.Point(86, 154);
             this.numericUpDownDrink.Name = "numericUpDownDrink";
             this.numericUpDownDrink.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownDrink.TabIndex = 26;
