@@ -73,6 +73,7 @@
             // labelMembership
             // 
             this.labelMembership.AutoSize = true;
+            this.labelMembership.BackColor = System.Drawing.Color.Transparent;
             this.labelMembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMembership.Location = new System.Drawing.Point(417, 110);
             this.labelMembership.Name = "labelMembership";
@@ -83,6 +84,7 @@
             // labelDiscount
             // 
             this.labelDiscount.AutoSize = true;
+            this.labelDiscount.BackColor = System.Drawing.Color.Transparent;
             this.labelDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDiscount.Location = new System.Drawing.Point(627, 110);
             this.labelDiscount.Name = "labelDiscount";
@@ -94,6 +96,7 @@
             // labelPercentage
             // 
             this.labelPercentage.AutoSize = true;
+            this.labelPercentage.BackColor = System.Drawing.Color.Transparent;
             this.labelPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPercentage.Location = new System.Drawing.Point(777, 110);
             this.labelPercentage.Name = "labelPercentage";
@@ -104,6 +107,7 @@
             // labelPaymentMethod
             // 
             this.labelPaymentMethod.AutoSize = true;
+            this.labelPaymentMethod.BackColor = System.Drawing.Color.Transparent;
             this.labelPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPaymentMethod.Location = new System.Drawing.Point(418, 259);
             this.labelPaymentMethod.Name = "labelPaymentMethod";
@@ -114,35 +118,38 @@
             // radioCash
             // 
             this.radioCash.AutoSize = true;
+            this.radioCash.BackColor = System.Drawing.Color.Transparent;
             this.radioCash.Location = new System.Drawing.Point(607, 264);
             this.radioCash.Name = "radioCash";
             this.radioCash.Size = new System.Drawing.Size(59, 20);
             this.radioCash.TabIndex = 15;
             this.radioCash.TabStop = true;
             this.radioCash.Text = "Cash";
-            this.radioCash.UseVisualStyleBackColor = true;
+            this.radioCash.UseVisualStyleBackColor = false;
             // 
             // radioDebit
             // 
             this.radioDebit.AutoSize = true;
+            this.radioDebit.BackColor = System.Drawing.Color.Transparent;
             this.radioDebit.Location = new System.Drawing.Point(690, 264);
             this.radioDebit.Name = "radioDebit";
             this.radioDebit.Size = new System.Drawing.Size(60, 20);
             this.radioDebit.TabIndex = 16;
             this.radioDebit.TabStop = true;
             this.radioDebit.Text = "Debit";
-            this.radioDebit.UseVisualStyleBackColor = true;
+            this.radioDebit.UseVisualStyleBackColor = false;
             // 
             // radioQR
             // 
             this.radioQR.AutoSize = true;
+            this.radioQR.BackColor = System.Drawing.Color.Transparent;
             this.radioQR.Location = new System.Drawing.Point(781, 264);
             this.radioQR.Name = "radioQR";
             this.radioQR.Size = new System.Drawing.Size(48, 20);
             this.radioQR.TabIndex = 17;
             this.radioQR.TabStop = true;
             this.radioQR.Text = "QR";
-            this.radioQR.UseVisualStyleBackColor = true;
+            this.radioQR.UseVisualStyleBackColor = false;
             // 
             // buttonCalculate
             // 
@@ -157,10 +164,11 @@
             // labelRM
             // 
             this.labelRM.AutoSize = true;
+            this.labelRM.BackColor = System.Drawing.Color.Transparent;
             this.labelRM.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRM.Location = new System.Drawing.Point(579, 172);
             this.labelRM.Name = "labelRM";
-            this.labelRM.Size = new System.Drawing.Size(70, 39);
+            this.labelRM.Size = new System.Drawing.Size(68, 38);
             this.labelRM.TabIndex = 19;
             this.labelRM.Text = "RM";
             // 
@@ -196,6 +204,7 @@
             // labelCardNum
             // 
             this.labelCardNum.AutoSize = true;
+            this.labelCardNum.BackColor = System.Drawing.Color.Transparent;
             this.labelCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCardNum.Location = new System.Drawing.Point(449, 322);
             this.labelCardNum.Name = "labelCardNum";
@@ -216,6 +225,7 @@
             // labelCVV
             // 
             this.labelCVV.AutoSize = true;
+            this.labelCVV.BackColor = System.Drawing.Color.Transparent;
             this.labelCVV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCVV.Location = new System.Drawing.Point(523, 373);
             this.labelCVV.Name = "labelCVV";
@@ -238,6 +248,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
+            this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
             this.Controls.Add(this.textBoxCVV);
             this.Controls.Add(this.labelCVV);
