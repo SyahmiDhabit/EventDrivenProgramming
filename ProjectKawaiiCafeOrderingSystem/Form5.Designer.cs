@@ -139,6 +139,7 @@
             // labelProName
             // 
             this.labelProName.AutoSize = true;
+            this.labelProName.BackColor = System.Drawing.Color.Transparent;
             this.labelProName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProName.Location = new System.Drawing.Point(545, 124);
             this.labelProName.Name = "labelProName";
@@ -149,6 +150,7 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
+            this.labelDescription.BackColor = System.Drawing.Color.Transparent;
             this.labelDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.Location = new System.Drawing.Point(556, 224);
@@ -162,6 +164,7 @@
             // labelProPrice
             // 
             this.labelProPrice.AutoSize = true;
+            this.labelProPrice.BackColor = System.Drawing.Color.Transparent;
             this.labelProPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProPrice.Location = new System.Drawing.Point(551, 176);
             this.labelProPrice.Name = "labelProPrice";
@@ -202,6 +205,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
             this.Controls.Add(this.textBoxCustName);
             this.Controls.Add(this.checkBoxCustName);

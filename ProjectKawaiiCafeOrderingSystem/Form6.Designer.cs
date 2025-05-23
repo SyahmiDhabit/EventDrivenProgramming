@@ -48,38 +48,47 @@
             this.Cust_Name,
             this.Total_Price});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(135, 85);
+            this.dataGridView1.Location = new System.Drawing.Point(180, 105);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 150);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(724, 185);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Order_ID
             // 
             this.Order_ID.HeaderText = "Order ID";
+            this.Order_ID.MinimumWidth = 6;
             this.Order_ID.Name = "Order_ID";
             // 
             // Order_Date
             // 
             this.Order_Date.HeaderText = "Order Date";
+            this.Order_Date.MinimumWidth = 6;
             this.Order_Date.Name = "Order_Date";
             // 
             // Cust_Name
             // 
             this.Cust_Name.HeaderText = "Cust Name";
+            this.Cust_Name.MinimumWidth = 6;
             this.Cust_Name.Name = "Cust_Name";
             // 
             // Total_Price
             // 
             this.Total_Price.HeaderText = "Total Price";
+            this.Total_Price.MinimumWidth = 6;
             this.Total_Price.Name = "Total_Price";
             // 
             // Form6
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form6";
             this.Text = "Form6";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

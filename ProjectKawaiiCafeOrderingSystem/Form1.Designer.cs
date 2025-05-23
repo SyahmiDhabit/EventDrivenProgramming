@@ -37,10 +37,10 @@
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.CheckBoxMembership = new System.Windows.Forms.CheckBox();
             this.labelKawaiTittle = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
+            this.comboBoxMembership = new System.Windows.Forms.ComboBox();
+            this.labelType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,25 +139,6 @@
             this.labelKawaiTittle.TabIndex = 8;
             this.labelKawaiTittle.Text = "Kawaii Cafe Ordering";
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.BackColor = System.Drawing.Color.Transparent;
-            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(597, 381);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(46, 25);
-            this.lblID.TabIndex = 9;
-            this.lblID.Text = "ID :";
-            // 
-            // textBoxID
-            // 
-            this.textBoxID.Location = new System.Drawing.Point(662, 381);
-            this.textBoxID.Multiline = true;
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(235, 25);
-            this.textBoxID.TabIndex = 10;
-            // 
             // lblType
             // 
             this.lblType.AutoSize = true;
@@ -178,6 +159,29 @@
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             // 
+            // comboBoxMembership
+            // 
+            this.comboBoxMembership.FormattingEnabled = true;
+            this.comboBoxMembership.Items.AddRange(new object[] {
+            "Silver",
+            "Gold",
+            "Premium"});
+            this.comboBoxMembership.Location = new System.Drawing.Point(662, 382);
+            this.comboBoxMembership.Name = "comboBoxMembership";
+            this.comboBoxMembership.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxMembership.TabIndex = 14;
+            // 
+            // labelType
+            // 
+            this.labelType.AutoSize = true;
+            this.labelType.BackColor = System.Drawing.Color.Transparent;
+            this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelType.Location = new System.Drawing.Point(565, 381);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(74, 25);
+            this.labelType.TabIndex = 15;
+            this.labelType.Text = "Type :";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -186,10 +190,10 @@
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.labelType);
+            this.Controls.Add(this.comboBoxMembership);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblType);
-            this.Controls.Add(this.textBoxID);
-            this.Controls.Add(this.lblID);
             this.Controls.Add(this.labelKawaiTittle);
             this.Controls.Add(this.CheckBoxMembership);
             this.Controls.Add(this.textBoxAddress);
@@ -219,10 +223,10 @@
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.CheckBox CheckBoxMembership;
         private System.Windows.Forms.Label labelKawaiTittle;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.ComboBox comboBoxMembership;
+        private System.Windows.Forms.Label labelType;
     }
 }
 

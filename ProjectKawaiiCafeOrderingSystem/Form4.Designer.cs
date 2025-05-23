@@ -378,7 +378,7 @@
             this.btnExportPDF.Text = "Export to PDF";
             this.btnExportPDF.UseVisualStyleBackColor = true;
             // 
-            // Form4
+            // receiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
