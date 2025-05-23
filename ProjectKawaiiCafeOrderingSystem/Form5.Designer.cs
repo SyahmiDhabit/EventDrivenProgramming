@@ -62,7 +62,9 @@
             // 
             // pictureBoxMerch
             // 
-            this.pictureBoxMerch.Location = new System.Drawing.Point(49, 119);
+            this.pictureBoxMerch.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBoxMerch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxMerch.Location = new System.Drawing.Point(49, 116);
             this.pictureBoxMerch.Name = "pictureBoxMerch";
             this.pictureBoxMerch.Size = new System.Drawing.Size(444, 361);
             this.pictureBoxMerch.TabIndex = 10;
@@ -72,29 +74,29 @@
             // 
             this.buttonNext.BackColor = System.Drawing.Color.LightGray;
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNext.Location = new System.Drawing.Point(400, 506);
+            this.buttonNext.Location = new System.Drawing.Point(351, 502);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(93, 52);
+            this.buttonNext.Size = new System.Drawing.Size(142, 61);
             this.buttonNext.TabIndex = 11;
-            this.buttonNext.Text = "Next Product >";
+            this.buttonNext.Text = "Next \r\nProduct >";
             this.buttonNext.UseVisualStyleBackColor = false;
             // 
             // buttonBack
             // 
             this.buttonBack.BackColor = System.Drawing.Color.LightGray;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBack.Location = new System.Drawing.Point(49, 506);
+            this.buttonBack.Location = new System.Drawing.Point(49, 502);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(93, 52);
+            this.buttonBack.Size = new System.Drawing.Size(142, 61);
             this.buttonBack.TabIndex = 12;
-            this.buttonBack.Text = "< Previous Product";
+            this.buttonBack.Text = "< Previous \r\nProduct";
             this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // comboBoxColor
             // 
             this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(667, 371);
+            this.comboBoxColor.Location = new System.Drawing.Point(689, 374);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(167, 24);
             this.comboBoxColor.TabIndex = 13;
@@ -104,18 +106,18 @@
             this.labelColor.AutoSize = true;
             this.labelColor.BackColor = System.Drawing.Color.Gainsboro;
             this.labelColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelColor.Location = new System.Drawing.Point(569, 370);
+            this.labelColor.Location = new System.Drawing.Point(585, 373);
             this.labelColor.Name = "labelColor";
-            this.labelColor.Size = new System.Drawing.Size(77, 25);
+            this.labelColor.Size = new System.Drawing.Size(89, 25);
             this.labelColor.TabIndex = 14;
-            this.labelColor.Text = "Color :";
+            this.labelColor.Text = "Colour :";
             // 
             // labelQty
             // 
             this.labelQty.AutoSize = true;
             this.labelQty.BackColor = System.Drawing.Color.Gainsboro;
             this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQty.Location = new System.Drawing.Point(540, 331);
+            this.labelQty.Location = new System.Drawing.Point(566, 331);
             this.labelQty.Name = "labelQty";
             this.labelQty.Size = new System.Drawing.Size(106, 25);
             this.labelQty.TabIndex = 15;
@@ -123,7 +125,7 @@
             // 
             // numericUpDownQty
             // 
-            this.numericUpDownQty.Location = new System.Drawing.Point(667, 331);
+            this.numericUpDownQty.Location = new System.Drawing.Point(689, 334);
             this.numericUpDownQty.Name = "numericUpDownQty";
             this.numericUpDownQty.Size = new System.Drawing.Size(165, 22);
             this.numericUpDownQty.TabIndex = 16;
@@ -138,7 +140,7 @@
             // 
             this.labelProName.AutoSize = true;
             this.labelProName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProName.Location = new System.Drawing.Point(534, 119);
+            this.labelProName.Location = new System.Drawing.Point(545, 124);
             this.labelProName.Name = "labelProName";
             this.labelProName.Size = new System.Drawing.Size(206, 32);
             this.labelProName.TabIndex = 17;
@@ -149,7 +151,7 @@
             this.labelDescription.AutoSize = true;
             this.labelDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(540, 237);
+            this.labelDescription.Location = new System.Drawing.Point(556, 224);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(432, 68);
             this.labelDescription.TabIndex = 18;
@@ -161,7 +163,7 @@
             // 
             this.labelProPrice.AutoSize = true;
             this.labelProPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProPrice.Location = new System.Drawing.Point(535, 177);
+            this.labelProPrice.Location = new System.Drawing.Point(551, 176);
             this.labelProPrice.Name = "labelProPrice";
             this.labelProPrice.Size = new System.Drawing.Size(122, 29);
             this.labelProPrice.TabIndex = 19;
@@ -181,7 +183,7 @@
             // checkBoxCustName
             // 
             this.checkBoxCustName.AutoSize = true;
-            this.checkBoxCustName.Location = new System.Drawing.Point(574, 412);
+            this.checkBoxCustName.Location = new System.Drawing.Point(596, 415);
             this.checkBoxCustName.Name = "checkBoxCustName";
             this.checkBoxCustName.Size = new System.Drawing.Size(142, 20);
             this.checkBoxCustName.TabIndex = 21;
@@ -190,7 +192,7 @@
             // 
             // textBoxCustName
             // 
-            this.textBoxCustName.Location = new System.Drawing.Point(574, 438);
+            this.textBoxCustName.Location = new System.Drawing.Point(596, 441);
             this.textBoxCustName.Name = "textBoxCustName";
             this.textBoxCustName.Size = new System.Drawing.Size(260, 22);
             this.textBoxCustName.TabIndex = 22;
