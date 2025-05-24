@@ -40,7 +40,7 @@
             this.labelRM = new System.Windows.Forms.Label();
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.buttonPay = new System.Windows.Forms.Button();
-            this.buttonPrevious = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.labelCardNum = new System.Windows.Forms.Label();
             this.textBoxCardNum = new System.Windows.Forms.TextBox();
             this.labelCVV = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.listFoodDesert.ItemHeight = 16;
             this.listFoodDesert.Location = new System.Drawing.Point(12, 110);
             this.listFoodDesert.Name = "listFoodDesert";
-            this.listFoodDesert.Size = new System.Drawing.Size(517, 372);
+            this.listFoodDesert.Size = new System.Drawing.Size(517, 388);
             this.listFoodDesert.TabIndex = 10;
             // 
             // labelMembership
@@ -115,7 +115,7 @@
             this.labelPaymentMethod.BackColor = System.Drawing.Color.Transparent;
             this.labelPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPaymentMethod.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelPaymentMethod.Location = new System.Drawing.Point(553, 260);
+            this.labelPaymentMethod.Location = new System.Drawing.Point(553, 231);
             this.labelPaymentMethod.Name = "labelPaymentMethod";
             this.labelPaymentMethod.Size = new System.Drawing.Size(171, 25);
             this.labelPaymentMethod.TabIndex = 14;
@@ -125,7 +125,7 @@
             // 
             this.radioCash.AutoSize = true;
             this.radioCash.BackColor = System.Drawing.Color.Transparent;
-            this.radioCash.Location = new System.Drawing.Point(742, 265);
+            this.radioCash.Location = new System.Drawing.Point(742, 236);
             this.radioCash.Name = "radioCash";
             this.radioCash.Size = new System.Drawing.Size(59, 20);
             this.radioCash.TabIndex = 15;
@@ -137,7 +137,7 @@
             // 
             this.radioDebit.AutoSize = true;
             this.radioDebit.BackColor = System.Drawing.Color.Transparent;
-            this.radioDebit.Location = new System.Drawing.Point(825, 265);
+            this.radioDebit.Location = new System.Drawing.Point(825, 236);
             this.radioDebit.Name = "radioDebit";
             this.radioDebit.Size = new System.Drawing.Size(60, 20);
             this.radioDebit.TabIndex = 16;
@@ -170,32 +170,35 @@
             // labelTotalPrice
             // 
             this.labelTotalPrice.AutoSize = true;
-            this.labelTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalPrice.BackColor = System.Drawing.Color.Transparent;
+            this.labelTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalPrice.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTotalPrice.Location = new System.Drawing.Point(803, 184);
+            this.labelTotalPrice.Location = new System.Drawing.Point(803, 177);
             this.labelTotalPrice.Name = "labelTotalPrice";
-            this.labelTotalPrice.Size = new System.Drawing.Size(0, 25);
+            this.labelTotalPrice.Size = new System.Drawing.Size(86, 32);
             this.labelTotalPrice.TabIndex = 20;
+            this.labelTotalPrice.Text = "00.00";
             // 
             // buttonPay
             // 
             this.buttonPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPay.Location = new System.Drawing.Point(1032, 522);
+            this.buttonPay.Location = new System.Drawing.Point(904, 443);
             this.buttonPay.Name = "buttonPay";
             this.buttonPay.Size = new System.Drawing.Size(118, 53);
             this.buttonPay.TabIndex = 21;
             this.buttonPay.Text = "Pay";
             this.buttonPay.UseVisualStyleBackColor = true;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
             // 
-            // buttonPrevious
+            // buttonBack
             // 
-            this.buttonPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrevious.Location = new System.Drawing.Point(12, 27);
-            this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(85, 54);
-            this.buttonPrevious.TabIndex = 22;
-            this.buttonPrevious.Text = "<";
-            this.buttonPrevious.UseVisualStyleBackColor = true;
+            this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBack.Location = new System.Drawing.Point(25, 532);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(136, 54);
+            this.buttonBack.TabIndex = 22;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
             // 
             // labelCardNum
             // 
@@ -203,7 +206,7 @@
             this.labelCardNum.BackColor = System.Drawing.Color.Transparent;
             this.labelCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCardNum.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCardNum.Location = new System.Drawing.Point(584, 323);
+            this.labelCardNum.Location = new System.Drawing.Point(584, 294);
             this.labelCardNum.Name = "labelCardNum";
             this.labelCardNum.Size = new System.Drawing.Size(140, 25);
             this.labelCardNum.TabIndex = 23;
@@ -212,10 +215,10 @@
             // 
             // textBoxCardNum
             // 
-            this.textBoxCardNum.Location = new System.Drawing.Point(742, 323);
+            this.textBoxCardNum.Location = new System.Drawing.Point(742, 294);
             this.textBoxCardNum.Multiline = true;
             this.textBoxCardNum.Name = "textBoxCardNum";
-            this.textBoxCardNum.Size = new System.Drawing.Size(222, 25);
+            this.textBoxCardNum.Size = new System.Drawing.Size(280, 25);
             this.textBoxCardNum.TabIndex = 24;
             this.textBoxCardNum.Visible = false;
             // 
@@ -225,7 +228,7 @@
             this.labelCVV.BackColor = System.Drawing.Color.Transparent;
             this.labelCVV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCVV.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCVV.Location = new System.Drawing.Point(658, 374);
+            this.labelCVV.Location = new System.Drawing.Point(658, 345);
             this.labelCVV.Name = "labelCVV";
             this.labelCVV.Size = new System.Drawing.Size(66, 25);
             this.labelCVV.TabIndex = 25;
@@ -234,19 +237,19 @@
             // 
             // textBoxCVV
             // 
-            this.textBoxCVV.Location = new System.Drawing.Point(742, 374);
+            this.textBoxCVV.Location = new System.Drawing.Point(742, 345);
             this.textBoxCVV.Multiline = true;
             this.textBoxCVV.Name = "textBoxCVV";
-            this.textBoxCVV.Size = new System.Drawing.Size(222, 25);
+            this.textBoxCVV.Size = new System.Drawing.Size(280, 25);
             this.textBoxCVV.TabIndex = 26;
             this.textBoxCVV.Visible = false;
             // 
             // textBoxAmount
             // 
-            this.textBoxAmount.Location = new System.Drawing.Point(742, 421);
+            this.textBoxAmount.Location = new System.Drawing.Point(742, 392);
             this.textBoxAmount.Multiline = true;
             this.textBoxAmount.Name = "textBoxAmount";
-            this.textBoxAmount.Size = new System.Drawing.Size(222, 25);
+            this.textBoxAmount.Size = new System.Drawing.Size(280, 25);
             this.textBoxAmount.TabIndex = 28;
             this.textBoxAmount.Visible = false;
             // 
@@ -256,7 +259,7 @@
             this.labelAmount.BackColor = System.Drawing.Color.Transparent;
             this.labelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAmount.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelAmount.Location = new System.Drawing.Point(632, 420);
+            this.labelAmount.Location = new System.Drawing.Point(632, 391);
             this.labelAmount.Name = "labelAmount";
             this.labelAmount.Size = new System.Drawing.Size(96, 25);
             this.labelAmount.TabIndex = 29;
@@ -266,11 +269,11 @@
             // buttonCancelOrder
             // 
             this.buttonCancelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelOrder.Location = new System.Drawing.Point(12, 522);
+            this.buttonCancelOrder.Location = new System.Drawing.Point(742, 443);
             this.buttonCancelOrder.Name = "buttonCancelOrder";
             this.buttonCancelOrder.Size = new System.Drawing.Size(133, 53);
             this.buttonCancelOrder.TabIndex = 30;
-            this.buttonCancelOrder.Text = "CancelOrder";
+            this.buttonCancelOrder.Text = "Cancel";
             this.buttonCancelOrder.UseVisualStyleBackColor = true;
             // 
             // checkoutForm
@@ -288,7 +291,7 @@
             this.Controls.Add(this.labelCVV);
             this.Controls.Add(this.textBoxCardNum);
             this.Controls.Add(this.labelCardNum);
-            this.Controls.Add(this.buttonPrevious);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonPay);
             this.Controls.Add(this.labelTotalPrice);
             this.Controls.Add(this.labelRM);
@@ -323,7 +326,7 @@
         private System.Windows.Forms.Label labelRM;
         private System.Windows.Forms.Label labelTotalPrice;
         private System.Windows.Forms.Button buttonPay;
-        private System.Windows.Forms.Button buttonPrevious;
+        private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Label labelCardNum;
         private System.Windows.Forms.TextBox textBoxCardNum;
         private System.Windows.Forms.Label labelCVV;

@@ -36,5 +36,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void buttonPay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
