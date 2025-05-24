@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
-    public partial class Form6 : Form
+    public partial class adminForm : Form
     {
-        public Form6()
+        public adminForm()
         {
             InitializeComponent();
         }
@@ -23,6 +23,11 @@ namespace ProjectKawaiiCafeOrderingSystem
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
         {
 
         }

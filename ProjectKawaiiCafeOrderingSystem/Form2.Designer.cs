@@ -57,6 +57,9 @@
             this.numericUpDownDrink = new System.Windows.Forms.NumericUpDown();
             this.btnAddDrink = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
             checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
             checkedListBoxFood = new System.Windows.Forms.CheckedListBox();
             this.groupBoxFood.SuspendLayout();
@@ -65,6 +68,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDessert)).BeginInit();
             this.groupBoxDrink.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrink)).BeginInit();
             this.SuspendLayout();
             // 
             // checkedListBoxDessert
@@ -126,19 +132,21 @@
             // 
             this.ListDessert.FormattingEnabled = true;
             this.ListDessert.ItemHeight = 16;
-            this.ListDessert.Location = new System.Drawing.Point(444, 368);
+            this.ListDessert.Location = new System.Drawing.Point(644, 640);
             this.ListDessert.Name = "ListDessert";
             this.ListDessert.Size = new System.Drawing.Size(355, 244);
             this.ListDessert.TabIndex = 2;
+            this.ListDessert.SelectedIndexChanged += new System.EventHandler(this.ListDessert_SelectedIndexChanged);
             // 
             // listDrink
             // 
             this.listDrink.FormattingEnabled = true;
             this.listDrink.ItemHeight = 16;
-            this.listDrink.Location = new System.Drawing.Point(444, 636);
+            this.listDrink.Location = new System.Drawing.Point(644, 367);
             this.listDrink.Name = "listDrink";
             this.listDrink.Size = new System.Drawing.Size(355, 244);
             this.listDrink.TabIndex = 3;
+            this.listDrink.SelectedIndexChanged += new System.EventHandler(this.listDrink_SelectedIndexChanged);
             // 
             // btnAddFood
             // 
@@ -155,6 +163,7 @@
             // 
             this.groupBoxFood.AutoSize = true;
             this.groupBoxFood.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxFood.Controls.Add(this.pictureBoxFood);
             this.groupBoxFood.Controls.Add(this.labelPriceFood);
             this.groupBoxFood.Controls.Add(this.labelRMMenu);
             this.groupBoxFood.Controls.Add(this.labelQtyMenu);
@@ -164,7 +173,7 @@
             this.groupBoxFood.Controls.Add(this.btnAddFood);
             this.groupBoxFood.Location = new System.Drawing.Point(71, 86);
             this.groupBoxFood.Name = "groupBoxFood";
-            this.groupBoxFood.Size = new System.Drawing.Size(355, 253);
+            this.groupBoxFood.Size = new System.Drawing.Size(551, 253);
             this.groupBoxFood.TabIndex = 21;
             this.groupBoxFood.TabStop = false;
             this.groupBoxFood.Text = "Food Menu";
@@ -218,7 +227,7 @@
             // 
             this.listFood.FormattingEnabled = true;
             this.listFood.ItemHeight = 16;
-            this.listFood.Location = new System.Drawing.Point(444, 95);
+            this.listFood.Location = new System.Drawing.Point(644, 95);
             this.listFood.Name = "listFood";
             this.listFood.Size = new System.Drawing.Size(355, 244);
             this.listFood.TabIndex = 22;
@@ -230,7 +239,7 @@
             this.labelMenu.BackColor = System.Drawing.Color.Transparent;
             this.labelMenu.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMenu.ForeColor = System.Drawing.Color.Transparent;
-            this.labelMenu.Location = new System.Drawing.Point(201, -8);
+            this.labelMenu.Location = new System.Drawing.Point(355, -14);
             this.labelMenu.Name = "labelMenu";
             this.labelMenu.Size = new System.Drawing.Size(453, 82);
             this.labelMenu.TabIndex = 23;
@@ -239,6 +248,7 @@
             // groupBoxDessert
             // 
             this.groupBoxDessert.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxDessert.Controls.Add(this.pictureBoxDessert);
             this.groupBoxDessert.Controls.Add(this.labelPriceDessert);
             this.groupBoxDessert.Controls.Add(this.labelRMDessert);
             this.groupBoxDessert.Controls.Add(this.labelQtyDessert);
@@ -248,7 +258,7 @@
             this.groupBoxDessert.Controls.Add(checkedListBoxDessert);
             this.groupBoxDessert.Location = new System.Drawing.Point(71, 358);
             this.groupBoxDessert.Name = "groupBoxDessert";
-            this.groupBoxDessert.Size = new System.Drawing.Size(355, 250);
+            this.groupBoxDessert.Size = new System.Drawing.Size(551, 250);
             this.groupBoxDessert.TabIndex = 24;
             this.groupBoxDessert.TabStop = false;
             this.groupBoxDessert.Text = "Menu Dessert";
@@ -311,6 +321,7 @@
             // groupBoxDrink
             // 
             this.groupBoxDrink.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxDrink.Controls.Add(this.pictureBoxDrink);
             this.groupBoxDrink.Controls.Add(this.labelPriceDrink);
             this.groupBoxDrink.Controls.Add(this.labelRMDrink);
             this.groupBoxDrink.Controls.Add(this.labelQtyDrink);
@@ -320,7 +331,7 @@
             this.groupBoxDrink.Controls.Add(this.checkedListBoxDrink);
             this.groupBoxDrink.Location = new System.Drawing.Point(71, 630);
             this.groupBoxDrink.Name = "groupBoxDrink";
-            this.groupBoxDrink.Size = new System.Drawing.Size(355, 250);
+            this.groupBoxDrink.Size = new System.Drawing.Size(551, 250);
             this.groupBoxDrink.TabIndex = 25;
             this.groupBoxDrink.TabStop = false;
             this.groupBoxDrink.Text = "Drink Menu";
@@ -382,12 +393,39 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNext.Location = new System.Drawing.Point(708, 903);
+            this.btnNext.Location = new System.Drawing.Point(881, 916);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(118, 53);
             this.btnNext.TabIndex = 26;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
+            // 
+            // pictureBoxFood
+            // 
+            this.pictureBoxFood.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxFood.Location = new System.Drawing.Point(356, 9);
+            this.pictureBoxFood.Name = "pictureBoxFood";
+            this.pictureBoxFood.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFood.TabIndex = 27;
+            this.pictureBoxFood.TabStop = false;
+            // 
+            // pictureBoxDessert
+            // 
+            this.pictureBoxDessert.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxDessert.Location = new System.Drawing.Point(356, 9);
+            this.pictureBoxDessert.Name = "pictureBoxDessert";
+            this.pictureBoxDessert.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxDessert.TabIndex = 28;
+            this.pictureBoxDessert.TabStop = false;
+            // 
+            // pictureBoxDrink
+            // 
+            this.pictureBoxDrink.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxDrink.Location = new System.Drawing.Point(356, 10);
+            this.pictureBoxDrink.Name = "pictureBoxDrink";
+            this.pictureBoxDrink.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxDrink.TabIndex = 29;
+            this.pictureBoxDrink.TabStop = false;
             // 
             // menuForm
             // 
@@ -396,7 +434,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(878, 1055);
+            this.ClientSize = new System.Drawing.Size(1269, 1055);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.groupBoxDrink);
             this.Controls.Add(this.groupBoxDessert);
@@ -418,6 +456,9 @@
             this.groupBoxDrink.ResumeLayout(false);
             this.groupBoxDrink.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrink)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,5 +492,8 @@
         private System.Windows.Forms.Label labelPriceDessert;
         private System.Windows.Forms.Label labelPriceDrink;
         private System.Windows.Forms.Label labelPriceFood;
+        private System.Windows.Forms.PictureBox pictureBoxFood;
+        private System.Windows.Forms.PictureBox pictureBoxDessert;
+        private System.Windows.Forms.PictureBox pictureBoxDrink;
     }
 }
