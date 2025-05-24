@@ -41,6 +41,8 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.comboBoxMembership = new System.Windows.Forms.ComboBox();
             this.labelType = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,6 +184,26 @@
             this.labelType.TabIndex = 15;
             this.labelType.Text = "Type :";
             // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.BackColor = System.Drawing.Color.Transparent;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelID.Location = new System.Drawing.Point(593, 419);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(46, 25);
+            this.labelID.TabIndex = 16;
+            this.labelID.Text = "ID :";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBoxID.Location = new System.Drawing.Point(662, 419);
+            this.textBoxID.Multiline = true;
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(235, 25);
+            this.textBoxID.TabIndex = 17;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,6 +212,8 @@
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.textBoxID);
+            this.Controls.Add(this.labelID);
             this.Controls.Add(this.labelType);
             this.Controls.Add(this.comboBoxMembership);
             this.Controls.Add(this.btnNext);
@@ -227,6 +251,8 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.ComboBox comboBoxMembership;
         private System.Windows.Forms.Label labelType;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.TextBox textBoxID;
     }
 }
 
