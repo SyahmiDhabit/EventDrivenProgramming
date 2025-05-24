@@ -84,10 +84,9 @@
             "Matcha Burnt Cheese Cake",
             "Tiramisu",
             "Donut Chocolate",
-            "Rich Cheese",
             "Cupcake Cheese",
             "Coconut Pudding",
-            "Blueberry Cake",
+            "Blueberry Cupcake",
             "Vanilla Cake",
             "Egg Tart"});
             checkedListBoxDessert.Location = new System.Drawing.Point(23, 31);
