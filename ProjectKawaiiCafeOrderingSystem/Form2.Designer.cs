@@ -63,6 +63,7 @@
             this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
             this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
             this.imageListFood = new System.Windows.Forms.ImageList(this.components);
+            this.imageListDessert = new System.Windows.Forms.ImageList(this.components);
             checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
             checkedListBoxFood = new System.Windows.Forms.CheckedListBox();
             this.groupBoxFood.SuspendLayout();
@@ -85,7 +86,6 @@
             "Tiramisu",
             "Donut Chocolate",
             "Cupcake Cheese",
-            "Coconut Pudding",
             "Blueberry Cupcake",
             "Vanilla Cake",
             "Egg Tart"});
@@ -415,6 +415,7 @@
             // pictureBoxDessert
             // 
             this.pictureBoxDessert.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxDessert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxDessert.Location = new System.Drawing.Point(356, 9);
             this.pictureBoxDessert.Name = "pictureBoxDessert";
             this.pictureBoxDessert.Size = new System.Drawing.Size(180, 180);
@@ -441,6 +442,19 @@
             this.imageListFood.Images.SetKeyName(4, "Buttermilk Chicken.png");
             this.imageListFood.Images.SetKeyName(5, "Spaghetti Aglio Olio.png");
             this.imageListFood.Images.SetKeyName(6, "Fish & Chips.png");
+            // 
+            // imageListDessert
+            // 
+            this.imageListDessert.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListDessert.ImageStream")));
+            this.imageListDessert.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListDessert.Images.SetKeyName(0, "Chocolate Moist Cake.png");
+            this.imageListDessert.Images.SetKeyName(1, "Matcha Burn Cheese Cake.png");
+            this.imageListDessert.Images.SetKeyName(2, "Tiramisu.png");
+            this.imageListDessert.Images.SetKeyName(3, "Chocolate Donut.png");
+            this.imageListDessert.Images.SetKeyName(4, "Cheese Cupcake.png");
+            this.imageListDessert.Images.SetKeyName(5, "Blueberry Cupcake.png");
+            this.imageListDessert.Images.SetKeyName(6, "Vanilla Cake.png");
+            this.imageListDessert.Images.SetKeyName(7, "Eggtart.png");
             // 
             // menuForm
             // 
@@ -511,5 +525,6 @@
         private System.Windows.Forms.PictureBox pictureBoxDessert;
         private System.Windows.Forms.PictureBox pictureBoxDrink;
         private System.Windows.Forms.ImageList imageListFood;
+        private System.Windows.Forms.ImageList imageListDessert;
     }
 }
