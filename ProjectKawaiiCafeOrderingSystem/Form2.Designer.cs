@@ -64,6 +64,7 @@
             this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
             this.imageListFood = new System.Windows.Forms.ImageList(this.components);
             this.imageListDessert = new System.Windows.Forms.ImageList(this.components);
+            this.imageListDrink = new System.Windows.Forms.ImageList(this.components);
             checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
             checkedListBoxFood = new System.Windows.Forms.CheckedListBox();
             this.groupBoxFood.SuspendLayout();
@@ -120,11 +121,8 @@
             "Thai Tea Kaw Kaw",
             "Australian Chocolate",
             "Ice Spanish Latte",
-            "Matcho Latte",
             "Buttercrem`e Latte",
-            "Ice Viatnamese Latte",
-            "Ice Mocha",
-            "Hazelnut Coffe Ice"});
+            "Ice Viatnamese Latte"});
             this.checkedListBoxDrink.Location = new System.Drawing.Point(23, 31);
             this.checkedListBoxDrink.Name = "checkedListBoxDrink";
             this.checkedListBoxDrink.Size = new System.Drawing.Size(241, 106);
@@ -425,6 +423,7 @@
             // pictureBoxDrink
             // 
             this.pictureBoxDrink.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxDrink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxDrink.Location = new System.Drawing.Point(356, 10);
             this.pictureBoxDrink.Name = "pictureBoxDrink";
             this.pictureBoxDrink.Size = new System.Drawing.Size(180, 180);
@@ -455,6 +454,18 @@
             this.imageListDessert.Images.SetKeyName(5, "Blueberry Cupcake.png");
             this.imageListDessert.Images.SetKeyName(6, "Vanilla Cake.png");
             this.imageListDessert.Images.SetKeyName(7, "Eggtart.png");
+            // 
+            // imageListDrink
+            // 
+            this.imageListDrink.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListDrink.ImageStream")));
+            this.imageListDrink.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListDrink.Images.SetKeyName(0, "Matcha.jpg");
+            this.imageListDrink.Images.SetKeyName(1, "Greentea.jpg");
+            this.imageListDrink.Images.SetKeyName(2, "Thai Tea.jpg");
+            this.imageListDrink.Images.SetKeyName(3, "Australian Chocolate.jpg");
+            this.imageListDrink.Images.SetKeyName(4, "Ice Spanish Latte.jpg");
+            this.imageListDrink.Images.SetKeyName(5, "Buttercreme.jpg");
+            this.imageListDrink.Images.SetKeyName(6, "Ice Viatnamese Latte.jpg");
             // 
             // menuForm
             // 
@@ -526,5 +537,6 @@
         private System.Windows.Forms.PictureBox pictureBoxDrink;
         private System.Windows.Forms.ImageList imageListFood;
         private System.Windows.Forms.ImageList imageListDessert;
+        private System.Windows.Forms.ImageList imageListDrink;
     }
 }
