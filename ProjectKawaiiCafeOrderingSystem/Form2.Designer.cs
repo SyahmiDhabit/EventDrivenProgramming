@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.CheckedListBox checkedListBoxDessert;
             System.Windows.Forms.CheckedListBox checkedListBoxFood;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuForm));
             this.checkedListBoxDrink = new System.Windows.Forms.CheckedListBox();
             this.ListDessert = new System.Windows.Forms.ListBox();
             this.listDrink = new System.Windows.Forms.ListBox();
@@ -60,6 +62,7 @@
             this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
             this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
+            this.imageListFood = new System.Windows.Forms.ImageList(this.components);
             checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
             checkedListBoxFood = new System.Windows.Forms.CheckedListBox();
             this.groupBoxFood.SuspendLayout();
@@ -81,7 +84,7 @@
             "Matcha Burnt Cheese Cake",
             "Tiramisu",
             "Donut Chocolate",
-            "Donut Rich Cheese",
+            "Rich Cheese",
             "Cupcake Cheese",
             "Coconut Pudding",
             "Blueberry Cake",
@@ -403,6 +406,7 @@
             // pictureBoxFood
             // 
             this.pictureBoxFood.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxFood.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxFood.Location = new System.Drawing.Point(356, 9);
             this.pictureBoxFood.Name = "pictureBoxFood";
             this.pictureBoxFood.Size = new System.Drawing.Size(180, 180);
@@ -426,6 +430,18 @@
             this.pictureBoxDrink.Size = new System.Drawing.Size(180, 180);
             this.pictureBoxDrink.TabIndex = 29;
             this.pictureBoxDrink.TabStop = false;
+            // 
+            // imageListFood
+            // 
+            this.imageListFood.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListFood.ImageStream")));
+            this.imageListFood.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListFood.Images.SetKeyName(0, "Chicken Lasagna.png");
+            this.imageListFood.Images.SetKeyName(1, "Spaghetti Carbonara.png");
+            this.imageListFood.Images.SetKeyName(2, "Chicken Chop.png");
+            this.imageListFood.Images.SetKeyName(3, "Tomyam Seafood.png");
+            this.imageListFood.Images.SetKeyName(4, "Buttermilk Chicken.png");
+            this.imageListFood.Images.SetKeyName(5, "Spaghetti Aglio Olio.png");
+            this.imageListFood.Images.SetKeyName(6, "Fish & Chips.png");
             // 
             // menuForm
             // 
@@ -495,5 +511,6 @@
         private System.Windows.Forms.PictureBox pictureBoxFood;
         private System.Windows.Forms.PictureBox pictureBoxDessert;
         private System.Windows.Forms.PictureBox pictureBoxDrink;
+        private System.Windows.Forms.ImageList imageListFood;
     }
 }
