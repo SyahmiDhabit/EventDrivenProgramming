@@ -56,5 +56,15 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void ListDessert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listDrink_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
