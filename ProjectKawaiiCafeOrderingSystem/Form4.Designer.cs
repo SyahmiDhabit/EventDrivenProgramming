@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblD4 = new System.Windows.Forms.Label();
             this.lblD3 = new System.Windows.Forms.Label();
             this.gbOrder = new System.Windows.Forms.GroupBox();
-            this.lblOrdername = new System.Windows.Forms.Label();
-            this.lblQty = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
             this.lblOrderTitle = new System.Windows.Forms.Label();
-            this.lstReceiptItems = new System.Windows.Forms.ListBox();
             this.lblD2 = new System.Windows.Forms.Label();
             this.lblD = new System.Windows.Forms.Label();
             this.lblTelphone = new System.Windows.Forms.Label();
@@ -58,8 +55,19 @@
             this.lblNameValue = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnExportPDF = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceRMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.receiptDataSet = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSet();
+            this.receiptTableAdapter = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSetTableAdapters.ReceiptTableAdapter();
+            this.tableAdapterManager = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSetTableAdapters.TableAdapterManager();
             this.gbOrder.SuspendLayout();
             this.gbCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblD4
@@ -85,81 +93,24 @@
             // 
             // gbOrder
             // 
-            this.gbOrder.Controls.Add(this.lblOrdername);
-            this.gbOrder.Controls.Add(this.lblQty);
-            this.gbOrder.Controls.Add(this.lblPrice);
+            this.gbOrder.Controls.Add(this.dataGridView1);
             this.gbOrder.Controls.Add(this.lblOrderTitle);
-            this.gbOrder.Controls.Add(this.lstReceiptItems);
-            this.gbOrder.Location = new System.Drawing.Point(176, 377);
+            this.gbOrder.Location = new System.Drawing.Point(93, 377);
             this.gbOrder.Name = "gbOrder";
-            this.gbOrder.Size = new System.Drawing.Size(481, 263);
+            this.gbOrder.Size = new System.Drawing.Size(653, 280);
             this.gbOrder.TabIndex = 89;
             this.gbOrder.TabStop = false;
             this.gbOrder.Text = "Order Details";
-            // 
-            // lblOrdername
-            // 
-            this.lblOrdername.AutoSize = true;
-            this.lblOrdername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrdername.Location = new System.Drawing.Point(31, 74);
-            this.lblOrdername.Name = "lblOrdername";
-            this.lblOrdername.Size = new System.Drawing.Size(48, 18);
-            this.lblOrdername.TabIndex = 31;
-            this.lblOrdername.Text = "Name";
-            // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQty.Location = new System.Drawing.Point(329, 74);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(31, 18);
-            this.lblQty.TabIndex = 32;
-            this.lblQty.Text = "Qty";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(414, 74);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(42, 18);
-            this.lblPrice.TabIndex = 33;
-            this.lblPrice.Text = "Price";
             // 
             // lblOrderTitle
             // 
             this.lblOrderTitle.AutoSize = true;
             this.lblOrderTitle.Font = new System.Drawing.Font("Times New Roman", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderTitle.Location = new System.Drawing.Point(210, 18);
+            this.lblOrderTitle.Location = new System.Drawing.Point(288, 33);
             this.lblOrderTitle.Name = "lblOrderTitle";
             this.lblOrderTitle.Size = new System.Drawing.Size(69, 26);
             this.lblOrderTitle.TabIndex = 7;
             this.lblOrderTitle.Text = "Order";
-            // 
-            // lstReceiptItems
-            // 
-            this.lstReceiptItems.FormattingEnabled = true;
-            this.lstReceiptItems.ItemHeight = 16;
-            this.lstReceiptItems.Items.AddRange(new object[] {
-            "Chicken Lasagna                                                                  " +
-                "1                          15",
-            "ButterMilk Chicken Nyummy                                              1         " +
-                "                 20",
-            "Chocolate Moist Cake                                                         1   " +
-                "                       12",
-            "Matcha Burnt Cheese Cake                                               1         " +
-                "                 18",
-            "Tiramisu                                                                         " +
-                "           1                          15",
-            "Australian Chocolate                                                            1" +
-                "                          17",
-            "Ice Spanish Latte                                                                " +
-                "   1                          18"});
-            this.lstReceiptItems.Location = new System.Drawing.Point(34, 112);
-            this.lstReceiptItems.Name = "lstReceiptItems";
-            this.lstReceiptItems.Size = new System.Drawing.Size(418, 132);
-            this.lstReceiptItems.TabIndex = 20;
             // 
             // lblD2
             // 
@@ -378,12 +329,72 @@
             this.btnExportPDF.Text = "Export to PDF";
             this.btnExportPDF.UseVisualStyleBackColor = true;
             // 
-            // Form4
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.itemNameDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.priceRMDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.receiptBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 94);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(605, 150);
+            this.dataGridView1.TabIndex = 34;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "Item Name";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "Item Name";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // priceRMDataGridViewTextBoxColumn
+            // 
+            this.priceRMDataGridViewTextBoxColumn.DataPropertyName = "Price(RM)";
+            this.priceRMDataGridViewTextBoxColumn.HeaderText = "Price(RM)";
+            this.priceRMDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceRMDataGridViewTextBoxColumn.Name = "priceRMDataGridViewTextBoxColumn";
+            this.priceRMDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // receiptBindingSource
+            // 
+            this.receiptBindingSource.DataMember = "Receipt";
+            this.receiptBindingSource.DataSource = this.receiptDataSet;
+            // 
+            // receiptDataSet
+            // 
+            this.receiptDataSet.DataSetName = "ReceiptDataSet";
+            this.receiptDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // receiptTableAdapter
+            // 
+            this.receiptTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ReceiptTableAdapter = this.receiptTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ProjectKawaiiCafeOrderingSystem.ReceiptDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // receiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(848, 1011);
+            this.ClientSize = new System.Drawing.Size(836, 938);
             this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.lblD4);
             this.Controls.Add(this.lblD3);
@@ -405,12 +416,17 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.gbCustomer);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "receiptForm";
-            this.Text = "~ Receipt";
+            this.Text = "Form4";
+            this.Load += new System.EventHandler(this.receiptForm_Load);
             this.gbOrder.ResumeLayout(false);
             this.gbOrder.PerformLayout();
             this.gbCustomer.ResumeLayout(false);
             this.gbCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,11 +437,7 @@
         private System.Windows.Forms.Label lblD4;
         private System.Windows.Forms.Label lblD3;
         private System.Windows.Forms.GroupBox gbOrder;
-        private System.Windows.Forms.Label lblOrdername;
-        private System.Windows.Forms.Label lblQty;
-        private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblOrderTitle;
-        private System.Windows.Forms.ListBox lstReceiptItems;
         private System.Windows.Forms.Label lblD2;
         private System.Windows.Forms.Label lblD;
         private System.Windows.Forms.Label lblTelphone;
@@ -448,5 +460,13 @@
         private System.Windows.Forms.Label lblNameValue;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnExportPDF;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private ReceiptDataSet receiptDataSet;
+        private System.Windows.Forms.BindingSource receiptBindingSource;
+        private ReceiptDataSetTableAdapters.ReceiptTableAdapter receiptTableAdapter;
+        private ReceiptDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceRMDataGridViewTextBoxColumn;
     }
 }

@@ -91,7 +91,7 @@
             // textBoxName
             // 
             this.textBoxName.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBoxName.Location = new System.Drawing.Point(662, 124);
+            this.textBoxName.Location = new System.Drawing.Point(662, 125);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(235, 25);

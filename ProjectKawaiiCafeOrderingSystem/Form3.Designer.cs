@@ -106,6 +106,7 @@
             this.labelPaymentMethod.Size = new System.Drawing.Size(171, 25);
             this.labelPaymentMethod.TabIndex = 14;
             this.labelPaymentMethod.Text = "Payment Method :";
+            this.labelPaymentMethod.Click += new System.EventHandler(this.labelPaymentMethod_Click);
             // 
             // radioCash
             // 
@@ -149,6 +150,7 @@
             this.buttonCalculate.TabIndex = 18;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             // 
             // labelRM
             // 
@@ -178,6 +180,7 @@
             this.buttonCheckout.TabIndex = 21;
             this.buttonCheckout.Text = "Checkout";
             this.buttonCheckout.UseVisualStyleBackColor = true;
+            this.buttonCheckout.Click += new System.EventHandler(this.buttonCheckout_Click);
             // 
             // buttonPrevious
             // 
@@ -211,6 +214,7 @@
             this.Controls.Add(this.labelcheckout);
             this.Name = "checkoutForm";
             this.Text = "~ Check Out";
+            this.Load += new System.EventHandler(this.checkoutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

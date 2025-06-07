@@ -26,5 +26,25 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void checkoutForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCheckout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPaymentMethod_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
