@@ -160,6 +160,7 @@
             this.btnNext.TabIndex = 13;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // comboBoxMembership
             // 

@@ -21,5 +21,13 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             
         }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            menuForm menuform = new menuForm();
+            this.Hide();           // Hide the current form
+            menuform.ShowDialog();    // Open the next form (secondForm)
+            this.Close();          // Close the current form after the second one is done
+        }
     }
 }
