@@ -29,16 +29,21 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void checkoutForm_Load(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             labelcardnum.Visible = false;
             textBoxCardNum.Visible = false;
             labelCVV.Visible = false;
             textBoxCVV.Visible = false;
             labelAmount.Visible = false;
             textBoxAmount.Visible = false;
+=======
+
+>>>>>>> Stashed changes
         }
 
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             if (radioDebit.Checked)
             {
                 string cardNumber = textBoxCardNum.Text.Trim();
@@ -76,11 +81,18 @@ namespace ProjectKawaiiCafeOrderingSystem
             {
                 MessageBox.Show("Please select a payment method.", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+=======
+
+>>>>>>> Stashed changes
         }
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             
+=======
+
+>>>>>>> Stashed changes
         }
 
         private void labelPaymentMethod_Click(object sender, EventArgs e)
@@ -92,6 +104,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+<<<<<<< Updated upstream
 
         private void radioCash_CheckedChanged(object sender, EventArgs e)
         {
@@ -149,5 +162,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+=======
+>>>>>>> Stashed changes
     }
 }
