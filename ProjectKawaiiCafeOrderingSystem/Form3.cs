@@ -39,12 +39,48 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
+            if (radioDebit.Checked)
+            {
+                string cardNumber = textBoxCardNum.Text.Trim();
+                string cvv = textBoxCVV.Text.Trim();
 
+                if (cardNumber.Length != 16 || !cardNumber.All(char.IsDigit))
+                {
+                    MessageBox.Show("Please enter a valid 16-digit card number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cvv.Length != 3 || !cvv.All(char.IsDigit))
+                {
+                    MessageBox.Show("Please enter a valid 3-digit CVV.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Proceed with checkout (valid debit input)
+                MessageBox.Show("Payment Successful via Debit Card!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (radioCash.Checked)
+            {
+                string amountText = textBoxAmount.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(amountText) || !decimal.TryParse(amountText, out _))
+                {
+                    MessageBox.Show("Please enter a valid cash amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Proceed with checkout (valid cash input)
+                MessageBox.Show("Payment Successful via Cash!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Please select a payment method.", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void labelPaymentMethod_Click(object sender, EventArgs e)
