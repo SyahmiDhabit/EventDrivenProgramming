@@ -54,11 +54,11 @@
             // 
             this.labelcheckout.AutoSize = true;
             this.labelcheckout.BackColor = System.Drawing.Color.Transparent;
-            this.labelcheckout.Font = new System.Drawing.Font("Monotype Corsiva", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelcheckout.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelcheckout.Location = new System.Drawing.Point(0, 9);
             this.labelcheckout.Name = "labelcheckout";
-            this.labelcheckout.Size = new System.Drawing.Size(423, 72);
+            this.labelcheckout.Size = new System.Drawing.Size(502, 69);
             this.labelcheckout.TabIndex = 9;
             this.labelcheckout.Text = "Kawaii CheckOut\r\n";
             this.labelcheckout.Click += new System.EventHandler(this.labelcheckout_Click);
