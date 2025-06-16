@@ -29,110 +29,64 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.CheckedListBox checkedListBoxDessert;
-            System.Windows.Forms.CheckedListBox checkedListBoxFood;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuForm));
             this.checkedListBoxDrink = new System.Windows.Forms.CheckedListBox();
             this.ListDessert = new System.Windows.Forms.ListBox();
             this.listDrink = new System.Windows.Forms.ListBox();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.groupBoxFood = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxFood = new System.Windows.Forms.CheckedListBox();
+            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.labelPriceFood = new System.Windows.Forms.Label();
-            this.labelRMMenu = new System.Windows.Forms.Label();
             this.labelQtyMenu = new System.Windows.Forms.Label();
             this.numericUpDownFood = new System.Windows.Forms.NumericUpDown();
             this.btnRemFood = new System.Windows.Forms.Button();
             this.listFood = new System.Windows.Forms.ListBox();
             this.labelMenu = new System.Windows.Forms.Label();
             this.groupBoxDessert = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
+            this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
             this.labelPriceDessert = new System.Windows.Forms.Label();
-            this.labelRMDessert = new System.Windows.Forms.Label();
             this.labelQtyDessert = new System.Windows.Forms.Label();
             this.numericUpDownDessert = new System.Windows.Forms.NumericUpDown();
             this.btnRemDessert = new System.Windows.Forms.Button();
             this.btnAddDessert = new System.Windows.Forms.Button();
             this.groupBoxDrink = new System.Windows.Forms.GroupBox();
+            this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
             this.labelPriceDrink = new System.Windows.Forms.Label();
-            this.labelRMDrink = new System.Windows.Forms.Label();
             this.labelQtyDrink = new System.Windows.Forms.Label();
             this.btnRemDrink = new System.Windows.Forms.Button();
             this.numericUpDownDrink = new System.Windows.Forms.NumericUpDown();
             this.btnAddDrink = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
             this.imageListFood = new System.Windows.Forms.ImageList(this.components);
             this.imageListDessert = new System.Windows.Forms.ImageList(this.components);
             this.imageListDrink = new System.Windows.Forms.ImageList(this.components);
-            checkedListBoxDessert = new System.Windows.Forms.CheckedListBox();
-            checkedListBoxFood = new System.Windows.Forms.CheckedListBox();
             this.groupBoxFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).BeginInit();
             this.groupBoxDessert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDessert)).BeginInit();
             this.groupBoxDrink.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrink)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).BeginInit();
             this.SuspendLayout();
-            // 
-            // checkedListBoxDessert
-            // 
-            checkedListBoxDessert.FormattingEnabled = true;
-            checkedListBoxDessert.Items.AddRange(new object[] {
-            "Chocolate Moist Cake ",
-            "Matcha Burnt Cheese Cake",
-            "Tiramisu",
-            "Donut Chocolate",
-            "Cupcake Cheese",
-            "Blueberry Cupcake",
-            "Vanilla Cake",
-            "Egg Tart"});
-            checkedListBoxDessert.Location = new System.Drawing.Point(23, 31);
-            checkedListBoxDessert.Name = "checkedListBoxDessert";
-            checkedListBoxDessert.Size = new System.Drawing.Size(241, 106);
-            checkedListBoxDessert.TabIndex = 0;
-            checkedListBoxDessert.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDessert_SelectedIndexChanged);
-            // 
-            // checkedListBoxFood
-            // 
-            checkedListBoxFood.FormattingEnabled = true;
-            checkedListBoxFood.Items.AddRange(new object[] {
-            "Chicken Lasagna",
-            "Spaghetti Carbonara",
-            "Chicken Chop",
-            "Tomyam Seafood",
-            "Buttermilk Chicken",
-            "Spaghettti Aglio Olio",
-            "Fish & Chips"});
-            checkedListBoxFood.Location = new System.Drawing.Point(23, 32);
-            checkedListBoxFood.Name = "checkedListBoxFood";
-            checkedListBoxFood.Size = new System.Drawing.Size(241, 106);
-            checkedListBoxFood.TabIndex = 22;
             // 
             // checkedListBoxDrink
             // 
             this.checkedListBoxDrink.FormattingEnabled = true;
-            this.checkedListBoxDrink.Items.AddRange(new object[] {
-            "Matcha Latte",
-            "Green Tea Kaw Kaw",
-            "Thai Tea Kaw Kaw",
-            "Australian Chocolate",
-            "Ice Spanish Latte",
-            "Buttercrem`e Latte",
-            "Ice Viatnamese Latte"});
             this.checkedListBoxDrink.Location = new System.Drawing.Point(23, 31);
             this.checkedListBoxDrink.Name = "checkedListBoxDrink";
             this.checkedListBoxDrink.Size = new System.Drawing.Size(241, 106);
             this.checkedListBoxDrink.TabIndex = 1;
+            this.checkedListBoxDrink.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDrink_SelectedIndexChanged);
             // 
             // ListDessert
             // 
             this.ListDessert.FormattingEnabled = true;
             this.ListDessert.ItemHeight = 16;
-            this.ListDessert.Location = new System.Drawing.Point(644, 640);
+            this.ListDessert.Location = new System.Drawing.Point(644, 367);
             this.ListDessert.Name = "ListDessert";
             this.ListDessert.Size = new System.Drawing.Size(355, 244);
             this.ListDessert.TabIndex = 2;
@@ -142,7 +96,7 @@
             // 
             this.listDrink.FormattingEnabled = true;
             this.listDrink.ItemHeight = 16;
-            this.listDrink.Location = new System.Drawing.Point(644, 367);
+            this.listDrink.Location = new System.Drawing.Point(644, 630);
             this.listDrink.Name = "listDrink";
             this.listDrink.Size = new System.Drawing.Size(355, 244);
             this.listDrink.TabIndex = 3;
@@ -163,12 +117,11 @@
             // 
             this.groupBoxFood.AutoSize = true;
             this.groupBoxFood.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxFood.Controls.Add(this.checkedListBoxFood);
             this.groupBoxFood.Controls.Add(this.pictureBoxFood);
             this.groupBoxFood.Controls.Add(this.labelPriceFood);
-            this.groupBoxFood.Controls.Add(this.labelRMMenu);
             this.groupBoxFood.Controls.Add(this.labelQtyMenu);
             this.groupBoxFood.Controls.Add(this.numericUpDownFood);
-            this.groupBoxFood.Controls.Add(checkedListBoxFood);
             this.groupBoxFood.Controls.Add(this.btnRemFood);
             this.groupBoxFood.Controls.Add(this.btnAddFood);
             this.groupBoxFood.Location = new System.Drawing.Point(71, 86);
@@ -179,6 +132,26 @@
             this.groupBoxFood.Text = "Food Menu";
             this.groupBoxFood.Enter += new System.EventHandler(this.groupBoxFood_Enter);
             // 
+            // checkedListBoxFood
+            // 
+            this.checkedListBoxFood.FormattingEnabled = true;
+            this.checkedListBoxFood.Location = new System.Drawing.Point(23, 30);
+            this.checkedListBoxFood.Name = "checkedListBoxFood";
+            this.checkedListBoxFood.Size = new System.Drawing.Size(241, 106);
+            this.checkedListBoxFood.TabIndex = 32;
+            this.checkedListBoxFood.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFood_SelectedIndexChanged_1);
+            // 
+            // pictureBoxFood
+            // 
+            this.pictureBoxFood.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxFood.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxFood.Location = new System.Drawing.Point(356, 9);
+            this.pictureBoxFood.Name = "pictureBoxFood";
+            this.pictureBoxFood.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFood.TabIndex = 27;
+            this.pictureBoxFood.TabStop = false;
+            // 
             // labelPriceFood
             // 
             this.labelPriceFood.AutoSize = true;
@@ -187,15 +160,7 @@
             this.labelPriceFood.Size = new System.Drawing.Size(38, 16);
             this.labelPriceFood.TabIndex = 31;
             this.labelPriceFood.Text = "00:00";
-            // 
-            // labelRMMenu
-            // 
-            this.labelRMMenu.AutoSize = true;
-            this.labelRMMenu.Location = new System.Drawing.Point(227, 157);
-            this.labelRMMenu.Name = "labelRMMenu";
-            this.labelRMMenu.Size = new System.Drawing.Size(34, 16);
-            this.labelRMMenu.TabIndex = 30;
-            this.labelRMMenu.Text = "RM: ";
+            this.labelPriceFood.Click += new System.EventHandler(this.labelPriceFood_Click);
             // 
             // labelQtyMenu
             // 
@@ -222,6 +187,7 @@
             this.btnRemFood.TabIndex = 21;
             this.btnRemFood.Text = "Remove Food";
             this.btnRemFood.UseVisualStyleBackColor = false;
+            this.btnRemFood.Click += new System.EventHandler(this.btnRemFood_Click);
             // 
             // listFood
             // 
@@ -248,20 +214,39 @@
             // groupBoxDessert
             // 
             this.groupBoxDessert.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxDessert.Controls.Add(this.checkedListBoxDessert);
             this.groupBoxDessert.Controls.Add(this.pictureBoxDessert);
             this.groupBoxDessert.Controls.Add(this.labelPriceDessert);
-            this.groupBoxDessert.Controls.Add(this.labelRMDessert);
             this.groupBoxDessert.Controls.Add(this.labelQtyDessert);
             this.groupBoxDessert.Controls.Add(this.numericUpDownDessert);
             this.groupBoxDessert.Controls.Add(this.btnRemDessert);
             this.groupBoxDessert.Controls.Add(this.btnAddDessert);
-            this.groupBoxDessert.Controls.Add(checkedListBoxDessert);
             this.groupBoxDessert.Location = new System.Drawing.Point(71, 358);
             this.groupBoxDessert.Name = "groupBoxDessert";
             this.groupBoxDessert.Size = new System.Drawing.Size(551, 250);
             this.groupBoxDessert.TabIndex = 24;
             this.groupBoxDessert.TabStop = false;
             this.groupBoxDessert.Text = "Menu Dessert";
+            // 
+            // checkedListBoxDessert
+            // 
+            this.checkedListBoxDessert.FormattingEnabled = true;
+            this.checkedListBoxDessert.Location = new System.Drawing.Point(23, 32);
+            this.checkedListBoxDessert.Name = "checkedListBoxDessert";
+            this.checkedListBoxDessert.Size = new System.Drawing.Size(241, 106);
+            this.checkedListBoxDessert.TabIndex = 31;
+            this.checkedListBoxDessert.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDessert_SelectedIndexChanged_1);
+            // 
+            // pictureBoxDessert
+            // 
+            this.pictureBoxDessert.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxDessert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxDessert.Location = new System.Drawing.Point(356, 9);
+            this.pictureBoxDessert.Name = "pictureBoxDessert";
+            this.pictureBoxDessert.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxDessert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDessert.TabIndex = 28;
+            this.pictureBoxDessert.TabStop = false;
             // 
             // labelPriceDessert
             // 
@@ -271,15 +256,6 @@
             this.labelPriceDessert.Size = new System.Drawing.Size(38, 16);
             this.labelPriceDessert.TabIndex = 30;
             this.labelPriceDessert.Text = "00:00";
-            // 
-            // labelRMDessert
-            // 
-            this.labelRMDessert.AutoSize = true;
-            this.labelRMDessert.Location = new System.Drawing.Point(228, 157);
-            this.labelRMDessert.Name = "labelRMDessert";
-            this.labelRMDessert.Size = new System.Drawing.Size(34, 16);
-            this.labelRMDessert.TabIndex = 29;
-            this.labelRMDessert.Text = "RM: ";
             // 
             // labelQtyDessert
             // 
@@ -317,13 +293,13 @@
             this.btnAddDessert.TabIndex = 20;
             this.btnAddDessert.Text = "Add Dessert";
             this.btnAddDessert.UseVisualStyleBackColor = false;
+            this.btnAddDessert.Click += new System.EventHandler(this.btnAddDessert_Click_1);
             // 
             // groupBoxDrink
             // 
             this.groupBoxDrink.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBoxDrink.Controls.Add(this.pictureBoxDrink);
             this.groupBoxDrink.Controls.Add(this.labelPriceDrink);
-            this.groupBoxDrink.Controls.Add(this.labelRMDrink);
             this.groupBoxDrink.Controls.Add(this.labelQtyDrink);
             this.groupBoxDrink.Controls.Add(this.btnRemDrink);
             this.groupBoxDrink.Controls.Add(this.numericUpDownDrink);
@@ -336,6 +312,17 @@
             this.groupBoxDrink.TabStop = false;
             this.groupBoxDrink.Text = "Drink Menu";
             // 
+            // pictureBoxDrink
+            // 
+            this.pictureBoxDrink.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxDrink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxDrink.Location = new System.Drawing.Point(356, 10);
+            this.pictureBoxDrink.Name = "pictureBoxDrink";
+            this.pictureBoxDrink.Size = new System.Drawing.Size(180, 180);
+            this.pictureBoxDrink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDrink.TabIndex = 29;
+            this.pictureBoxDrink.TabStop = false;
+            // 
             // labelPriceDrink
             // 
             this.labelPriceDrink.AutoSize = true;
@@ -344,15 +331,6 @@
             this.labelPriceDrink.Size = new System.Drawing.Size(38, 16);
             this.labelPriceDrink.TabIndex = 29;
             this.labelPriceDrink.Text = "00:00";
-            // 
-            // labelRMDrink
-            // 
-            this.labelRMDrink.AutoSize = true;
-            this.labelRMDrink.Location = new System.Drawing.Point(227, 156);
-            this.labelRMDrink.Name = "labelRMDrink";
-            this.labelRMDrink.Size = new System.Drawing.Size(34, 16);
-            this.labelRMDrink.TabIndex = 28;
-            this.labelRMDrink.Text = "RM: ";
             // 
             // labelQtyDrink
             // 
@@ -372,6 +350,7 @@
             this.btnRemDrink.TabIndex = 21;
             this.btnRemDrink.Text = "Remove Drink\r\n";
             this.btnRemDrink.UseVisualStyleBackColor = false;
+            this.btnRemDrink.Click += new System.EventHandler(this.btnRemDrink_Click);
             // 
             // numericUpDownDrink
             // 
@@ -389,6 +368,7 @@
             this.btnAddDrink.TabIndex = 20;
             this.btnAddDrink.Text = "Add Drink";
             this.btnAddDrink.UseVisualStyleBackColor = false;
+            this.btnAddDrink.Click += new System.EventHandler(this.btnAddDrink_Click_1);
             // 
             // btnNext
             // 
@@ -399,36 +379,6 @@
             this.btnNext.TabIndex = 26;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
-            // 
-            // pictureBoxFood
-            // 
-            this.pictureBoxFood.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxFood.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxFood.Location = new System.Drawing.Point(356, 9);
-            this.pictureBoxFood.Name = "pictureBoxFood";
-            this.pictureBoxFood.Size = new System.Drawing.Size(180, 180);
-            this.pictureBoxFood.TabIndex = 27;
-            this.pictureBoxFood.TabStop = false;
-            // 
-            // pictureBoxDessert
-            // 
-            this.pictureBoxDessert.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxDessert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxDessert.Location = new System.Drawing.Point(356, 9);
-            this.pictureBoxDessert.Name = "pictureBoxDessert";
-            this.pictureBoxDessert.Size = new System.Drawing.Size(180, 180);
-            this.pictureBoxDessert.TabIndex = 28;
-            this.pictureBoxDessert.TabStop = false;
-            // 
-            // pictureBoxDrink
-            // 
-            this.pictureBoxDrink.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxDrink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxDrink.Location = new System.Drawing.Point(356, 10);
-            this.pictureBoxDrink.Name = "pictureBoxDrink";
-            this.pictureBoxDrink.Size = new System.Drawing.Size(180, 180);
-            this.pictureBoxDrink.TabIndex = 29;
-            this.pictureBoxDrink.TabStop = false;
             // 
             // imageListFood
             // 
@@ -489,16 +439,16 @@
             this.Load += new System.EventHandler(this.menuForm_Load);
             this.groupBoxFood.ResumeLayout(false);
             this.groupBoxFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).EndInit();
             this.groupBoxDessert.ResumeLayout(false);
             this.groupBoxDessert.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDessert)).EndInit();
             this.groupBoxDrink.ResumeLayout(false);
             this.groupBoxDrink.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrink)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,10 +475,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownDessert;
         private System.Windows.Forms.Label labelQtyDrink;
         private System.Windows.Forms.NumericUpDown numericUpDownDrink;
-        private System.Windows.Forms.Label labelRMDrink;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Label labelRMMenu;
-        private System.Windows.Forms.Label labelRMDessert;
         private System.Windows.Forms.Label labelPriceDessert;
         private System.Windows.Forms.Label labelPriceDrink;
         private System.Windows.Forms.Label labelPriceFood;
@@ -538,5 +485,7 @@
         private System.Windows.Forms.ImageList imageListFood;
         private System.Windows.Forms.ImageList imageListDessert;
         private System.Windows.Forms.ImageList imageListDrink;
+        private System.Windows.Forms.CheckedListBox checkedListBoxFood;
+        private System.Windows.Forms.CheckedListBox checkedListBoxDessert;
     }
 }
