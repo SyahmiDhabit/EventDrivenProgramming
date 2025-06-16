@@ -25,10 +25,49 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            menuForm menuform = new menuForm();
-            this.Hide();
-            menuform.ShowDialog();
-            this.Close();
+            string username = textBoxUsername.Text.Trim();
+            string password = textBoxPwd.Text.Trim();
+
+            // Check if either field is empty
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter both username and password.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\Source\Repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = "SELECT COUNT(*) FROM Customer WHERE Username = @username AND Password = @password";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count == 1)
+                    {
+                        MessageBox.Show("Welcome! Login successful.", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        menuForm menuform = new menuForm();
+                        this.Hide();
+                        menuform.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error during login:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -53,15 +92,54 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
+            string username = textBoxUsername.Text.Trim();
+            string password = textBoxPwd.Text.Trim();
 
+            // Correct connection string to SQL Server with database file
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\Source\Repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = "SELECT COUNT(*) FROM Admin WHERE Username = @username AND Password = @password";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count == 1)
+                    {
+                        MessageBox.Show("You are logged in as admin.", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        adminForm adminPage = new adminForm();
+                        this.Hide();
+                        adminPage.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Login error: " + ex.Message);
+                }
+            }
         }
+
 
         private void btnRegisteration_Click(object sender, EventArgs e)
         {
-            registerForm registerform = new registerForm();
-            this.Hide();
-            registerform.ShowDialog();
-            this.Close();
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

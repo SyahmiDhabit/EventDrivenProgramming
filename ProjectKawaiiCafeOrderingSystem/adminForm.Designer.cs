@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.adminDataGridView = new System.Windows.Forms.DataGridView();
             this.MenuName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MenuPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MenuType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +77,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adminDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingNavigator)).BeginInit();
@@ -85,26 +85,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView2
+            // adminDataGridView
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.adminDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.adminDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.adminDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.adminDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adminDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MenuName,
             this.MenuPrice,
             this.MenuType,
             this.OrderDate,
             this.TotalOrdered,
             this.GrossTotal});
-            this.dataGridView2.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView2.Location = new System.Drawing.Point(879, 279);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(929, 582);
-            this.dataGridView2.TabIndex = 1;
+            this.adminDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.adminDataGridView.Location = new System.Drawing.Point(879, 279);
+            this.adminDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.adminDataGridView.Name = "adminDataGridView";
+            this.adminDataGridView.RowHeadersWidth = 51;
+            this.adminDataGridView.Size = new System.Drawing.Size(929, 582);
+            this.adminDataGridView.TabIndex = 1;
+            this.adminDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // MenuName
             // 
@@ -490,6 +491,7 @@
             this.customerDataGridView.RowTemplate.Height = 24;
             this.customerDataGridView.Size = new System.Drawing.Size(818, 220);
             this.customerDataGridView.TabIndex = 22;
+            this.customerDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -564,12 +566,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.adminDataGridView);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "adminForm";
             this.Text = "~ Admin";
             this.Load += new System.EventHandler(this.Form6_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adminDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingNavigator)).EndInit();
@@ -582,7 +584,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView adminDataGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

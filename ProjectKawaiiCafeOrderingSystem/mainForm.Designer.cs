@@ -32,11 +32,11 @@
             this.labelKawaiTittle = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.textBoxNoHP = new System.Windows.Forms.TextBox();
             this.labelPwd = new System.Windows.Forms.Label();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnRegistration = new System.Windows.Forms.Button();
             this.textBoxPwd = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,16 +85,6 @@
             this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username : ";
             // 
-            // textBoxNoHP
-            // 
-            this.textBoxNoHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNoHP.Location = new System.Drawing.Point(684, 236);
-            this.textBoxNoHP.Multiline = true;
-            this.textBoxNoHP.Name = "textBoxNoHP";
-            this.textBoxNoHP.Size = new System.Drawing.Size(247, 36);
-            this.textBoxNoHP.TabIndex = 5;
-            this.textBoxNoHP.TextChanged += new System.EventHandler(this.textBoxNoHP_TextChanged);
-            // 
             // labelPwd
             // 
             this.labelPwd.AutoSize = true;
@@ -138,6 +128,16 @@
             this.textBoxPwd.Size = new System.Drawing.Size(247, 36);
             this.textBoxPwd.TabIndex = 18;
             // 
+            // textBoxUsername
+            // 
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Location = new System.Drawing.Point(684, 239);
+            this.textBoxUsername.Multiline = true;
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(247, 36);
+            this.textBoxUsername.TabIndex = 19;
+            this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -146,13 +146,13 @@
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.textBoxPwd);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.labelPwd);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.labelKawaiTittle);
-            this.Controls.Add(this.textBoxNoHP);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.pictureBoxMain);
             this.Name = "mainForm";
@@ -171,11 +171,11 @@
         private System.Windows.Forms.Label labelKawaiTittle;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox textBoxNoHP;
         private System.Windows.Forms.Label labelPwd;
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnRegistration;
         private System.Windows.Forms.TextBox textBoxPwd;
+        private System.Windows.Forms.TextBox textBoxUsername;
     }
 }
 
