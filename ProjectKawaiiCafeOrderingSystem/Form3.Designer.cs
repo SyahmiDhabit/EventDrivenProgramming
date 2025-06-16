@@ -235,6 +235,7 @@
             this.textBoxCardNum.Name = "textBoxCardNum";
             this.textBoxCardNum.Size = new System.Drawing.Size(261, 26);
             this.textBoxCardNum.TabIndex = 27;
+            this.textBoxCardNum.TextChanged += new System.EventHandler(this.textBoxCardNum_TextChanged);
             // 
             // textBoxCVV
             // 
