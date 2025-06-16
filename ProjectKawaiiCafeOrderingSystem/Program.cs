@@ -19,7 +19,10 @@ namespace ProjectKawaiiCafeOrderingSystem
             Application.Run(new mainForm());
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

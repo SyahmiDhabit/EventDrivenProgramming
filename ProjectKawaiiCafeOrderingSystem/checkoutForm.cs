@@ -30,6 +30,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void checkoutForm_Load(object sender, EventArgs e)
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             labelcardnum.Visible = false;
             textBoxCardNum.Visible = false;
             labelCVV.Visible = false;
@@ -39,10 +40,14 @@ namespace ProjectKawaiiCafeOrderingSystem
 =======
 
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
         }
 
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             if (radioDebit.Checked)
             {
@@ -84,12 +89,19 @@ namespace ProjectKawaiiCafeOrderingSystem
 =======
 
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
         }
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -104,6 +116,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
         private void radioCash_CheckedChanged(object sender, EventArgs e)
@@ -162,6 +175,8 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace ProjectKawaiiCafeOrderingSystem
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public partial class merchandiseForm : Form
     {
         private class Product
@@ -31,10 +32,16 @@ namespace ProjectKawaiiCafeOrderingSystem
     {
         public registerForm()
 >>>>>>> Stashed changes
+=======
+    public partial class registerForm : Form
+    {
+        public registerForm()
+>>>>>>> Stashed changes
         {
             InitializeComponent();
         }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         private void merchandiseForm_Load(object sender, EventArgs e)
         {
@@ -129,10 +136,15 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void buttonPurchase_Click(object sender, EventArgs e) { }
         private void labelColor_Click(object sender, EventArgs e) { }
 =======
+=======
+>>>>>>> Stashed changes
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }
