@@ -46,5 +46,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void textBoxCardNum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
