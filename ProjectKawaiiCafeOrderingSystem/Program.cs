@@ -16,7 +16,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new merchandiseForm());
+            Application.Run(new mainForm());
 
         }
     }
