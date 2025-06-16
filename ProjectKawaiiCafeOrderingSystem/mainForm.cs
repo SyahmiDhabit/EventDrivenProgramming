@@ -58,10 +58,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnRegisteration_Click(object sender, EventArgs e)
         {
-            registerForm registerform = new registerForm();
-            this.Hide();
-            registerform.ShowDialog();
-            this.Close();
+         
         }
     }
 }

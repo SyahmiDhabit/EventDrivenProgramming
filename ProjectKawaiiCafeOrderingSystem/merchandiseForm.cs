@@ -10,8 +10,6 @@ using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     public partial class merchandiseForm : Form
     {
         private class Product
@@ -27,22 +25,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         private int currentIndex = 0;
 
         public merchandiseForm()
-=======
-    public partial class registerForm : Form
-    {
-        public registerForm()
->>>>>>> Stashed changes
-=======
-    public partial class registerForm : Form
-    {
-        public registerForm()
->>>>>>> Stashed changes
         {
             InitializeComponent();
         }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         private void merchandiseForm_Load(object sender, EventArgs e)
         {
             numericUpDownQty.Maximum = 3;
@@ -135,16 +121,9 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void textBoxCustName_TextChanged(object sender, EventArgs e) { }
         private void buttonPurchase_Click(object sender, EventArgs e) { }
         private void labelColor_Click(object sender, EventArgs e) { }
-=======
-=======
->>>>>>> Stashed changes
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 }
