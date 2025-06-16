@@ -41,5 +41,10 @@ namespace ProjectKawaiiCafeOrderingSystem
             this.tableAdapterManager.UpdateAll(this.customerDataSet);
 
         }
+
+        private void customerBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
     }
 }

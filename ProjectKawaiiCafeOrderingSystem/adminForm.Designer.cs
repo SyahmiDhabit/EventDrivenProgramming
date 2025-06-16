@@ -375,6 +375,7 @@
             this.customerBindingNavigator.Size = new System.Drawing.Size(1828, 27);
             this.customerBindingNavigator.TabIndex = 22;
             this.customerBindingNavigator.Text = "bindingNavigator1";
+            this.customerBindingNavigator.RefreshItems += new System.EventHandler(this.customerBindingNavigator_RefreshItems);
             // 
             // bindingNavigatorAddNewItem
             // 
