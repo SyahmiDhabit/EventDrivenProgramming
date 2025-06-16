@@ -58,14 +58,10 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnRegisteration_Click(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream
-
-=======
             registerForm registerform = new registerForm();
             this.Hide();
             registerform.ShowDialog();
             this.Close();
->>>>>>> Stashed changes
         }
     }
 }

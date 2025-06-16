@@ -165,12 +165,6 @@
     <Compile Include="receiptForm.Designer.cs">
       <DependentUpon>receiptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="merchandiseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="merchandiseForm.Designer.cs">
-      <DependentUpon>merchandiseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="adminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,21 +183,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReceiptDataSet.xsd</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
     <Compile Include="registerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="registerForm.Designer.cs">
       <DependentUpon>registerForm.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,16 +200,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="receiptForm.resx">
       <DependentUpon>receiptForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="merchandiseForm.resx">
-      <DependentUpon>merchandiseForm.cs</DependentUpon>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      <SubType>Designer</SubType>
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
