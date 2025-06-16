@@ -41,7 +41,6 @@
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.buttonCheckout = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.labelcardnum = new System.Windows.Forms.Label();
             this.labelCVV = new System.Windows.Forms.Label();
             this.labelAmount = new System.Windows.Forms.Label();
@@ -57,7 +56,7 @@
             this.labelcheckout.BackColor = System.Drawing.Color.Transparent;
             this.labelcheckout.Font = new System.Drawing.Font("Monotype Corsiva", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelcheckout.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelcheckout.Location = new System.Drawing.Point(12, 9);
+            this.labelcheckout.Location = new System.Drawing.Point(0, 9);
             this.labelcheckout.Name = "labelcheckout";
             this.labelcheckout.Size = new System.Drawing.Size(423, 72);
             this.labelcheckout.TabIndex = 9;
@@ -118,24 +117,26 @@
             // radioCash
             // 
             this.radioCash.AutoSize = true;
-            this.radioCash.Location = new System.Drawing.Point(750, 229);
+            this.radioCash.Location = new System.Drawing.Point(836, 229);
             this.radioCash.Name = "radioCash";
             this.radioCash.Size = new System.Drawing.Size(59, 20);
             this.radioCash.TabIndex = 15;
             this.radioCash.TabStop = true;
             this.radioCash.Text = "Cash";
             this.radioCash.UseVisualStyleBackColor = true;
+            this.radioCash.CheckedChanged += new System.EventHandler(this.radioCash_CheckedChanged);
             // 
             // radioDebit
             // 
             this.radioDebit.AutoSize = true;
-            this.radioDebit.Location = new System.Drawing.Point(833, 229);
+            this.radioDebit.Location = new System.Drawing.Point(750, 229);
             this.radioDebit.Name = "radioDebit";
             this.radioDebit.Size = new System.Drawing.Size(60, 20);
             this.radioDebit.TabIndex = 16;
             this.radioDebit.TabStop = true;
             this.radioDebit.Text = "Debit";
             this.radioDebit.UseVisualStyleBackColor = true;
+            this.radioDebit.CheckedChanged += new System.EventHandler(this.radioDebit_CheckedChanged);
             // 
             // buttonCalculate
             // 
@@ -189,15 +190,6 @@
             this.buttonPrevious.Text = "Previous";
             this.buttonPrevious.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "label1";
-            // 
             // labelcardnum
             // 
             this.labelcardnum.AutoSize = true;
@@ -207,6 +199,7 @@
             this.labelcardnum.Size = new System.Drawing.Size(140, 25);
             this.labelcardnum.TabIndex = 24;
             this.labelcardnum.Text = "Card Number :";
+            this.labelcardnum.Click += new System.EventHandler(this.labelcardnum_Click);
             // 
             // labelCVV
             // 
@@ -217,16 +210,18 @@
             this.labelCVV.Size = new System.Drawing.Size(66, 25);
             this.labelCVV.TabIndex = 25;
             this.labelCVV.Text = "CVV :";
+            this.labelCVV.Click += new System.EventHandler(this.labelCVV_Click);
             // 
             // labelAmount
             // 
             this.labelAmount.AutoSize = true;
             this.labelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAmount.Location = new System.Drawing.Point(641, 370);
+            this.labelAmount.Location = new System.Drawing.Point(641, 271);
             this.labelAmount.Name = "labelAmount";
             this.labelAmount.Size = new System.Drawing.Size(91, 25);
             this.labelAmount.TabIndex = 26;
             this.labelAmount.Text = "Amount :";
+            this.labelAmount.Click += new System.EventHandler(this.labelAmount_Click);
             // 
             // textBoxCardNum
             // 
@@ -244,14 +239,16 @@
             this.textBoxCVV.Name = "textBoxCVV";
             this.textBoxCVV.Size = new System.Drawing.Size(261, 26);
             this.textBoxCVV.TabIndex = 28;
+            this.textBoxCVV.TextChanged += new System.EventHandler(this.textBoxCVV_TextChanged);
             // 
             // textBoxAmount
             // 
-            this.textBoxAmount.Location = new System.Drawing.Point(750, 374);
+            this.textBoxAmount.Location = new System.Drawing.Point(750, 270);
             this.textBoxAmount.Multiline = true;
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(261, 26);
             this.textBoxAmount.TabIndex = 29;
+            this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
             // 
             // buttonCancel
             // 
@@ -276,7 +273,6 @@
             this.Controls.Add(this.labelAmount);
             this.Controls.Add(this.labelCVV);
             this.Controls.Add(this.labelcardnum);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonPrevious);
             this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.labelTotalPrice);
@@ -313,7 +309,6 @@
         private System.Windows.Forms.Label labelTotalPrice;
         private System.Windows.Forms.Button buttonCheckout;
         private System.Windows.Forms.Button buttonPrevious;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelcardnum;
         private System.Windows.Forms.Label labelCVV;
         private System.Windows.Forms.Label labelAmount;
