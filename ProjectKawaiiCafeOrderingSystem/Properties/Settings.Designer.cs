@@ -33,5 +33,27 @@ namespace ProjectKawaiiCafeOrderingSystem.Properties {
                 return ((string)(this["OrderItemsConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\customer.mdf;" +
+            "Integrated Security=True")]
+        public string customerConnectionString {
+            get {
+                return ((string)(this["customerConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Menu.mdf;Inte" +
+            "grated Security=True")]
+        public string MenuConnectionString {
+            get {
+                return ((string)(this["MenuConnectionString"]));
+            }
+        }
     }
 }
