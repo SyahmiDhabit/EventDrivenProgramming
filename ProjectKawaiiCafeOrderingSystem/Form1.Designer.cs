@@ -128,6 +128,7 @@
             this.CheckBoxMembership.TabIndex = 7;
             this.CheckBoxMembership.Text = "Membership ?";
             this.CheckBoxMembership.UseVisualStyleBackColor = false;
+            this.CheckBoxMembership.CheckedChanged += new System.EventHandler(this.CheckBoxMembership_CheckedChanged);
             // 
             // labelKawaiTittle
             // 
