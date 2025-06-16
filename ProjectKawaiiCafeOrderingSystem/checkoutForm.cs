@@ -39,6 +39,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
+
             if (radioDebit.Checked)
             {
                 string cardNumber = textBoxCardNum.Text.Trim();
@@ -151,6 +152,5 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
-
     }
 }

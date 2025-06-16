@@ -189,6 +189,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReceiptDataSet.xsd</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="registerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registerForm.Designer.cs">
+      <DependentUpon>registerForm.cs</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,7 +212,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="merchandiseForm.resx">
       <DependentUpon>merchandiseForm.cs</DependentUpon>
+<<<<<<< Updated upstream
       <SubType>Designer</SubType>
+=======
+>>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
@@ -218,6 +230,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="registerForm.resx">
+      <DependentUpon>registerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CustomerDataSet.xsc">
       <DependentUpon>CustomerDataSet.xsd</DependentUpon>
     </None>

@@ -12,6 +12,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class merchandiseForm : Form
     {
+
         private class Product
         {
             public string Name { get; set; }
@@ -31,6 +32,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void merchandiseForm_Load(object sender, EventArgs e)
         {
+
             numericUpDownQty.Maximum = 3;
             numericUpDownQty.Minimum = 0;
 
@@ -100,6 +102,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
+
             currentIndex = (currentIndex - 1 + products.Count) % products.Count;
             DisplayProduct(currentIndex);
         }

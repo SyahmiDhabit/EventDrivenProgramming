@@ -58,7 +58,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnRegisteration_Click(object sender, EventArgs e)
         {
-         
+
         }
     }
 }
