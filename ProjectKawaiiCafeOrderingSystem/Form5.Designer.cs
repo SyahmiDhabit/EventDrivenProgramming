@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(merchandiseForm));
             this.labelMerchTittle = new System.Windows.Forms.Label();
             this.pictureBoxMerch = new System.Windows.Forms.PictureBox();
             this.buttonNext = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@
             this.labelMerchTittle.Size = new System.Drawing.Size(545, 82);
             this.labelMerchTittle.TabIndex = 9;
             this.labelMerchTittle.Text = "Kawaii Merchandise";
+            this.labelMerchTittle.Click += new System.EventHandler(this.labelMerchTittle_Click);
             // 
             // pictureBoxMerch
             // 
@@ -67,8 +69,10 @@
             this.pictureBoxMerch.Location = new System.Drawing.Point(49, 116);
             this.pictureBoxMerch.Name = "pictureBoxMerch";
             this.pictureBoxMerch.Size = new System.Drawing.Size(444, 361);
+            this.pictureBoxMerch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMerch.TabIndex = 10;
             this.pictureBoxMerch.TabStop = false;
+            this.pictureBoxMerch.Click += new System.EventHandler(this.pictureBoxMerch_Click);
             // 
             // buttonNext
             // 
@@ -80,6 +84,7 @@
             this.buttonNext.TabIndex = 11;
             this.buttonNext.Text = "Next \r\nProduct >";
             this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // buttonBack
             // 
@@ -100,6 +105,7 @@
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(167, 24);
             this.comboBoxColor.TabIndex = 13;
+            this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
             // 
             // labelColor
             // 
@@ -111,6 +117,7 @@
             this.labelColor.Size = new System.Drawing.Size(89, 25);
             this.labelColor.TabIndex = 14;
             this.labelColor.Text = "Colour :";
+            this.labelColor.Click += new System.EventHandler(this.labelColor_Click);
             // 
             // labelQty
             // 
@@ -122,6 +129,7 @@
             this.labelQty.Size = new System.Drawing.Size(106, 25);
             this.labelQty.TabIndex = 15;
             this.labelQty.Text = "Quantity :";
+            this.labelQty.Click += new System.EventHandler(this.labelQty_Click);
             // 
             // numericUpDownQty
             // 
@@ -129,12 +137,15 @@
             this.numericUpDownQty.Name = "numericUpDownQty";
             this.numericUpDownQty.Size = new System.Drawing.Size(165, 22);
             this.numericUpDownQty.TabIndex = 16;
+            this.numericUpDownQty.ValueChanged += new System.EventHandler(this.numericUpDownQty_ValueChanged);
             // 
             // imageListMerch
             // 
-            this.imageListMerch.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageListMerch.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListMerch.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListMerch.ImageStream")));
             this.imageListMerch.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListMerch.Images.SetKeyName(0, "kawaii tumblr.jpg");
+            this.imageListMerch.Images.SetKeyName(1, "kawai tshirt hitam.jpg");
+            this.imageListMerch.Images.SetKeyName(2, "kawaii totebag.jpg");
             // 
             // labelProName
             // 
@@ -146,6 +157,7 @@
             this.labelProName.Size = new System.Drawing.Size(206, 32);
             this.labelProName.TabIndex = 17;
             this.labelProName.Text = "Product Name";
+            this.labelProName.Click += new System.EventHandler(this.labelProName_Click);
             // 
             // labelDescription
             // 
@@ -160,6 +172,7 @@
             this.labelDescription.Text = "Product Description...............................\r\n............................." +
     ".........................................\r\n....................................." +
     ".................................\r\n";
+            this.labelDescription.Click += new System.EventHandler(this.labelDescription_Click);
             // 
             // labelProPrice
             // 
@@ -171,6 +184,7 @@
             this.labelProPrice.Size = new System.Drawing.Size(122, 29);
             this.labelProPrice.TabIndex = 19;
             this.labelProPrice.Text = "RM 00.00";
+            this.labelProPrice.Click += new System.EventHandler(this.labelProPrice_Click);
             // 
             // buttonPurchase
             // 
@@ -182,6 +196,7 @@
             this.buttonPurchase.TabIndex = 20;
             this.buttonPurchase.Text = "Next";
             this.buttonPurchase.UseVisualStyleBackColor = false;
+            this.buttonPurchase.Click += new System.EventHandler(this.buttonPurchase_Click);
             // 
             // checkBoxCustName
             // 
@@ -192,6 +207,7 @@
             this.checkBoxCustName.TabIndex = 21;
             this.checkBoxCustName.Text = "Add Custom Name";
             this.checkBoxCustName.UseVisualStyleBackColor = true;
+            this.checkBoxCustName.CheckedChanged += new System.EventHandler(this.checkBoxCustName_CheckedChanged);
             // 
             // textBoxCustName
             // 
@@ -199,6 +215,7 @@
             this.textBoxCustName.Name = "textBoxCustName";
             this.textBoxCustName.Size = new System.Drawing.Size(260, 22);
             this.textBoxCustName.TabIndex = 22;
+            this.textBoxCustName.TextChanged += new System.EventHandler(this.textBoxCustName_TextChanged);
             // 
             // merchandiseForm
             // 
