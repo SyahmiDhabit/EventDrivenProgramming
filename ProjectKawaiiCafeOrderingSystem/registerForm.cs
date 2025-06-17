@@ -26,5 +26,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void labelKawaiTittle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
