@@ -21,23 +21,23 @@ namespace ProjectKawaiiCafeOrderingSystem
             public List<string> AvailableColors { get; set; }
         }
 
-        private List<Product> products = new List<Product>();
+        private readonly List<Product> products = new List<Product>();
         private int currentIndex = 0;
 
         public merchandiseForm()
         {
             InitializeComponent();
+            this.Load += merchandiseForm_Load; // Make sure the Load event is attached
         }
 
-        private void merchandiseForm_Load_1(object sender, EventArgs e)
+        private void merchandiseForm_Load(object sender, EventArgs e)
         {
             numericUpDownQty.Maximum = 3;
             numericUpDownQty.Minimum = 0;
-
             textBoxCustName.MaxLength = 15;
             textBoxCustName.Visible = false;
 
-            // Sample product list — update image index based on imageListMerch
+            // Sample product list
             products.Add(new Product
             {
                 Name = "Kawaii Tumblr",
@@ -51,7 +51,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             {
                 Name = "Kawaii T-Shirt",
                 Price = 49.90m,
-                Description = "Exculusive T-Shirt from Kawaii Cafe with cute mascot",
+                Description = "Exclusive T-Shirt from Kawaii Cafe with cute mascot",
                 ImageIndex = 1,
                 AvailableColors = new List<string> { "Black", "White", "Beige" }
             });
@@ -60,7 +60,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             {
                 Name = "Kawaii Totebag",
                 Price = 19.90m,
-                Description = "Stylish Totebag with Exculusive Design from Kawaii Cafe",
+                Description = "Stylish Totebag with Exclusive Design from Kawaii Cafe",
                 ImageIndex = 2,
                 AvailableColors = new List<string> { "Beige", "Black", "Brown" }
             });
@@ -94,12 +94,14 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
+            if (products.Count == 0) return;
             currentIndex = (currentIndex + 1) % products.Count;
             DisplayProduct(currentIndex);
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
+            if (products.Count == 0) return;
             currentIndex = (currentIndex - 1 + products.Count) % products.Count;
             DisplayProduct(currentIndex);
         }
@@ -109,7 +111,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             textBoxCustName.Visible = checkBoxCustName.Checked;
         }
 
-        // Kosongkan fungsi lain buat masa ni
+        // Dummy event handlers to avoid design errors
         private void labelMerchTittle_Click(object sender, EventArgs e) { }
         private void pictureBoxMerch_Click(object sender, EventArgs e) { }
         private void labelProName_Click(object sender, EventArgs e) { }

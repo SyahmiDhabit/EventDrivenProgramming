@@ -159,6 +159,12 @@
     <Compile Include="checkoutForm.Designer.cs">
       <DependentUpon>checkoutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="merchandiseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="merchandiseForm.Designer.cs">
+      <DependentUpon>merchandiseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="receiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="checkoutForm.resx">
       <DependentUpon>checkoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="merchandiseForm.resx">
+      <DependentUpon>merchandiseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="receiptForm.resx">
       <DependentUpon>receiptForm.cs</DependentUpon>

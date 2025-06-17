@@ -55,7 +55,7 @@
             this.labelMerchTittle.BackColor = System.Drawing.Color.Transparent;
             this.labelMerchTittle.Font = new System.Drawing.Font("Monotype Corsiva", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMerchTittle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelMerchTittle.Location = new System.Drawing.Point(45, 16);
+            this.labelMerchTittle.Location = new System.Drawing.Point(12, 9);
             this.labelMerchTittle.Name = "labelMerchTittle";
             this.labelMerchTittle.Size = new System.Drawing.Size(545, 82);
             this.labelMerchTittle.TabIndex = 9;
@@ -67,7 +67,7 @@
             this.labelProName.AutoSize = true;
             this.labelProName.BackColor = System.Drawing.Color.Transparent;
             this.labelProName.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProName.Location = new System.Drawing.Point(616, 127);
+            this.labelProName.Location = new System.Drawing.Point(523, 126);
             this.labelProName.Name = "labelProName";
             this.labelProName.Size = new System.Drawing.Size(238, 38);
             this.labelProName.TabIndex = 10;
@@ -79,7 +79,7 @@
             this.labelProPrice.AutoSize = true;
             this.labelProPrice.BackColor = System.Drawing.Color.Transparent;
             this.labelProPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProPrice.Location = new System.Drawing.Point(617, 177);
+            this.labelProPrice.Location = new System.Drawing.Point(524, 182);
             this.labelProPrice.Name = "labelProPrice";
             this.labelProPrice.Size = new System.Drawing.Size(154, 36);
             this.labelProPrice.TabIndex = 11;
@@ -90,23 +90,22 @@
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.BackColor = System.Drawing.Color.Transparent;
-            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(618, 233);
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Location = new System.Drawing.Point(524, 233);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(306, 50);
+            this.labelDescription.Size = new System.Drawing.Size(398, 29);
             this.labelDescription.TabIndex = 12;
-            this.labelDescription.Text = "Product Description.........................\r\n..................................." +
-    "....................";
+            this.labelDescription.Text = "Product Description ............................";
             this.labelDescription.Click += new System.EventHandler(this.labelDescription_Click);
             // 
             // labelQty
             // 
             this.labelQty.AutoSize = true;
             this.labelQty.BackColor = System.Drawing.Color.Gainsboro;
-            this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQty.Location = new System.Drawing.Point(629, 305);
+            this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQty.Location = new System.Drawing.Point(560, 281);
             this.labelQty.Name = "labelQty";
-            this.labelQty.Size = new System.Drawing.Size(146, 32);
+            this.labelQty.Size = new System.Drawing.Size(151, 36);
             this.labelQty.TabIndex = 13;
             this.labelQty.Text = "Quantity: ";
             this.labelQty.Click += new System.EventHandler(this.labelQty_Click);
@@ -115,20 +114,21 @@
             // 
             this.labelColor.AutoSize = true;
             this.labelColor.BackColor = System.Drawing.Color.Gainsboro;
-            this.labelColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelColor.Location = new System.Drawing.Point(654, 350);
+            this.labelColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelColor.Location = new System.Drawing.Point(583, 330);
             this.labelColor.Name = "labelColor";
-            this.labelColor.Size = new System.Drawing.Size(121, 32);
+            this.labelColor.Size = new System.Drawing.Size(128, 36);
             this.labelColor.TabIndex = 14;
             this.labelColor.Text = "Colour: ";
             this.labelColor.Click += new System.EventHandler(this.labelColor_Click);
             // 
             // pictureBoxMerch
             // 
+            this.pictureBoxMerch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxMerch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxMerch.Location = new System.Drawing.Point(69, 117);
+            this.pictureBoxMerch.Location = new System.Drawing.Point(63, 94);
             this.pictureBoxMerch.Name = "pictureBoxMerch";
-            this.pictureBoxMerch.Size = new System.Drawing.Size(494, 357);
+            this.pictureBoxMerch.Size = new System.Drawing.Size(437, 400);
             this.pictureBoxMerch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMerch.TabIndex = 15;
             this.pictureBoxMerch.TabStop = false;
@@ -144,18 +144,18 @@
             // 
             // numericUpDownQty
             // 
-            this.numericUpDownQty.Location = new System.Drawing.Point(790, 310);
+            this.numericUpDownQty.Location = new System.Drawing.Point(734, 287);
             this.numericUpDownQty.Name = "numericUpDownQty";
-            this.numericUpDownQty.Size = new System.Drawing.Size(145, 22);
+            this.numericUpDownQty.Size = new System.Drawing.Size(159, 22);
             this.numericUpDownQty.TabIndex = 16;
             this.numericUpDownQty.ValueChanged += new System.EventHandler(this.numericUpDownQty_ValueChanged);
             // 
             // comboBoxColor
             // 
             this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(790, 353);
+            this.comboBoxColor.Location = new System.Drawing.Point(734, 337);
             this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(145, 24);
+            this.comboBoxColor.Size = new System.Drawing.Size(159, 24);
             this.comboBoxColor.TabIndex = 17;
             this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
             // 
@@ -163,7 +163,7 @@
             // 
             this.checkBoxCustName.AutoSize = true;
             this.checkBoxCustName.BackColor = System.Drawing.Color.Gainsboro;
-            this.checkBoxCustName.Location = new System.Drawing.Point(660, 400);
+            this.checkBoxCustName.Location = new System.Drawing.Point(589, 380);
             this.checkBoxCustName.Name = "checkBoxCustName";
             this.checkBoxCustName.Size = new System.Drawing.Size(142, 20);
             this.checkBoxCustName.TabIndex = 18;
@@ -173,9 +173,9 @@
             // 
             // textBoxCustName
             // 
-            this.textBoxCustName.Location = new System.Drawing.Point(659, 426);
+            this.textBoxCustName.Location = new System.Drawing.Point(589, 406);
             this.textBoxCustName.Name = "textBoxCustName";
-            this.textBoxCustName.Size = new System.Drawing.Size(276, 22);
+            this.textBoxCustName.Size = new System.Drawing.Size(304, 22);
             this.textBoxCustName.TabIndex = 19;
             this.textBoxCustName.TextChanged += new System.EventHandler(this.textBoxCustName_TextChanged);
             // 
@@ -183,7 +183,7 @@
             // 
             this.buttonNextForm.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNextForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextForm.Location = new System.Drawing.Point(1035, 512);
+            this.buttonNextForm.Location = new System.Drawing.Point(1029, 520);
             this.buttonNextForm.Name = "buttonNextForm";
             this.buttonNextForm.Size = new System.Drawing.Size(118, 53);
             this.buttonNextForm.TabIndex = 20;
@@ -195,7 +195,7 @@
             // 
             this.buttonNext.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNext.Location = new System.Drawing.Point(445, 512);
+            this.buttonNext.Location = new System.Drawing.Point(382, 520);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(118, 53);
             this.buttonNext.TabIndex = 21;
@@ -207,11 +207,11 @@
             // 
             this.buttonBack.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBack.Location = new System.Drawing.Point(69, 512);
+            this.buttonBack.Location = new System.Drawing.Point(63, 520);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(118, 53);
             this.buttonBack.TabIndex = 22;
-            this.buttonBack.Text = "< Previous\r\n Product";
+            this.buttonBack.Text = "< Previous\r\nProduct";
             this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
@@ -221,6 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1182, 598);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonNext);
@@ -238,7 +239,6 @@
             this.Controls.Add(this.labelMerchTittle);
             this.Name = "merchandiseForm";
             this.Text = "merchandiseForm";
-            this.Load += new System.EventHandler(this.merchandiseForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMerch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQty)).EndInit();
             this.ResumeLayout(false);
