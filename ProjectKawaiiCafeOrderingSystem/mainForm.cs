@@ -35,7 +35,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\Source\Repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -43,10 +43,10 @@ namespace ProjectKawaiiCafeOrderingSystem
                 {
                     conn.Open();
 
-                    string query = "SELECT COUNT(*) FROM Customer WHERE Username = @username AND Password = @password";
+                    string query = "SELECT COUNT(*) FROM Customer WHERE cust_username = @cust_username AND cust_password = @cust_password";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@cust_username", username);
+                    cmd.Parameters.AddWithValue("@cust_password", password);
 
                     int count = (int)cmd.ExecuteScalar();
 
@@ -95,8 +95,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string username = textBoxUsername.Text.Trim();
             string password = textBoxPwd.Text.Trim();
 
-            // Correct connection string to SQL Server with database file
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\Source\Repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -104,11 +103,11 @@ namespace ProjectKawaiiCafeOrderingSystem
                 {
                     conn.Open();
 
-                    string query = "SELECT COUNT(*) FROM Admin WHERE Username = @username AND Password = @password";
+                    string query = "SELECT COUNT(*) FROM Admin WHERE admin_username = @admin_username AND admin_password = @admin_password";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@admin_username", username);
+                    cmd.Parameters.AddWithValue("@admin_password", password);
 
                     int count = (int)cmd.ExecuteScalar();
 
@@ -132,9 +131,11 @@ namespace ProjectKawaiiCafeOrderingSystem
             }
         }
 
-
-        private void btnRegisteration_Click(object sender, EventArgs e)
+            private void btnRegisteration_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            registerForm regform = new registerForm();
+            regform.ShowDialog();
         }
 
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
