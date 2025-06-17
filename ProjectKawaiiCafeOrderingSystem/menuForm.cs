@@ -31,24 +31,26 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void LoadMenuData()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"; 
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
+
                 // Load Food
-                SqlDataAdapter foodAdapter = new SqlDataAdapter("SELECT menu_ID, menu_type, menu_name, menu_price FROM Menu WHERE menu_type = 'Food'", conn);
+                SqlDataAdapter foodAdapter = new SqlDataAdapter("SELECT * FROM Menu WHERE menu_type = 'Food'", conn);
                 DataTable foodTable = new DataTable();
                 foodAdapter.Fill(foodTable);
                 FoodDataGridView.DataSource = foodTable;
 
                 // Load Drink
-                SqlDataAdapter drinkAdapter = new SqlDataAdapter("SELECT menu_ID, menu_type, menu_name, menu_price FROM Menu WHERE menu_type = 'Drink'", conn);
+                SqlDataAdapter drinkAdapter = new SqlDataAdapter("SELECT * FROM Menu WHERE menu_type = 'Drink'", conn);
                 DataTable drinkTable = new DataTable();
                 drinkAdapter.Fill(drinkTable);
                 DrinkDataGridView.DataSource = drinkTable;
 
                 // Load Dessert
-                SqlDataAdapter dessertAdapter = new SqlDataAdapter("SELECT menu_ID, menu_type, menu_name, menu_price FROM Menu WHERE menu_type = 'Dessert'", conn);
+                SqlDataAdapter dessertAdapter = new SqlDataAdapter("SELECT * FROM Menu WHERE menu_type = 'Dessert'", conn);
                 DataTable dessertTable = new DataTable();
                 dessertAdapter.Fill(dessertTable);
                 DessertDataGridView.DataSource = dessertTable;
@@ -173,19 +175,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             if (e.RowIndex >= 0)
             {
-                try
-                {
-                    DataGridViewRow row = FoodDataGridView.Rows[e.RowIndex];
-                    string menuId = row.Cells["menu_ID"].Value?.ToString() ?? "N/A";
-                    string menuType = row.Cells["menu_type"].Value?.ToString() ?? "N/A";
-                    string itemName = row.Cells["menu_name"].Value?.ToString() ?? "N/A";
-                    string price = row.Cells["menu_price"].Value?.ToString() ?? "N/A";
-                    MessageBox.Show($"Food Selected:\nID: {menuId}\nType: {menuType}\nName: {itemName}\nPrice: {price}");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}");
-                }
+                DataGridViewRow row = FoodDataGridView.Rows[e.RowIndex];
+                string itemName = row.Cells["menu_name"].Value.ToString();
+                string price = row.Cells["menu_price"].Value.ToString();
+                MessageBox.Show($"Food Selected: {itemName}\nPrice: {price}");
             }
         }
 
@@ -208,19 +201,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             if (e.RowIndex >= 0)
             {
-                try
-                {
-                    DataGridViewRow row = DessertDataGridView.Rows[e.RowIndex];
-                    string menuId = row.Cells["menu_ID"].Value?.ToString() ?? "N/A";
-                    string menuType = row.Cells["menu_type"].Value?.ToString() ?? "N/A";
-                    string itemName = row.Cells["menu_name"].Value?.ToString() ?? "N/A";
-                    string price = row.Cells["menu_price"].Value?.ToString() ?? "N/A";
-                    MessageBox.Show($"Dessert Selected:\nID: {menuId}\nType: {menuType}\nName: {itemName}\nPrice: {price}");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}");
-                }
+                DataGridViewRow row = DessertDataGridView.Rows[e.RowIndex];
+                string itemName = row.Cells["menu_name"].Value.ToString();
+                string price = row.Cells["menu_price"].Value.ToString();
+                MessageBox.Show($"Dessert Selected: {itemName}\nPrice: {price}");
             }
         }
 
@@ -233,19 +217,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             if (e.RowIndex >= 0)
             {
-                try
-                {
-                    DataGridViewRow row = DrinkDataGridView.Rows[e.RowIndex];
-                    string menuId = row.Cells["menu_ID"].Value?.ToString() ?? "N/A";
-                    string menuType = row.Cells["menu_type"].Value?.ToString() ?? "N/A";
-                    string itemName = row.Cells["menu_name"].Value?.ToString() ?? "N/A";
-                    string price = row.Cells["menu_price"].Value?.ToString() ?? "N/A";
-                    MessageBox.Show($"Drink Selected:\nID: {menuId}\nType: {menuType}\nName: {itemName}\nPrice: {price}");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}");
-                }
+                DataGridViewRow row = DrinkDataGridView.Rows[e.RowIndex];
+                string itemName = row.Cells["menu_name"].Value.ToString();
+                string price = row.Cells["menu_price"].Value.ToString();
+                MessageBox.Show($"Drink Selected: {itemName}\nPrice: {price}");
             }
         }
 

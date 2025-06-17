@@ -374,9 +374,9 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNext.Location = new System.Drawing.Point(1658, 898);
+            this.btnNext.Location = new System.Drawing.Point(1329, 965);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(130, 63);
+            this.btnNext.Size = new System.Drawing.Size(118, 53);
             this.btnNext.TabIndex = 26;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
