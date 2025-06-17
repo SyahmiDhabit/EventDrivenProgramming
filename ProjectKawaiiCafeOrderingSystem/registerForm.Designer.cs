@@ -164,12 +164,13 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(593, 461);
+            this.btnRegister.Location = new System.Drawing.Point(596, 402);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(140, 56);
             this.btnRegister.TabIndex = 15;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // labelKawaiTittle
             // 
@@ -187,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 529);
+            this.ClientSize = new System.Drawing.Size(836, 529);
             this.Controls.Add(this.labelKawaiTittle);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.comboBoxType);
