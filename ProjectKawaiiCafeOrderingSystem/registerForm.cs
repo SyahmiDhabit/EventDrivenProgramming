@@ -152,6 +152,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             this.Hide();
             mainForm mainform = new mainForm();
             mainform.ShowDialog();
+            this.Close();
         }
     }
 }
