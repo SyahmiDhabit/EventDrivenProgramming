@@ -281,6 +281,8 @@ namespace ProjectKawaiiCafeOrderingSystem {
             
             private global::System.Data.DataColumn columnmenu_ID;
             
+            private global::System.Data.DataColumn columnmenu_type;
+            
             private global::System.Data.DataColumn columnmenu_name;
             
             private global::System.Data.DataColumn columnmenu_price;
@@ -323,6 +325,14 @@ namespace ProjectKawaiiCafeOrderingSystem {
             public global::System.Data.DataColumn menu_IDColumn {
                 get {
                     return this.columnmenu_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn menu_typeColumn {
+                get {
+                    return this.columnmenu_type;
                 }
             }
             
@@ -379,10 +389,11 @@ namespace ProjectKawaiiCafeOrderingSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MenuRow AddMenuRow(int menu_ID, string menu_name, decimal menu_price) {
+            public MenuRow AddMenuRow(int menu_ID, string menu_type, string menu_name, decimal menu_price) {
                 MenuRow rowMenuRow = ((MenuRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         menu_ID,
+                        menu_type,
                         menu_name,
                         menu_price};
                 rowMenuRow.ItemArray = columnValuesArray;
@@ -415,6 +426,7 @@ namespace ProjectKawaiiCafeOrderingSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnmenu_ID = base.Columns["menu_ID"];
+                this.columnmenu_type = base.Columns["menu_type"];
                 this.columnmenu_name = base.Columns["menu_name"];
                 this.columnmenu_price = base.Columns["menu_price"];
             }
@@ -424,6 +436,8 @@ namespace ProjectKawaiiCafeOrderingSystem {
             private void InitClass() {
                 this.columnmenu_ID = new global::System.Data.DataColumn("menu_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmenu_ID);
+                this.columnmenu_type = new global::System.Data.DataColumn("menu_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmenu_type);
                 this.columnmenu_name = new global::System.Data.DataColumn("menu_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmenu_name);
                 this.columnmenu_price = new global::System.Data.DataColumn("menu_price", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -432,6 +446,8 @@ namespace ProjectKawaiiCafeOrderingSystem {
                                 this.columnmenu_ID}, true));
                 this.columnmenu_ID.AllowDBNull = false;
                 this.columnmenu_ID.Unique = true;
+                this.columnmenu_type.AllowDBNull = false;
+                this.columnmenu_type.MaxLength = 50;
                 this.columnmenu_name.AllowDBNull = false;
                 this.columnmenu_name.MaxLength = 100;
                 this.columnmenu_price.AllowDBNull = false;
@@ -583,6 +599,17 @@ namespace ProjectKawaiiCafeOrderingSystem {
                 }
                 set {
                     this[this.tableMenu.menu_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string menu_type {
+                get {
+                    return ((string)(this[this.tableMenu.menu_typeColumn]));
+                }
+                set {
+                    this[this.tableMenu.menu_typeColumn] = value;
                 }
             }
             
@@ -769,35 +796,41 @@ namespace ProjectKawaiiCafeOrderingSystem.MenuDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Menu";
             tableMapping.ColumnMappings.Add("menu_ID", "menu_ID");
+            tableMapping.ColumnMappings.Add("menu_type", "menu_type");
             tableMapping.ColumnMappings.Add("menu_name", "menu_name");
             tableMapping.ColumnMappings.Add("menu_price", "menu_price");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Menu] WHERE (([menu_ID] = @Original_menu_ID) AND ([menu_name] " +
-                "= @Original_menu_name) AND ([menu_price] = @Original_menu_price))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Menu] WHERE (([menu_ID] = @Original_menu_ID) AND ([menu_type] " +
+                "= @Original_menu_type) AND ([menu_name] = @Original_menu_name) AND ([menu_price]" +
+                " = @Original_menu_price))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "menu_price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Menu] ([menu_ID], [menu_name], [menu_price]) VALUES (@menu_ID," +
-                " @menu_name, @menu_price);\r\nSELECT menu_ID, menu_name, menu_price FROM Menu WHER" +
-                "E (menu_ID = @menu_ID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Menu] ([menu_ID], [menu_type], [menu_name], [menu_price]) VALU" +
+                "ES (@menu_ID, @menu_type, @menu_name, @menu_price);\r\nSELECT menu_ID, menu_type, " +
+                "menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "menu_price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Menu] SET [menu_ID] = @menu_ID, [menu_name] = @menu_name, [menu_price] = @menu_price WHERE (([menu_ID] = @Original_menu_ID) AND ([menu_name] = @Original_menu_name) AND ([menu_price] = @Original_menu_price));
-SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Menu] SET [menu_ID] = @menu_ID, [menu_type] = @menu_type, [menu_name] = @menu_name, [menu_price] = @menu_price WHERE (([menu_ID] = @Original_menu_ID) AND ([menu_type] = @Original_menu_type) AND ([menu_name] = @Original_menu_name) AND ([menu_price] = @Original_menu_price));
+SELECT menu_ID, menu_type, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@menu_price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "menu_price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "menu_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_menu_price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "menu_price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -806,7 +839,7 @@ SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ProjectKawaiiCafeOrderingSystem.Properties.Settings.Default.MenuConnectionString;
+            this._connection.ConnectionString = global::ProjectKawaiiCafeOrderingSystem.Properties.Settings.Default.DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -815,7 +848,7 @@ SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT menu_ID, menu_name, menu_price FROM dbo.Menu";
+            this._commandCollection[0].CommandText = "SELECT menu_ID, menu_type, menu_name, menu_price FROM dbo.Menu";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -876,15 +909,21 @@ SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_menu_ID, string Original_menu_name, decimal Original_menu_price) {
+        public virtual int Delete(int Original_menu_ID, string Original_menu_type, string Original_menu_name, decimal Original_menu_price) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_menu_ID));
+            if ((Original_menu_type == null)) {
+                throw new global::System.ArgumentNullException("Original_menu_type");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_menu_type));
+            }
             if ((Original_menu_name == null)) {
                 throw new global::System.ArgumentNullException("Original_menu_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_menu_name));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_menu_name));
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_menu_price));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_menu_price));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -905,15 +944,21 @@ SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int menu_ID, string menu_name, decimal menu_price) {
+        public virtual int Insert(int menu_ID, string menu_type, string menu_name, decimal menu_price) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(menu_ID));
+            if ((menu_type == null)) {
+                throw new global::System.ArgumentNullException("menu_type");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(menu_type));
+            }
             if ((menu_name == null)) {
                 throw new global::System.ArgumentNullException("menu_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(menu_name));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(menu_name));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(menu_price));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(menu_price));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -934,23 +979,35 @@ SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int menu_ID, string menu_name, decimal menu_price, int Original_menu_ID, string Original_menu_name, decimal Original_menu_price) {
+        public virtual int Update(int menu_ID, string menu_type, string menu_name, decimal menu_price, int Original_menu_ID, string Original_menu_type, string Original_menu_name, decimal Original_menu_price) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(menu_ID));
+            if ((menu_type == null)) {
+                throw new global::System.ArgumentNullException("menu_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(menu_type));
+            }
             if ((menu_name == null)) {
                 throw new global::System.ArgumentNullException("menu_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(menu_name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(menu_name));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(menu_price));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_menu_ID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(menu_price));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_menu_ID));
+            if ((Original_menu_type == null)) {
+                throw new global::System.ArgumentNullException("Original_menu_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_menu_type));
+            }
             if ((Original_menu_name == null)) {
                 throw new global::System.ArgumentNullException("Original_menu_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_menu_name));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_menu_name));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Original_menu_price));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_menu_price));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -971,8 +1028,8 @@ SELECT menu_ID, menu_name, menu_price FROM Menu WHERE (menu_ID = @menu_ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string menu_name, decimal menu_price, int Original_menu_ID, string Original_menu_name, decimal Original_menu_price) {
-            return this.Update(Original_menu_ID, menu_name, menu_price, Original_menu_ID, Original_menu_name, Original_menu_price);
+        public virtual int Update(string menu_type, string menu_name, decimal menu_price, int Original_menu_ID, string Original_menu_type, string Original_menu_name, decimal Original_menu_price) {
+            return this.Update(Original_menu_ID, menu_type, menu_name, menu_price, Original_menu_ID, Original_menu_type, Original_menu_name, Original_menu_price);
         }
     }
     
