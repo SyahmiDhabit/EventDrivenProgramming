@@ -268,18 +268,21 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnNext_Click(object sender, EventArgs e) 
         {
-            List<string> selectedMenuItems = new List<string>();
+            int custID = 1;            // Example customer ID
+            int merchID = 1;           // Placeholder merch ID
+            DateTime orderDate = DateTime.Now;
 
-            foreach (string item in listFood.Items)
-                selectedMenuItems.Add(item.Split('x')[0].Trim());
+            string selectedMenuItem = null;
 
-            foreach (string item in listDrink.Items)
-                selectedMenuItems.Add(item.Split('x')[0].Trim());
+            // Pick first available selected menu item (food > drink > dessert)
+            if (listFood.Items.Count > 0)
+                selectedMenuItem = listFood.Items[0].ToString().Split('x')[0].Trim();
+            else if (listDrink.Items.Count > 0)
+                selectedMenuItem = listDrink.Items[0].ToString().Split('x')[0].Trim();
+            else if (ListDessert.Items.Count > 0)
+                selectedMenuItem = ListDessert.Items[0].ToString().Split('x')[0].Trim();
 
-            foreach (string item in ListDessert.Items)
-                selectedMenuItems.Add(item.Split('x')[0].Trim());
-
-            if (selectedMenuItems.Count == 0)
+            if (selectedMenuItem == null)
             {
                 MessageBox.Show("Please select at least one item before continuing.");
                 return;
@@ -289,31 +292,38 @@ namespace ProjectKawaiiCafeOrderingSystem
             {
                 conn.Open();
 
+                // Get next order ID manually
                 SqlCommand getMaxIdCmd = new SqlCommand("SELECT ISNULL(MAX(order_ID), 0) + 1 FROM [Order]", conn);
                 int newOrderID = (int)getMaxIdCmd.ExecuteScalar();
 
-                foreach (string itemName in selectedMenuItems)
+                // Get menu_ID of selected menu item
+                SqlCommand getMenuIDCmd = new SqlCommand("SELECT menu_ID FROM Menu WHERE menu_name = @name", conn);
+                getMenuIDCmd.Parameters.AddWithValue("@name", selectedMenuItem);
+                object result = getMenuIDCmd.ExecuteScalar();
+
+                if (result == null)
                 {
-                    SqlCommand getMenuIDCmd = new SqlCommand("SELECT menu_ID FROM Menu WHERE menu_name = @name", conn);
-                    getMenuIDCmd.Parameters.AddWithValue("@name", itemName);
-                    object result = getMenuIDCmd.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        int menuID = Convert.ToInt32(result);
-
-                        SqlCommand insertCmd = new SqlCommand(
-                            "INSERT INTO [Order] (order_ID, order_date, cust_ID, menu_ID, merch_ID) VALUES (@order_ID, @order_date, @cust_ID, @menu_ID, @merch_ID)", conn);
-                        insertCmd.Parameters.AddWithValue("@order_ID", newOrderID);
-                        insertCmd.Parameters.AddWithValue("@order_date", DateTime.Now);
-                        insertCmd.Parameters.AddWithValue("@cust_ID", 1);
-                        insertCmd.Parameters.AddWithValue("@menu_ID", menuID);
-                        insertCmd.Parameters.AddWithValue("@merch_ID", 1);
-
-                        insertCmd.ExecuteNonQuery();
-                    }
+                    MessageBox.Show("Selected menu item not found in the database.");
+                    return;
                 }
+
+                int menuID = Convert.ToInt32(result);
+
+                // Insert single row into Order table
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO [Order] (order_ID, order_date, cust_ID, menu_ID, merch_ID) VALUES (@order_ID, @order_date, @cust_ID, @menu_ID, @merch_ID)", conn);
+                insertCmd.Parameters.AddWithValue("@order_ID", newOrderID);
+                insertCmd.Parameters.AddWithValue("@order_date", orderDate);
+                insertCmd.Parameters.AddWithValue("@cust_ID", custID);
+                insertCmd.Parameters.AddWithValue("@menu_ID", menuID);
+                insertCmd.Parameters.AddWithValue("@merch_ID", merchID);
+
+                insertCmd.ExecuteNonQuery();
             }
+
+            this.Hide();
+            merchandiseForm merchForm = new merchandiseForm();
+            merchForm.ShowDialog();
+            
         }
 
         private void labelQtyDessert_Click(object sender, EventArgs e) { }
@@ -339,10 +349,12 @@ namespace ProjectKawaiiCafeOrderingSystem
             int index = listBoxFood.SelectedIndex;
             if (index >= 0)
             {
+                // Tunjuk harga
                 string selected = listBoxFood.SelectedItem.ToString();
                 decimal price = foodPrices[selected];
                 labelPriceFood.Text = $"RM {price:F2}";
 
+                // Tunjuk gambar ikut index
                 if (index < imageListFood.Images.Count)
                 {
                     pictureBoxFood.Image = imageListFood.Images[index];
