@@ -34,23 +34,37 @@
             this.listDrink = new System.Windows.Forms.ListBox();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.groupBoxFood = new System.Windows.Forms.GroupBox();
+            this.FoodDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.menuDataSet = new ProjectKawaiiCafeOrderingSystem.MenuDataSet();
             this.pictureBoxFood = new System.Windows.Forms.PictureBox();
-            this.labelPriceFood = new System.Windows.Forms.Label();
             this.labelQtyMenu = new System.Windows.Forms.Label();
+            this.listFood = new System.Windows.Forms.ListBox();
             this.numericUpDownFood = new System.Windows.Forms.NumericUpDown();
             this.btnRemFood = new System.Windows.Forms.Button();
-            this.listFood = new System.Windows.Forms.ListBox();
             this.labelMenu = new System.Windows.Forms.Label();
             this.groupBoxDessert = new System.Windows.Forms.GroupBox();
+            this.DessertDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
-            this.labelPriceDessert = new System.Windows.Forms.Label();
             this.labelQtyDessert = new System.Windows.Forms.Label();
             this.numericUpDownDessert = new System.Windows.Forms.NumericUpDown();
             this.btnRemDessert = new System.Windows.Forms.Button();
             this.btnAddDessert = new System.Windows.Forms.Button();
             this.groupBoxDrink = new System.Windows.Forms.GroupBox();
+            this.DrinkDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
-            this.labelPriceDrink = new System.Windows.Forms.Label();
             this.labelQtyDrink = new System.Windows.Forms.Label();
             this.btnRemDrink = new System.Windows.Forms.Button();
             this.numericUpDownDrink = new System.Windows.Forms.NumericUpDown();
@@ -59,39 +73,22 @@
             this.imageListFood = new System.Windows.Forms.ImageList(this.components);
             this.imageListDessert = new System.Windows.Forms.ImageList(this.components);
             this.imageListDrink = new System.Windows.Forms.ImageList(this.components);
-            this.FoodDataGridView = new System.Windows.Forms.DataGridView();
-            this.DrinkDataGridView = new System.Windows.Forms.DataGridView();
-            this.DessertDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.menuDataSet = new ProjectKawaiiCafeOrderingSystem.MenuDataSet();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuTableAdapter = new ProjectKawaiiCafeOrderingSystem.MenuDataSetTableAdapters.MenuTableAdapter();
             this.tableAdapterManager = new ProjectKawaiiCafeOrderingSystem.MenuDataSetTableAdapters.TableAdapterManager();
             this.groupBoxFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FoodDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).BeginInit();
             this.groupBoxDessert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DessertDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDessert)).BeginInit();
             this.groupBoxDrink.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DrinkDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrink)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FoodDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DrinkDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DessertDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // ListDessert
@@ -131,7 +128,6 @@
             this.groupBoxFood.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBoxFood.Controls.Add(this.FoodDataGridView);
             this.groupBoxFood.Controls.Add(this.pictureBoxFood);
-            this.groupBoxFood.Controls.Add(this.labelPriceFood);
             this.groupBoxFood.Controls.Add(this.labelQtyMenu);
             this.groupBoxFood.Controls.Add(this.listFood);
             this.groupBoxFood.Controls.Add(this.numericUpDownFood);
@@ -145,6 +141,66 @@
             this.groupBoxFood.Text = "Food Menu";
             this.groupBoxFood.Enter += new System.EventHandler(this.groupBoxFood_Enter);
             // 
+            // FoodDataGridView
+            // 
+            this.FoodDataGridView.AutoGenerateColumns = false;
+            this.FoodDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FoodDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.FoodDataGridView.DataSource = this.menuBindingSource;
+            this.FoodDataGridView.Location = new System.Drawing.Point(52, 42);
+            this.FoodDataGridView.Name = "FoodDataGridView";
+            this.FoodDataGridView.RowHeadersWidth = 51;
+            this.FoodDataGridView.RowTemplate.Height = 24;
+            this.FoodDataGridView.Size = new System.Drawing.Size(606, 220);
+            this.FoodDataGridView.TabIndex = 27;
+            this.FoodDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.menuDataGridView_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "menu_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "menu_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "menu_type";
+            this.dataGridViewTextBoxColumn2.HeaderText = "menu_type";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "menu_name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "menu_name";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "menu_price";
+            this.dataGridViewTextBoxColumn4.HeaderText = "menu_price";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // menuBindingSource
+            // 
+            this.menuBindingSource.DataMember = "Menu";
+            this.menuBindingSource.DataSource = this.menuDataSet;
+            // 
+            // menuDataSet
+            // 
+            this.menuDataSet.DataSetName = "MenuDataSet";
+            this.menuDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // pictureBoxFood
             // 
             this.pictureBoxFood.BackColor = System.Drawing.SystemColors.Control;
@@ -156,16 +212,6 @@
             this.pictureBoxFood.TabIndex = 27;
             this.pictureBoxFood.TabStop = false;
             // 
-            // labelPriceFood
-            // 
-            this.labelPriceFood.AutoSize = true;
-            this.labelPriceFood.Location = new System.Drawing.Point(887, 127);
-            this.labelPriceFood.Name = "labelPriceFood";
-            this.labelPriceFood.Size = new System.Drawing.Size(38, 16);
-            this.labelPriceFood.TabIndex = 31;
-            this.labelPriceFood.Text = "00:00";
-            this.labelPriceFood.Click += new System.EventHandler(this.labelPriceFood_Click);
-            // 
             // labelQtyMenu
             // 
             this.labelQtyMenu.AutoSize = true;
@@ -175,12 +221,23 @@
             this.labelQtyMenu.TabIndex = 24;
             this.labelQtyMenu.Text = "Quantity:";
             // 
+            // listFood
+            // 
+            this.listFood.FormattingEnabled = true;
+            this.listFood.ItemHeight = 16;
+            this.listFood.Location = new System.Drawing.Point(1168, 18);
+            this.listFood.Name = "listFood";
+            this.listFood.Size = new System.Drawing.Size(355, 244);
+            this.listFood.TabIndex = 22;
+            this.listFood.SelectedIndexChanged += new System.EventHandler(this.listFood_SelectedIndexChanged);
+            // 
             // numericUpDownFood
             // 
             this.numericUpDownFood.Location = new System.Drawing.Point(954, 152);
             this.numericUpDownFood.Name = "numericUpDownFood";
             this.numericUpDownFood.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownFood.TabIndex = 23;
+            this.numericUpDownFood.ValueChanged += new System.EventHandler(this.numericUpDownFood_ValueChanged);
             // 
             // btnRemFood
             // 
@@ -192,16 +249,6 @@
             this.btnRemFood.Text = "Remove Food";
             this.btnRemFood.UseVisualStyleBackColor = false;
             this.btnRemFood.Click += new System.EventHandler(this.btnRemFood_Click);
-            // 
-            // listFood
-            // 
-            this.listFood.FormattingEnabled = true;
-            this.listFood.ItemHeight = 16;
-            this.listFood.Location = new System.Drawing.Point(1168, 18);
-            this.listFood.Name = "listFood";
-            this.listFood.Size = new System.Drawing.Size(355, 244);
-            this.listFood.TabIndex = 22;
-            this.listFood.SelectedIndexChanged += new System.EventHandler(this.listFood_SelectedIndexChanged);
             // 
             // labelMenu
             // 
@@ -220,7 +267,6 @@
             this.groupBoxDessert.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBoxDessert.Controls.Add(this.DessertDataGridView);
             this.groupBoxDessert.Controls.Add(this.pictureBoxDessert);
-            this.groupBoxDessert.Controls.Add(this.labelPriceDessert);
             this.groupBoxDessert.Controls.Add(this.labelQtyDessert);
             this.groupBoxDessert.Controls.Add(this.numericUpDownDessert);
             this.groupBoxDessert.Controls.Add(this.btnRemDessert);
@@ -234,6 +280,56 @@
             this.groupBoxDessert.Text = "Menu Dessert";
             this.groupBoxDessert.Enter += new System.EventHandler(this.groupBoxDessert_Enter);
             // 
+            // DessertDataGridView
+            // 
+            this.DessertDataGridView.AutoGenerateColumns = false;
+            this.DessertDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DessertDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.DessertDataGridView.DataSource = this.menuBindingSource;
+            this.DessertDataGridView.Location = new System.Drawing.Point(52, 48);
+            this.DessertDataGridView.Name = "DessertDataGridView";
+            this.DessertDataGridView.RowHeadersWidth = 51;
+            this.DessertDataGridView.RowTemplate.Height = 24;
+            this.DessertDataGridView.Size = new System.Drawing.Size(606, 220);
+            this.DessertDataGridView.TabIndex = 31;
+            this.DessertDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "menu_ID";
+            this.dataGridViewTextBoxColumn9.HeaderText = "menu_ID";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "menu_type";
+            this.dataGridViewTextBoxColumn10.HeaderText = "menu_type";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "menu_name";
+            this.dataGridViewTextBoxColumn11.HeaderText = "menu_name";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "menu_price";
+            this.dataGridViewTextBoxColumn12.HeaderText = "menu_price";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
             // pictureBoxDessert
             // 
             this.pictureBoxDessert.BackColor = System.Drawing.SystemColors.Control;
@@ -244,16 +340,6 @@
             this.pictureBoxDessert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDessert.TabIndex = 28;
             this.pictureBoxDessert.TabStop = false;
-            // 
-            // labelPriceDessert
-            // 
-            this.labelPriceDessert.AutoSize = true;
-            this.labelPriceDessert.Location = new System.Drawing.Point(892, 120);
-            this.labelPriceDessert.Name = "labelPriceDessert";
-            this.labelPriceDessert.Size = new System.Drawing.Size(38, 16);
-            this.labelPriceDessert.TabIndex = 30;
-            this.labelPriceDessert.Text = "00:00";
-            this.labelPriceDessert.Click += new System.EventHandler(this.labelPriceDessert_Click);
             // 
             // labelQtyDessert
             // 
@@ -299,7 +385,6 @@
             this.groupBoxDrink.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBoxDrink.Controls.Add(this.DrinkDataGridView);
             this.groupBoxDrink.Controls.Add(this.pictureBoxDrink);
-            this.groupBoxDrink.Controls.Add(this.labelPriceDrink);
             this.groupBoxDrink.Controls.Add(this.labelQtyDrink);
             this.groupBoxDrink.Controls.Add(this.btnRemDrink);
             this.groupBoxDrink.Controls.Add(this.numericUpDownDrink);
@@ -313,6 +398,56 @@
             this.groupBoxDrink.Text = "Drink Menu";
             this.groupBoxDrink.Enter += new System.EventHandler(this.groupBoxDrink_Enter);
             // 
+            // DrinkDataGridView
+            // 
+            this.DrinkDataGridView.AutoGenerateColumns = false;
+            this.DrinkDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DrinkDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.DrinkDataGridView.DataSource = this.menuBindingSource;
+            this.DrinkDataGridView.Location = new System.Drawing.Point(52, 45);
+            this.DrinkDataGridView.Name = "DrinkDataGridView";
+            this.DrinkDataGridView.RowHeadersWidth = 51;
+            this.DrinkDataGridView.RowTemplate.Height = 24;
+            this.DrinkDataGridView.Size = new System.Drawing.Size(606, 220);
+            this.DrinkDataGridView.TabIndex = 30;
+            this.DrinkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DrinkDataGridView_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "menu_ID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "menu_ID";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "menu_type";
+            this.dataGridViewTextBoxColumn6.HeaderText = "menu_type";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "menu_name";
+            this.dataGridViewTextBoxColumn7.HeaderText = "menu_name";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "menu_price";
+            this.dataGridViewTextBoxColumn8.HeaderText = "menu_price";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 125;
+            // 
             // pictureBoxDrink
             // 
             this.pictureBoxDrink.BackColor = System.Drawing.SystemColors.Control;
@@ -323,15 +458,6 @@
             this.pictureBoxDrink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDrink.TabIndex = 29;
             this.pictureBoxDrink.TabStop = false;
-            // 
-            // labelPriceDrink
-            // 
-            this.labelPriceDrink.AutoSize = true;
-            this.labelPriceDrink.Location = new System.Drawing.Point(887, 122);
-            this.labelPriceDrink.Name = "labelPriceDrink";
-            this.labelPriceDrink.Size = new System.Drawing.Size(38, 16);
-            this.labelPriceDrink.TabIndex = 29;
-            this.labelPriceDrink.Text = "00:00";
             // 
             // labelQtyDrink
             // 
@@ -374,9 +500,9 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNext.Location = new System.Drawing.Point(1329, 965);
+            this.btnNext.Location = new System.Drawing.Point(1632, 903);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(118, 53);
+            this.btnNext.Size = new System.Drawing.Size(125, 58);
             this.btnNext.TabIndex = 26;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -419,166 +545,6 @@
             this.imageListDrink.Images.SetKeyName(5, "Buttercreme.jpg");
             this.imageListDrink.Images.SetKeyName(6, "Ice Viatnamese Latte.jpg");
             // 
-            // FoodDataGridView
-            // 
-            this.FoodDataGridView.AutoGenerateColumns = false;
-            this.FoodDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.FoodDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.FoodDataGridView.DataSource = this.menuBindingSource;
-            this.FoodDataGridView.Location = new System.Drawing.Point(52, 42);
-            this.FoodDataGridView.Name = "FoodDataGridView";
-            this.FoodDataGridView.RowHeadersWidth = 51;
-            this.FoodDataGridView.RowTemplate.Height = 24;
-            this.FoodDataGridView.Size = new System.Drawing.Size(606, 220);
-            this.FoodDataGridView.TabIndex = 27;
-            this.FoodDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.menuDataGridView_CellContentClick);
-            // 
-            // DrinkDataGridView
-            // 
-            this.DrinkDataGridView.AutoGenerateColumns = false;
-            this.DrinkDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DrinkDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.DrinkDataGridView.DataSource = this.menuBindingSource;
-            this.DrinkDataGridView.Location = new System.Drawing.Point(52, 45);
-            this.DrinkDataGridView.Name = "DrinkDataGridView";
-            this.DrinkDataGridView.RowHeadersWidth = 51;
-            this.DrinkDataGridView.RowTemplate.Height = 24;
-            this.DrinkDataGridView.Size = new System.Drawing.Size(606, 220);
-            this.DrinkDataGridView.TabIndex = 30;
-            this.DrinkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DrinkDataGridView_CellContentClick);
-            // 
-            // DessertDataGridView
-            // 
-            this.DessertDataGridView.AutoGenerateColumns = false;
-            this.DessertDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DessertDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.DessertDataGridView.DataSource = this.menuBindingSource;
-            this.DessertDataGridView.Location = new System.Drawing.Point(52, 48);
-            this.DessertDataGridView.Name = "DessertDataGridView";
-            this.DessertDataGridView.RowHeadersWidth = 51;
-            this.DessertDataGridView.RowTemplate.Height = 24;
-            this.DessertDataGridView.Size = new System.Drawing.Size(606, 220);
-            this.DessertDataGridView.TabIndex = 31;
-            this.DessertDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "menu_ID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "menu_ID";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "menu_type";
-            this.dataGridViewTextBoxColumn6.HeaderText = "menu_type";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "menu_name";
-            this.dataGridViewTextBoxColumn7.HeaderText = "menu_name";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "menu_price";
-            this.dataGridViewTextBoxColumn8.HeaderText = "menu_price";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // menuBindingSource
-            // 
-            this.menuBindingSource.DataMember = "Menu";
-            this.menuBindingSource.DataSource = this.menuDataSet;
-            // 
-            // menuDataSet
-            // 
-            this.menuDataSet.DataSetName = "MenuDataSet";
-            this.menuDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "menu_ID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "menu_ID";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "menu_type";
-            this.dataGridViewTextBoxColumn10.HeaderText = "menu_type";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "menu_name";
-            this.dataGridViewTextBoxColumn11.HeaderText = "menu_name";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "menu_price";
-            this.dataGridViewTextBoxColumn12.HeaderText = "menu_price";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "menu_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "menu_ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "menu_type";
-            this.dataGridViewTextBoxColumn2.HeaderText = "menu_type";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "menu_name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "menu_name";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "menu_price";
-            this.dataGridViewTextBoxColumn4.HeaderText = "menu_price";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
             // menuTableAdapter
             // 
             this.menuTableAdapter.ClearBeforeFill = true;
@@ -607,21 +573,21 @@
             this.Load += new System.EventHandler(this.menuForm_Load);
             this.groupBoxFood.ResumeLayout(false);
             this.groupBoxFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FoodDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).EndInit();
             this.groupBoxDessert.ResumeLayout(false);
             this.groupBoxDessert.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DessertDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDessert)).EndInit();
             this.groupBoxDrink.ResumeLayout(false);
             this.groupBoxDrink.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DrinkDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDrink)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDrink)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FoodDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DrinkDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DessertDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -648,9 +614,6 @@
         private System.Windows.Forms.Label labelQtyDrink;
         private System.Windows.Forms.NumericUpDown numericUpDownDrink;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Label labelPriceDessert;
-        private System.Windows.Forms.Label labelPriceDrink;
-        private System.Windows.Forms.Label labelPriceFood;
         private System.Windows.Forms.PictureBox pictureBoxFood;
         private System.Windows.Forms.PictureBox pictureBoxDessert;
         private System.Windows.Forms.PictureBox pictureBoxDrink;

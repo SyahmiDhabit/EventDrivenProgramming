@@ -70,7 +70,7 @@
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(118, 53);
             this.btnNext.TabIndex = 13;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "Customer";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
