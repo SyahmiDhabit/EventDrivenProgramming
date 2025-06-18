@@ -95,7 +95,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string username = textBoxUsername.Text.Trim();
             string password = textBoxPwd.Text.Trim();
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\syami\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

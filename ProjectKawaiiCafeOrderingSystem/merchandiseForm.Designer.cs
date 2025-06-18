@@ -239,6 +239,7 @@
             this.Controls.Add(this.labelMerchTittle);
             this.Name = "merchandiseForm";
             this.Text = "merchandiseForm";
+            this.Load += new System.EventHandler(this.merchandiseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMerch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQty)).EndInit();
             this.ResumeLayout(false);

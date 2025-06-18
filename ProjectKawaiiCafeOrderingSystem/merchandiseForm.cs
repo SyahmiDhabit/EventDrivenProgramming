@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
@@ -17,17 +12,23 @@ namespace ProjectKawaiiCafeOrderingSystem
             public string Name { get; set; }
             public decimal Price { get; set; }
             public string Description { get; set; }
-            public int ImageIndex { get; set; }
-            public List<string> AvailableColors { get; set; }
         }
 
         private readonly List<Product> products = new List<Product>();
+        private readonly List<string> descriptions = new List<string>()
+        {
+            "Kawaii Tumblr - Limited edition pastel tumbler for cold & hot drinks.",
+            "Kawaii T-Shirt - Soft cotton shirt with cute character print.",
+            "Kawaii Totebag - Eco-friendly canvas bag with kawaii design."
+        };
+        private readonly List<string> colorOptions = new List<string>() { "Black", "Beige", "Blue" };
+
         private int currentIndex = 0;
 
         public merchandiseForm()
         {
             InitializeComponent();
-            this.Load += merchandiseForm_Load; // Make sure the Load event is attached
+            this.Load += merchandiseForm_Load;
         }
 
         private void merchandiseForm_Load(object sender, EventArgs e)
@@ -37,35 +38,41 @@ namespace ProjectKawaiiCafeOrderingSystem
             textBoxCustName.MaxLength = 15;
             textBoxCustName.Visible = false;
 
-            // Sample product list
-            products.Add(new Product
-            {
-                Name = "Kawaii Tumblr",
-                Price = 29.99m,
-                Description = "Cute pink cup with mascot logo.",
-                ImageIndex = 0,
-                AvailableColors = new List<string> { "Blue", "Pink", "Grey" }
-            });
+            LoadMerchandiseFromDatabase();
 
-            products.Add(new Product
-            {
-                Name = "Kawaii T-Shirt",
-                Price = 49.90m,
-                Description = "Exclusive T-Shirt from Kawaii Cafe with cute mascot",
-                ImageIndex = 1,
-                AvailableColors = new List<string> { "Black", "White", "Beige" }
-            });
+            if (products.Count > 0)
+                DisplayProduct(currentIndex);
+        }
 
-            products.Add(new Product
-            {
-                Name = "Kawaii Totebag",
-                Price = 19.90m,
-                Description = "Stylish Totebag with Exclusive Design from Kawaii Cafe",
-                ImageIndex = 2,
-                AvailableColors = new List<string> { "Beige", "Black", "Brown" }
-            });
+        private void LoadMerchandiseFromDatabase()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
+            string query = "SELECT merch_name, merch_price FROM Merchandise";
 
-            DisplayProduct(currentIndex);
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Product p = new Product
+                        {
+                            Name = reader["merch_name"].ToString(),
+                            Price = Convert.ToDecimal(reader["merch_price"]),
+                            Description = descriptions[products.Count % descriptions.Count]
+                        };
+                        products.Add(p);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading merchandise: " + ex.Message);
+            }
         }
 
         private void DisplayProduct(int index)
@@ -77,13 +84,13 @@ namespace ProjectKawaiiCafeOrderingSystem
                 labelProPrice.Text = "RM " + p.Price.ToString("F2");
                 labelDescription.Text = p.Description;
 
-                if (imageListMerch.Images.Count > p.ImageIndex)
-                    pictureBoxMerch.Image = imageListMerch.Images[p.ImageIndex];
+                if (imageListMerch.Images.Count > index)
+                    pictureBoxMerch.Image = imageListMerch.Images[index];
                 else
                     pictureBoxMerch.Image = null;
 
                 comboBoxColor.Items.Clear();
-                comboBoxColor.Items.AddRange(p.AvailableColors.ToArray());
+                comboBoxColor.Items.AddRange(colorOptions.ToArray());
                 comboBoxColor.SelectedIndex = 0;
 
                 numericUpDownQty.Value = 0;
@@ -111,7 +118,47 @@ namespace ProjectKawaiiCafeOrderingSystem
             textBoxCustName.Visible = checkBoxCustName.Checked;
         }
 
-        // Dummy event handlers to avoid design errors
+        private void buttonNextForm_Click(object sender, EventArgs e)
+        {
+            var selectedProduct = products[currentIndex];
+            string selectedColor = comboBoxColor.SelectedItem.ToString();
+            int quantity = (int)numericUpDownQty.Value;
+            string customName = checkBoxCustName.Checked ? textBoxCustName.Text.Trim() : "";
+
+            if (quantity == 0)
+            {
+                MessageBox.Show("Please select a quantity.");
+                return;
+            }
+
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
+            string insertQuery = "INSERT INTO TempSelection (merch_name, merch_price, merch_custom, color, quantity) VALUES (@name, @price, @custom, @color, @qty)";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(insertQuery, conn);
+                    cmd.Parameters.AddWithValue("@name", selectedProduct.Name);
+                    cmd.Parameters.AddWithValue("@price", selectedProduct.Price);
+                    cmd.Parameters.AddWithValue("@custom", customName);
+                    cmd.Parameters.AddWithValue("@color", selectedColor);
+                    cmd.Parameters.AddWithValue("@qty", quantity);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving selection: " + ex.Message);
+                return;
+            }
+
+            checkoutForm checkout = new checkoutForm();
+            this.Hide();
+            checkout.Show();
+        }
+
         private void labelMerchTittle_Click(object sender, EventArgs e) { }
         private void pictureBoxMerch_Click(object sender, EventArgs e) { }
         private void labelProName_Click(object sender, EventArgs e) { }
@@ -121,7 +168,6 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void numericUpDownQty_ValueChanged(object sender, EventArgs e) { }
         private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e) { }
         private void textBoxCustName_TextChanged(object sender, EventArgs e) { }
-        private void buttonNextForm_Click(object sender, EventArgs e) { }
         private void labelColor_Click(object sender, EventArgs e) { }
     }
 }
