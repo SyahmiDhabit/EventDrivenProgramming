@@ -268,61 +268,51 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnNext_Click(object sender, EventArgs e) 
         {
-            if (listFood.Items.Count == 0 && listDrink.Items.Count == 0 && ListDessert.Items.Count == 0)
+            List<string> selectedMenuItems = new List<string>();
+
+            foreach (string item in listFood.Items)
+                selectedMenuItems.Add(item.Split('x')[0].Trim());
+
+            foreach (string item in listDrink.Items)
+                selectedMenuItems.Add(item.Split('x')[0].Trim());
+
+            foreach (string item in ListDessert.Items)
+                selectedMenuItems.Add(item.Split('x')[0].Trim());
+
+            if (selectedMenuItems.Count == 0)
             {
                 MessageBox.Show("Please select at least one item before continuing.");
                 return;
             }
 
-            string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=KawaiiCafeDB;Integrated Security=True";
-
-            try
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                conn.Open();
+
+                SqlCommand getMaxIdCmd = new SqlCommand("SELECT ISNULL(MAX(order_ID), 0) + 1 FROM [Order]", conn);
+                int newOrderID = (int)getMaxIdCmd.ExecuteScalar();
+
+                foreach (string itemName in selectedMenuItems)
                 {
-                    conn.Open();
+                    SqlCommand getMenuIDCmd = new SqlCommand("SELECT menu_ID FROM Menu WHERE menu_name = @name", conn);
+                    getMenuIDCmd.Parameters.AddWithValue("@name", itemName);
+                    object result = getMenuIDCmd.ExecuteScalar();
 
-                    SqlCommand getMaxIdCmd = new SqlCommand("SELECT ISNULL(MAX(order_ID), 0) + 1 FROM [Order]", conn);
-                    int newOrderID = (int)getMaxIdCmd.ExecuteScalar();
-
-                    // Helper function to extract and insert menu items
-                    void InsertMenuItems(ListBox listBox)
+                    if (result != null)
                     {
-                        foreach (string item in listBox.Items)
-                        {
-                            string itemName = item.Split('x')[0].Trim();
+                        int menuID = Convert.ToInt32(result);
 
-                            SqlCommand getMenuIDCmd = new SqlCommand("SELECT menu_ID FROM Menu WHERE menu_name = @name", conn);
-                            getMenuIDCmd.Parameters.AddWithValue("@name", itemName);
-                            object result = getMenuIDCmd.ExecuteScalar();
+                        SqlCommand insertCmd = new SqlCommand(
+                            "INSERT INTO [Order] (order_ID, order_date, cust_ID, menu_ID, merch_ID) VALUES (@order_ID, @order_date, @cust_ID, @menu_ID, @merch_ID)", conn);
+                        insertCmd.Parameters.AddWithValue("@order_ID", newOrderID);
+                        insertCmd.Parameters.AddWithValue("@order_date", DateTime.Now);
+                        insertCmd.Parameters.AddWithValue("@cust_ID", 1);
+                        insertCmd.Parameters.AddWithValue("@menu_ID", menuID);
+                        insertCmd.Parameters.AddWithValue("@merch_ID", 1);
 
-                            if (result != null)
-                            {
-                                int menuID = Convert.ToInt32(result);
-
-                                SqlCommand insertCmd = new SqlCommand(
-                                    "INSERT INTO [Order] (order_ID, order_date, cust_ID, menu_ID, merch_ID) VALUES (@order_ID, @order_date, @cust_ID, @menu_ID, @merch_ID)", conn);
-                                insertCmd.Parameters.AddWithValue("@order_ID", newOrderID);
-                                insertCmd.Parameters.AddWithValue("@order_date", DateTime.Now);
-                                insertCmd.Parameters.AddWithValue("@cust_ID", 1);
-                                insertCmd.Parameters.AddWithValue("@menu_ID", menuID);
-                                insertCmd.Parameters.AddWithValue("@merch_ID", 1);
-
-                                insertCmd.ExecuteNonQuery();
-                            }
-                        }
+                        insertCmd.ExecuteNonQuery();
                     }
-
-                    InsertMenuItems(listFood);
-                    InsertMenuItems(listDrink);
-                    InsertMenuItems(ListDessert);
                 }
-
-                MessageBox.Show("Order submitted successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
