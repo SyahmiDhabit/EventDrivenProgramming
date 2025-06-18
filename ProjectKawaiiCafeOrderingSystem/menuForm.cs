@@ -18,6 +18,8 @@ namespace ProjectKawaiiCafeOrderingSystem
         private Dictionary<string, decimal> drinkPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> dessertPrices = new Dictionary<string, decimal>();
 
+
+
         public menuForm()
         {
             InitializeComponent();
@@ -266,10 +268,62 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnNext_Click(object sender, EventArgs e) 
         {
-            this.Hide();
-            merchandiseForm merchForm = new merchandiseForm();
-            merchForm.ShowDialog();
-            
+            if (listFood.Items.Count == 0 && listDrink.Items.Count == 0 && ListDessert.Items.Count == 0)
+            {
+                MessageBox.Show("Please select at least one item before continuing.");
+                return;
+            }
+
+            string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=KawaiiCafeDB;Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand getMaxIdCmd = new SqlCommand("SELECT ISNULL(MAX(order_ID), 0) + 1 FROM [Order]", conn);
+                    int newOrderID = (int)getMaxIdCmd.ExecuteScalar();
+
+                    // Helper function to extract and insert menu items
+                    void InsertMenuItems(ListBox listBox)
+                    {
+                        foreach (string item in listBox.Items)
+                        {
+                            string itemName = item.Split('x')[0].Trim();
+
+                            SqlCommand getMenuIDCmd = new SqlCommand("SELECT menu_ID FROM Menu WHERE menu_name = @name", conn);
+                            getMenuIDCmd.Parameters.AddWithValue("@name", itemName);
+                            object result = getMenuIDCmd.ExecuteScalar();
+
+                            if (result != null)
+                            {
+                                int menuID = Convert.ToInt32(result);
+
+                                SqlCommand insertCmd = new SqlCommand(
+                                    "INSERT INTO [Order] (order_ID, order_date, cust_ID, menu_ID, merch_ID) VALUES (@order_ID, @order_date, @cust_ID, @menu_ID, @merch_ID)", conn);
+                                insertCmd.Parameters.AddWithValue("@order_ID", newOrderID);
+                                insertCmd.Parameters.AddWithValue("@order_date", DateTime.Now);
+                                insertCmd.Parameters.AddWithValue("@cust_ID", 1);
+                                insertCmd.Parameters.AddWithValue("@menu_ID", menuID);
+                                insertCmd.Parameters.AddWithValue("@merch_ID", 1);
+
+                                insertCmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+
+                    InsertMenuItems(listFood);
+                    InsertMenuItems(listDrink);
+                    InsertMenuItems(ListDessert);
+                }
+
+                MessageBox.Show("Order submitted successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void labelQtyDessert_Click(object sender, EventArgs e) { }
@@ -295,12 +349,10 @@ namespace ProjectKawaiiCafeOrderingSystem
             int index = listBoxFood.SelectedIndex;
             if (index >= 0)
             {
-                // Tunjuk harga
                 string selected = listBoxFood.SelectedItem.ToString();
                 decimal price = foodPrices[selected];
                 labelPriceFood.Text = $"RM {price:F2}";
 
-                // Tunjuk gambar ikut index
                 if (index < imageListFood.Images.Count)
                 {
                     pictureBoxFood.Image = imageListFood.Images[index];
