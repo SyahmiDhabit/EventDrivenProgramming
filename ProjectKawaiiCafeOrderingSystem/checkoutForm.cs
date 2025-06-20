@@ -17,66 +17,14 @@ namespace ProjectKawaiiCafeOrderingSystem
             InitializeComponent();
         }
 
-        private void labelcheckout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDiscount_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkoutForm_Load(object sender, EventArgs e)
         {
-            labelcardnum.Visible = false;
-            textBoxCardNum.Visible = false;
-            labelCVV.Visible = false;
-            textBoxCVV.Visible = false;
-            labelAmount.Visible = false;
-            textBoxAmount.Visible = false;
+
         }
 
-        private void buttonCheckout_Click(object sender, EventArgs e)
+        private void listItem_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (radioDebit.Checked)
-            {
-                string cardNumber = textBoxCardNum.Text.Trim();
-                string cvv = textBoxCVV.Text.Trim();
-
-                if (cardNumber.Length != 16 || !cardNumber.All(char.IsDigit))
-                {
-                    MessageBox.Show("Please enter a valid 16-digit card number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (cvv.Length != 3 || !cvv.All(char.IsDigit))
-                {
-                    MessageBox.Show("Please enter a valid 3-digit CVV.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Proceed with checkout (valid debit input)
-                MessageBox.Show("Payment Successful via Debit Card!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (radioCash.Checked)
-            {
-                string amountText = textBoxAmount.Text.Trim();
-
-                if (string.IsNullOrWhiteSpace(amountText) || !decimal.TryParse(amountText, out _))
-                {
-                    MessageBox.Show("Please enter a valid cash amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Proceed with checkout (valid cash input)
-                MessageBox.Show("Payment Successful via Cash!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Please select a payment method.", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
         private void buttonCalculate_Click(object sender, EventArgs e)
@@ -84,50 +32,32 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         }
 
-        private void labelPaymentMethod_Click(object sender, EventArgs e)
+        private void labelDisPercen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTotalPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonDebit_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonCash_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelCardNum_Click(object sender, EventArgs e)
         {
 
         }
 
         private void textBoxCardNum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void radioCash_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioCash.Checked)
-            {
-                // Show amount fields
-                labelAmount.Visible = true;
-                textBoxAmount.Visible = true;
-
-                // Hide card fields
-                labelcardnum.Visible = false;
-                textBoxCardNum.Visible = false;
-                labelCVV.Visible = false;
-                textBoxCVV.Visible = false;
-            }
-        }
-
-        private void radioDebit_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioDebit.Checked)
-            {
-                // Show card fields
-                labelcardnum.Visible = true;
-                textBoxCardNum.Visible = true;
-                labelCVV.Visible = true;
-                textBoxCVV.Visible = true;
-
-                // Hide amount fields
-                labelAmount.Visible = false;
-                textBoxAmount.Visible = false;
-            }
-        }
-
-        private void labelcardnum_Click(object sender, EventArgs e)
         {
 
         }

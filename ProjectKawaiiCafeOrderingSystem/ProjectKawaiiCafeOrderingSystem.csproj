@@ -138,6 +138,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="checkoutForm.Designer.cs">
+      <DependentUpon>checkoutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,12 +160,6 @@
     </Compile>
     <Compile Include="menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="checkoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="checkoutForm.Designer.cs">
-      <DependentUpon>checkoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="merchandiseForm.cs">
       <SubType>Form</SubType>
@@ -197,14 +197,14 @@
     <Compile Include="registerForm.Designer.cs">
       <DependentUpon>registerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="checkoutForm.resx">
+      <DependentUpon>checkoutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="checkoutForm.resx">
-      <DependentUpon>checkoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="merchandiseForm.resx">
       <DependentUpon>merchandiseForm.cs</DependentUpon>
