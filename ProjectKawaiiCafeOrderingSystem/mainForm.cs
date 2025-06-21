@@ -35,7 +35,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\syami\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -53,10 +53,11 @@ namespace ProjectKawaiiCafeOrderingSystem
                     if (count == 1)
                     {
                         MessageBox.Show("Welcome! Login successful.", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OrderSession.CurrentUsername = username;
                         menuForm menuform = new menuForm();
                         this.Hide();
-                        menuform.ShowDialog();
-                        this.Close();
+                        menuform.Show();
+                        this.Hide();
                     }
                     else
                     {
@@ -95,7 +96,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string username = textBoxUsername.Text.Trim();
             string password = textBoxPwd.Text.Trim();
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\syami\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -133,12 +134,18 @@ namespace ProjectKawaiiCafeOrderingSystem
 
             private void btnRegisteration_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            registerForm regform = new registerForm();
-            regform.ShowDialog();
+            this.Hide();               // Don't close this form
+            registerForm register = new registerForm();
+            register.ShowDialog();
+            this.Show();
         }
 
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelKawaiTittle_Click(object sender, EventArgs e)
         {
 
         }

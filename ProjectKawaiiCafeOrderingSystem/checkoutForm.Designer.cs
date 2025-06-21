@@ -41,7 +41,6 @@
             this.labelCVV = new System.Windows.Forms.Label();
             this.labelAmount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.labelDisPercen = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.labelTotalPrice = new System.Windows.Forms.Label();
@@ -63,10 +62,11 @@
             // labelkawaii
             // 
             this.labelkawaii.AutoSize = true;
-            this.labelkawaii.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelkawaii.BackColor = System.Drawing.Color.White;
+            this.labelkawaii.Font = new System.Drawing.Font("Monotype Corsiva", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelkawaii.Location = new System.Drawing.Point(-6, 9);
             this.labelkawaii.Name = "labelkawaii";
-            this.labelkawaii.Size = new System.Drawing.Size(372, 52);
+            this.labelkawaii.Size = new System.Drawing.Size(316, 53);
             this.labelkawaii.TabIndex = 1;
             this.labelkawaii.Text = "Kawaii CheckOut";
             // 
@@ -78,6 +78,7 @@
             this.buttonBack.TabIndex = 2;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // buttonCancel
             // 
@@ -87,6 +88,7 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonPay
             // 
@@ -96,15 +98,17 @@
             this.buttonPay.TabIndex = 4;
             this.buttonPay.Text = "Pay";
             this.buttonPay.UseVisualStyleBackColor = true;
+            this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
             // 
             // buttonCalculate
             // 
-            this.buttonCalculate.Location = new System.Drawing.Point(492, 109);
+            this.buttonCalculate.Location = new System.Drawing.Point(806, 448);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(113, 38);
             this.buttonCalculate.TabIndex = 5;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Visible = false;
             this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             // 
             // textBoxCVV
@@ -174,21 +178,11 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Membership =";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(630, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 25);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Discount";
-            // 
             // labelDisPercen
             // 
             this.labelDisPercen.AutoSize = true;
             this.labelDisPercen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDisPercen.Location = new System.Drawing.Point(755, 65);
+            this.labelDisPercen.Location = new System.Drawing.Point(634, 65);
             this.labelDisPercen.Name = "labelDisPercen";
             this.labelDisPercen.Size = new System.Drawing.Size(30, 25);
             this.labelDisPercen.TabIndex = 14;
@@ -199,17 +193,17 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(630, 113);
+            this.label7.Location = new System.Drawing.Point(571, 113);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 25);
+            this.label7.Size = new System.Drawing.Size(53, 25);
             this.label7.TabIndex = 15;
-            this.label7.Text = "RM";
+            this.label7.Text = "RM :";
             // 
             // labelTotalPrice
             // 
             this.labelTotalPrice.AutoSize = true;
             this.labelTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalPrice.Location = new System.Drawing.Point(724, 113);
+            this.labelTotalPrice.Location = new System.Drawing.Point(634, 113);
             this.labelTotalPrice.Name = "labelTotalPrice";
             this.labelTotalPrice.Size = new System.Drawing.Size(61, 25);
             this.labelTotalPrice.TabIndex = 16;
@@ -254,6 +248,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1038, 587);
             this.Controls.Add(this.radioButtonCash);
             this.Controls.Add(this.radioButtonDebit);
@@ -261,7 +257,6 @@
             this.Controls.Add(this.labelTotalPrice);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.labelDisPercen);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelAmount);
             this.Controls.Add(this.labelCVV);
@@ -298,7 +293,6 @@
         private System.Windows.Forms.Label labelCVV;
         private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelDisPercen;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelTotalPrice;

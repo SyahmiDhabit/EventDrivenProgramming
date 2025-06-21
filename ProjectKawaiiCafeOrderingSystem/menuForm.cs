@@ -13,7 +13,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class menuForm : Form
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\syami\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
         private Dictionary<string, decimal> foodPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> drinkPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> dessertPrices = new Dictionary<string, decimal>();
@@ -132,39 +132,61 @@ namespace ProjectKawaiiCafeOrderingSystem
             decimal total = qty * price;
 
             listFood.Items.Add($"{selected} x{qty} - RM {total:F2}");
+            OrderSession.OrderedItems.Add(new OrderItem
+            {
+                Name = selected,
+                Quantity = qty,
+                TotalPrice = total
+            });
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e) { }
 
         private void listFood_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            string selected = listBoxFood.SelectedItem?.ToString();
-            if (selected == null)
-            {
-                MessageBox.Show("Please select a food item.");
-                return;
-            }
+            //string selected = listBoxFood.SelectedItem?.ToString();
+            //if (selected == null)
+            //{
+            //    MessageBox.Show("Please select a food item.");
+            //    return;
+            //}
 
-            int qty = (int)numericUpDownFood.Value;
-            if (qty <= 0)
-            {
-                MessageBox.Show("Quantity must be at least 1.");
-                return;
-            }
+            //int qty = (int)numericUpDownFood.Value;
+            //if (qty <= 0)
+            //{
+            //    MessageBox.Show("Quantity must be at least 1.");
+            //    return;
+            //}
 
-            decimal price = foodPrices[selected];
-            decimal total = qty * price;
+            //decimal price = foodPrices[selected];
+            //decimal total = qty * price;
 
-            listFood.Items.Add($"{selected} x{qty} - RM {total:F2}");
+            //listFood.Items.Add($"{selected} x{qty} - RM {total:F2}");
         }
 
         private void checkedListBoxDessert_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void btnRemoveDessert_Click(object sender, EventArgs e) 
         {
-            if (ListDessert.SelectedIndex >= 0)
+            int index = ListDessert.SelectedIndex;
+            if (index >= 0)
             {
-                ListDessert.Items.RemoveAt(ListDessert.SelectedIndex);
+                // Get selected item text, e.g., "Ice Cream x2 - RM 8.00"
+                string itemText = ListDessert.Items[index].ToString();
+
+                // Extract the name before ' x'
+                string name = itemText.Split(new[] { " x" }, StringSplitOptions.None)[0].Trim();
+
+                // Remove from the UI list
+                ListDessert.Items.RemoveAt(index);
+
+                // Remove from OrderSession.OrderedItems
+                var itemToRemove = OrderSession.OrderedItems
+                    .FirstOrDefault(i => i.Name == name);
+                if (itemToRemove != null)
+                {
+                    OrderSession.OrderedItems.Remove(itemToRemove);
+                }
             }
             else
             {
@@ -194,21 +216,49 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void btnRemFood_Click(object sender, EventArgs e)
         {
-            if (listFood.SelectedIndex >= 0)
+            int index = listFood.SelectedIndex;
+            if (index >= 0)
             {
-                listFood.Items.RemoveAt(listFood.SelectedIndex);
+                // Get the item text, e.g., "Burger x2 - RM 10.00"
+                string itemText = listFood.Items[index].ToString();
+
+                // Extract the name before " x"
+                string name = itemText.Split(new[] { " x" }, StringSplitOptions.None)[0].Trim();
+
+                // Remove from UI list
+                listFood.Items.RemoveAt(index);
+
+                // Remove from OrderedItems where name matches (optional: also check quantity)
+                var itemToRemove = OrderSession.OrderedItems
+                    .FirstOrDefault(i => i.Name == name);
+                if (itemToRemove != null)
+                {
+                    OrderSession.OrderedItems.Remove(itemToRemove);
+                }
             }
             else
             {
                 MessageBox.Show("Please select an item to remove.");
             }
+
         }
 
         private void btnRemDrink_Click(object sender, EventArgs e)
         {
-            if (listDrink.SelectedIndex >= 0)
+            int index = listDrink.SelectedIndex;
+            if (index >= 0)
             {
-                listDrink.Items.RemoveAt(listDrink.SelectedIndex);
+                string itemText = listDrink.Items[index].ToString();
+                string name = itemText.Split(new[] { " x" }, StringSplitOptions.None)[0].Trim();
+
+                listDrink.Items.RemoveAt(index);
+
+                var itemToRemove = OrderSession.OrderedItems
+                    .FirstOrDefault(i => i.Name == name);
+                if (itemToRemove != null)
+                {
+                    OrderSession.OrderedItems.Remove(itemToRemove);
+                }
             }
             else
             {
@@ -236,6 +286,13 @@ namespace ProjectKawaiiCafeOrderingSystem
             decimal total = qty * price;
 
             ListDessert.Items.Add($"{selected} x{qty} - RM {total:F2}");
+
+            OrderSession.OrderedItems.Add(new OrderItem
+            {
+                Name = selected,
+                Quantity = qty,
+                TotalPrice = total
+            });
         }
 
         private void btnAddDrink_Click_1(object sender, EventArgs e) 
@@ -258,6 +315,13 @@ namespace ProjectKawaiiCafeOrderingSystem
             decimal total = qty * price;
 
             listDrink.Items.Add($"{selected} x{qty} - RM {total:F2}");
+
+            OrderSession.OrderedItems.Add(new OrderItem
+            {
+                Name = selected,
+                Quantity = qty,
+                TotalPrice = total
+            });
         }
 
         private void labelPriceFood_Click(object sender, EventArgs e) { }
@@ -321,9 +385,8 @@ namespace ProjectKawaiiCafeOrderingSystem
             }
 
             this.Hide();
-            merchandiseForm merchForm = new merchandiseForm();
-            merchForm.ShowDialog();
-            
+            merchandiseForm merch = new merchandiseForm(this); // pass this if you want to go back
+            merch.ShowDialog();
         }
 
         private void labelQtyDessert_Click(object sender, EventArgs e) { }

@@ -167,6 +167,7 @@
     <Compile Include="merchandiseForm.Designer.cs">
       <DependentUpon>merchandiseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderSession.cs" />
     <Compile Include="receiptForm.cs">
       <SubType>Form</SubType>
     </Compile>

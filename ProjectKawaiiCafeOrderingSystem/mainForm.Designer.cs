@@ -62,6 +62,7 @@
             this.labelKawaiTittle.Size = new System.Drawing.Size(576, 82);
             this.labelKawaiTittle.TabIndex = 8;
             this.labelKawaiTittle.Text = "Kawaii Cafe Ordering";
+            this.labelKawaiTittle.Click += new System.EventHandler(this.labelKawaiTittle_Click);
             // 
             // btnNext
             // 

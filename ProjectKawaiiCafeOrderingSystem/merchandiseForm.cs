@@ -7,6 +7,13 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class merchandiseForm : Form
     {
+        private menuForm _menuForm;
+
+        public merchandiseForm(menuForm menu)
+        {
+            InitializeComponent();
+            _menuForm = menu;
+        }
         private class Product
         {
             public string Name { get; set; }
@@ -46,7 +53,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void LoadMerchandiseFromDatabase()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
             string query = "SELECT merch_name, merch_price FROM Merchandise";
 
             try
@@ -124,39 +131,48 @@ namespace ProjectKawaiiCafeOrderingSystem
             string selectedColor = comboBoxColor.SelectedItem.ToString();
             int quantity = (int)numericUpDownQty.Value;
             string customName = checkBoxCustName.Checked ? textBoxCustName.Text.Trim() : "";
-
-            if (quantity == 0)
+            if (quantity > 0)
             {
-                MessageBox.Show("Please select a quantity.");
-                return;
-            }
+                // Save to TempSelection table
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+                string insertQuery = "INSERT INTO TempSelection (merch_name, merch_price, merch_custom, color, quantity) VALUES (@name, @price, @custom, @color, @qty)";
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
-            string insertQuery = "INSERT INTO TempSelection (merch_name, merch_price, merch_custom, color, quantity) VALUES (@name, @price, @custom, @color, @qty)";
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(insertQuery, conn);
-                    cmd.Parameters.AddWithValue("@name", selectedProduct.Name);
-                    cmd.Parameters.AddWithValue("@price", selectedProduct.Price);
-                    cmd.Parameters.AddWithValue("@custom", customName);
-                    cmd.Parameters.AddWithValue("@color", selectedColor);
-                    cmd.Parameters.AddWithValue("@qty", quantity);
-                    cmd.ExecuteNonQuery();
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand(insertQuery, conn);
+                        cmd.Parameters.AddWithValue("@name", selectedProduct.Name);
+                        cmd.Parameters.AddWithValue("@price", selectedProduct.Price);
+                        cmd.Parameters.AddWithValue("@custom", customName);
+                        cmd.Parameters.AddWithValue("@color", selectedColor);
+                        cmd.Parameters.AddWithValue("@qty", quantity);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // ✅ Add to OrderSession
+                    string displayName = $"{selectedProduct.Name} ({selectedColor})";
+                    if (!string.IsNullOrEmpty(customName))
+                        displayName += $" - {customName}";
+
+                    OrderSession.OrderedItems.Add(new OrderItem
+                    {
+                        Name = displayName,
+                        Quantity = quantity,
+                        TotalPrice = selectedProduct.Price * quantity
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving selection: " + ex.Message);
+                    return;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving selection: " + ex.Message);
-                return;
-            }
 
-            checkoutForm checkout = new checkoutForm();
             this.Hide();
-            checkout.Show();
+            checkoutForm checkout = new checkoutForm(_menuForm);
+            checkout.ShowDialog();
         }
 
         private void labelMerchTittle_Click(object sender, EventArgs e) { }

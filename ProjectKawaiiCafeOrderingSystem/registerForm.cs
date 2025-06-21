@@ -47,7 +47,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -150,6 +150,11 @@ namespace ProjectKawaiiCafeOrderingSystem
             mainForm mainform = new mainForm();
             mainform.ShowDialog();
             this.Close();
+        }
+
+        private void registerForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

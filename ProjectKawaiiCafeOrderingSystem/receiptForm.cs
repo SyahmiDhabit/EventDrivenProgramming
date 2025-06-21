@@ -12,10 +12,12 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class receiptForm : Form
     {
+
         public receiptForm()
         {
             InitializeComponent();
         }
+
 
         private void receiptForm_Load(object sender, EventArgs e)
         {

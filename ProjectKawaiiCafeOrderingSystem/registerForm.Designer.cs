@@ -236,6 +236,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "registerForm";
             this.Text = "~ Customer Registration";
+            this.Load += new System.EventHandler(this.registerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
