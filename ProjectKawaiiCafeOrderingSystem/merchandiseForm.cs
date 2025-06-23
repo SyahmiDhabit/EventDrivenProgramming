@@ -13,6 +13,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
             _menuForm = menu;
+            this.Load += merchandiseForm_Load;
         }
         private class Product
         {
@@ -32,12 +33,6 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private int currentIndex = 0;
 
-        public merchandiseForm()
-        {
-            InitializeComponent();
-            this.Load += merchandiseForm_Load;
-        }
-
         private void merchandiseForm_Load(object sender, EventArgs e)
         {
             numericUpDownQty.Maximum = 3;
@@ -53,7 +48,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void LoadMerchandiseFromDatabase()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
             string query = "SELECT merch_name, merch_price FROM Merchandise";
 
             try
@@ -127,52 +122,51 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonNextForm_Click(object sender, EventArgs e)
         {
-            var selectedProduct = products[currentIndex];
-            string selectedColor = comboBoxColor.SelectedItem.ToString();
-            int quantity = (int)numericUpDownQty.Value;
-            string customName = checkBoxCustName.Checked ? textBoxCustName.Text.Trim() : "";
-            if (quantity > 0)
+            if (products.Count == 0)
             {
-                // Save to TempSelection table
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
-                string insertQuery = "INSERT INTO TempSelection (merch_name, merch_price, merch_custom, color, quantity) VALUES (@name, @price, @custom, @color, @qty)";
-
-                try
-                {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand(insertQuery, conn);
-                        cmd.Parameters.AddWithValue("@name", selectedProduct.Name);
-                        cmd.Parameters.AddWithValue("@price", selectedProduct.Price);
-                        cmd.Parameters.AddWithValue("@custom", customName);
-                        cmd.Parameters.AddWithValue("@color", selectedColor);
-                        cmd.Parameters.AddWithValue("@qty", quantity);
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // ✅ Add to OrderSession
-                    string displayName = $"{selectedProduct.Name} ({selectedColor})";
-                    if (!string.IsNullOrEmpty(customName))
-                        displayName += $" - {customName}";
-
-                    OrderSession.OrderedItems.Add(new OrderItem
-                    {
-                        Name = displayName,
-                        Quantity = quantity,
-                        TotalPrice = selectedProduct.Price * quantity
-                    });
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error saving selection: " + ex.Message);
-                    return;
-                }
+                MessageBox.Show("No merchandise available.");
+                return;
             }
 
-            this.Hide();
+            int quantity = (int)numericUpDownQty.Value;
+
+            if (quantity > 0)
+            {
+                var selectedProduct = products[currentIndex];
+                string color = comboBoxColor.SelectedItem.ToString();
+                string customName = checkBoxCustName.Checked ? textBoxCustName.Text.Trim() : "";
+
+                string itemDescription = $"{selectedProduct.Name} ({color})";
+                if (!string.IsNullOrEmpty(customName))
+                {
+                    itemDescription += $" - {customName}";
+                }
+
+                decimal totalPrice = selectedProduct.Price * quantity;
+
+                // Save to session
+                OrderSession.OrderedItems.Add(new OrderItem
+                {
+                    MenuID = 0,  // 0 or -1 to indicate it's merchandise, no menu item
+                    Name = itemDescription,
+                    Price = selectedProduct.Price,
+                    Quantity = quantity,
+                    TotalPrice = totalPrice,
+                    IsMerchandise = true,
+                    MerchID = currentIndex + 1  // Assuming merchID in your DB is 1-based and matches list order
+                });
+
+                MessageBox.Show($"{quantity} x {itemDescription} added to your order.", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("You did not select any merchandise. Proceeding to checkout.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Go to checkout regardless of quantity
             checkoutForm checkout = new checkoutForm(_menuForm);
-            checkout.ShowDialog();
+            this.Hide();
+            checkout.Show();
         }
 
         private void labelMerchTittle_Click(object sender, EventArgs e) { }

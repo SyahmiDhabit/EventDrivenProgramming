@@ -15,24 +15,9 @@ namespace ProjectKawaiiCafeOrderingSystem
         [STAThread]
         static void Main()
         {
-            ClearTempSelection(); // Add this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainForm());
-        }
-
-
-        private static void ClearTempSelection()
-        {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
-            string deleteQuery = "DELETE FROM TempSelection";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(deleteQuery, conn);
-                cmd.ExecuteNonQuery();
-            }
         }
 
     }

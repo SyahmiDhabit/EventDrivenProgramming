@@ -14,11 +14,13 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class checkoutForm : Form
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
-
+        public class OrderItem
+        {
+            public int menuID { get; set; }
+            public string Name { get; set; }
+            public int Quantity { get; set; }
+        }
         private menuForm _menuForm;
-
-        private decimal finalTotalAfterDiscount = 0;
 
         public checkoutForm()
         {
@@ -28,72 +30,39 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
             _menuForm = menu;
+            this.Load += checkoutForm_Load;
         }
 
         private void checkoutForm_Load(object sender, EventArgs e)
         {
+            listItem.Items.Clear();
+
+            foreach (var item in OrderSession.OrderedItems)
+            {
+                listItem.Items.Add(item.ToString());
+            }
+
+            labelTotalPrice.Text = "Total: RM " + CalculateTotal().ToString("F2");
+
+            // Hide everything by default
             labelCardNum.Visible = false;
             textBoxCardNum.Visible = false;
             labelCVV.Visible = false;
             textBoxCVV.Visible = false;
-
             labelAmount.Visible = false;
             textBoxAmount.Visible = false;
-            listItem.Items.Clear();
-            labelDisPercen.Text = "";
-            labelDisPercen.Visible = true;
+        }
 
+        private decimal CalculateTotal()
+        {
             decimal total = 0;
             foreach (var item in OrderSession.OrderedItems)
             {
-                listItem.Items.Add(item.ToString());
                 total += item.TotalPrice;
             }
-
-            // Fetch membership info
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
-            string custUsername = OrderSession.CurrentUsername;
-            string membershipType = "None";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT cust_membertype FROM Customer WHERE cust_username = @username", conn);
-                cmd.Parameters.AddWithValue("@username", custUsername);
-
-                var result = cmd.ExecuteScalar();
-                if (result != null)
-                {
-                    membershipType = result.ToString();
-                }
-                conn.Close();
-            }
-
-            decimal discount = 0;
-
-            switch (membershipType)
-            {
-                case "Premium":
-                    discount = total * 0.20m;
-                    labelDisPercen.Text = "20% discount (Premium).";
-                    break;
-                case "Gold":
-                    discount = total * 0.15m;
-                    labelDisPercen.Text = "15% discount (Gold).";
-                    break;
-                case "Silver":
-                    discount = total * 0.10m;
-                    labelDisPercen.Text = "10% discount (Silver).";
-                    break;
-                default:
-                    labelDisPercen.Text = "No membership discount.";
-                    break;
-            }
-
-            finalTotalAfterDiscount = total - discount;
-            labelTotalPrice.Text = "RM " + finalTotalAfterDiscount.ToString("F2");
-
+            return total;
         }
+
 
         private void listItem_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -119,30 +88,30 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             if (radioButtonDebit.Checked)
             {
-                // Show debit-related fields
                 labelCardNum.Visible = true;
                 textBoxCardNum.Visible = true;
                 labelCVV.Visible = true;
                 textBoxCVV.Visible = true;
-
-                // Hide cash-related fields
                 labelAmount.Visible = false;
                 textBoxAmount.Visible = false;
+
+                textBoxCardNum.Enabled = true;
+                textBoxCVV.Enabled = true;
             }
         }
         private void radioButtonCash_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonCash.Checked)
             {
-                // Show cash-related fields
-                labelAmount.Visible = true;
-                textBoxAmount.Visible = true;
-
-                // Hide debit-related fields
                 labelCardNum.Visible = false;
                 textBoxCardNum.Visible = false;
                 labelCVV.Visible = false;
                 textBoxCVV.Visible = false;
+                textBoxCardNum.Text = "";
+                textBoxCVV.Text = "";
+
+                labelAmount.Visible = true;
+                textBoxAmount.Visible = true;
             }
         }
 
@@ -178,107 +147,94 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
-            decimal total = finalTotalAfterDiscount;
-
-            if (radioButtonDebit.Checked)
+            try
             {
-                if (!IsCardNumberValid())
+                MessageBox.Show("Customer ID: " + OrderSession.custID);
+
+                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
                 {
-                    MessageBox.Show("Card number must be 16 digits.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    connection.Open();
+
+                    MessageBox.Show("Menu Items Count: " + OrderSession.OrderedItems.Count);
+                    MessageBox.Show("Merchandise Count: " + OrderSession.OrderedMerchandise.Count);
+
+                    if (OrderSession.OrderedItems.Count == 0 && OrderSession.OrderedMerchandise.Count == 0)
+                    {
+                        MessageBox.Show("No items selected to order.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (radioButtonDebit.Checked)
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxCardNum.Text) || string.IsNullOrWhiteSpace(textBoxCVV.Text))
+                        {
+                            MessageBox.Show("Please enter card number and CVV.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    string insertOrderQuery = "INSERT INTO [Order] (order_date, cust_ID) VALUES (@date, @custID); SELECT SCOPE_IDENTITY();";
+                    SqlCommand cmd = new SqlCommand(insertOrderQuery, connection);
+                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@custID", OrderSession.custID);
+
+                    int orderID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    MessageBox.Show("Order ID generated: " + orderID);
+
+                    foreach (var item in OrderSession.OrderedItems)
+                    {
+                        string insertOrderMenuQuery = "INSERT INTO Order_Menu (order_ID, menu_ID, quantity) VALUES (@orderID, @menuID, @quantity)";
+                        SqlCommand menuCmd = new SqlCommand(insertOrderMenuQuery, connection);
+                        menuCmd.Parameters.AddWithValue("@orderID", orderID);
+                        menuCmd.Parameters.AddWithValue("@menuID", item.MenuID);
+                        menuCmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                        menuCmd.ExecuteNonQuery();
+                    }
+
+                    foreach (var merch in OrderSession.OrderedMerchandise)
+                    {
+                        string insertOrderMerchQuery = "INSERT INTO Order_Merchandise (order_ID, merch_ID, quantity) VALUES (@orderID, @merchID, @quantity)";
+                        SqlCommand merchCmd = new SqlCommand(insertOrderMerchQuery, connection); // SILAP, patut guna insertOrderMerchQuery
+                        merchCmd.Parameters.AddWithValue("@orderID", orderID);
+                        merchCmd.Parameters.AddWithValue("@merchID", merch.MerchID);
+                        merchCmd.Parameters.AddWithValue("@quantity", merch.Quantity);
+                        merchCmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Payment successful and order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Terus buka ReceiptForm
+                    receiptForm receipt = new receiptForm(orderID);
+                    receipt.Show();
+                    this.Close(); // Tutup checkoutForm
                 }
-
-                if (!IsCVVValid())
-                {
-                    MessageBox.Show("CVV must be 3 digits.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
             }
-            else if (radioButtonCash.Checked)
+            catch (Exception ex)
             {
-                if (!IsAmountValid(total))
-                {
-                    MessageBox.Show($"Cash amount must be at least RM {total:F2}", "Insufficient Cash", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                MessageBox.Show("Error processing payment: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                // No payment method selected
-                MessageBox.Show("Please select a payment method.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // ✅ All validations passed — proceed with "payment"
-            MessageBox.Show("Payment successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Optional: Clear session
-            OrderSession.OrderedItems.Clear();
-
-            // Redirect to mainForm (or thank-you screen)
-            this.Close();
-            Form main = Application.OpenForms["mainForm"];
-            if (main != null)
-            {
-                main.Show();
-            }
-            else
-            {
-                mainForm newMain = new mainForm();
-                newMain.Show();
-            }
-
-        }
-        private bool IsCardNumberValid()
-        {
-            return textBoxCardNum.Text.Length == 16 && textBoxCardNum.Text.All(char.IsDigit);
         }
 
-        private bool IsCVVValid()
-        {
-            return textBoxCVV.Text.Length == 3 && textBoxCVV.Text.All(char.IsDigit);
-        }
-
-        private bool IsAmountValid(decimal total)
-        {
-            decimal userAmount;
-            if (decimal.TryParse(textBoxAmount.Text, out userAmount))
-            {
-                // Round both values to 2 decimal places before comparing
-                userAmount = Math.Round(userAmount, 2);
-                total = Math.Round(total, 2);
-
-                return userAmount >= total;
-            }
-            return false;
-        }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            this.Close();           // Close checkout form
-            _menuForm.Show();       // Re-show the original menu form
+            this.Hide();
+            _menuForm.Show();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-         "Are you sure you want to cancel your order?",
-         "Confirm Cancellation",
-         MessageBoxButtons.YesNo,
-         MessageBoxIcon.Question);
-
+            var result = MessageBox.Show("Are you sure you want to cancel the order?", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                OrderSession.OrderedItems.Clear();
-                listItem.Items.Clear();
-                labelTotalPrice.Text = "RM 0.00";
-
-                this.Close();
-
-                mainForm newMain = new mainForm();
-                newMain.Show();
+                mainForm main = new mainForm();
+                OrderSession.Clear();
+                this.Hide();
+                main.Show();
             }
         }
+
 
 
     }

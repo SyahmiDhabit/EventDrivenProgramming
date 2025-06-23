@@ -30,7 +30,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             try
             {
@@ -61,8 +61,6 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             this.Validate();
             this.customerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.customerDataSet);
-
         }
 
         private void customerBindingNavigator_RefreshItems(object sender, EventArgs e)

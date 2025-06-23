@@ -32,13 +32,10 @@
             this.labelPwd = new System.Windows.Forms.Label();
             this.labelPhone = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBoxMembership = new System.Windows.Forms.CheckBox();
-            this.labelTypeMembership = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPwd = new System.Windows.Forms.TextBox();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.labelKawaiTittle = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
@@ -86,29 +83,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Username : ";
             // 
-            // checkBoxMembership
-            // 
-            this.checkBoxMembership.AutoSize = true;
-            this.checkBoxMembership.Location = new System.Drawing.Point(369, 320);
-            this.checkBoxMembership.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxMembership.Name = "checkBoxMembership";
-            this.checkBoxMembership.Size = new System.Drawing.Size(117, 20);
-            this.checkBoxMembership.TabIndex = 6;
-            this.checkBoxMembership.Text = "Membership ? ";
-            this.checkBoxMembership.UseVisualStyleBackColor = true;
-            this.checkBoxMembership.CheckedChanged += new System.EventHandler(this.checkBoxMembership_CheckedChanged);
-            // 
-            // labelTypeMembership
-            // 
-            this.labelTypeMembership.AutoSize = true;
-            this.labelTypeMembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTypeMembership.Location = new System.Drawing.Point(283, 346);
-            this.labelTypeMembership.Name = "labelTypeMembership";
-            this.labelTypeMembership.Size = new System.Drawing.Size(73, 25);
-            this.labelTypeMembership.TabIndex = 7;
-            this.labelTypeMembership.Text = "Type : ";
-            this.labelTypeMembership.Click += new System.EventHandler(this.labelTypeMembership_Click);
-            // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(369, 153);
@@ -145,20 +119,6 @@
             this.textBoxPwd.TabIndex = 13;
             this.textBoxPwd.UseSystemPasswordChar = true;
             this.textBoxPwd.TextChanged += new System.EventHandler(this.textBoxPwd_TextChanged);
-            // 
-            // comboBoxType
-            // 
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Items.AddRange(new object[] {
-            "Silver",
-            "Gold",
-            "Premium"});
-            this.comboBoxType.Location = new System.Drawing.Point(369, 346);
-            this.comboBoxType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(257, 24);
-            this.comboBoxType.TabIndex = 14;
-            this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.comboBoxType_SelectedIndexChanged);
             // 
             // btnRegister
             // 
@@ -222,13 +182,10 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.labelKawaiTittle);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.textBoxPwd);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.labelTypeMembership);
-            this.Controls.Add(this.checkBoxMembership);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.labelPwd);
@@ -248,13 +205,10 @@
         private System.Windows.Forms.Label labelPwd;
         private System.Windows.Forms.Label labelPhone;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBoxMembership;
-        private System.Windows.Forms.Label labelTypeMembership;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxPwd;
-        private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label labelKawaiTittle;
         private System.Windows.Forms.Label lblID;

@@ -17,8 +17,6 @@ namespace ProjectKawaiiCafeOrderingSystem
         public registerForm()
         {
             InitializeComponent();
-            comboBoxType.Visible = false;
-            labelTypeMembership.Visible = false;
         }
 
         private void label3_Click(object sender, EventArgs e){ }
@@ -30,7 +28,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string custPhone = textBoxPhone.Text.Trim();
             string username = textBoxUsername.Text.Trim();
             string password = textBoxPwd.Text.Trim();
-            string membership = checkBoxMembership.Checked ? comboBoxType.SelectedItem?.ToString() : "None";
+ 
 
             // Validation
             if (string.IsNullOrWhiteSpace(custID) || string.IsNullOrWhiteSpace(custName) ||
@@ -41,19 +39,15 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            if (checkBoxMembership.Checked && string.IsNullOrEmpty(membership))
-            {
-                MessageBox.Show("Please select a membership type.");
-                return;
-            }
+           
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
                 INSERT INTO Customer (cust_ID, cust_name, cust_phone, cust_username, cust_password, cust_membertype)
-                VALUES (@cust_ID, @cust_name, @cust_phone, @cust_username, @cust_password, @cust_membership)";
+                VALUES (@cust_ID, @cust_name, @cust_phone, @cust_username, @cust_password)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -62,7 +56,6 @@ namespace ProjectKawaiiCafeOrderingSystem
                     cmd.Parameters.AddWithValue("@cust_phone", custPhone);
                     cmd.Parameters.AddWithValue("@cust_username", username);
                     cmd.Parameters.AddWithValue("@cust_password", password);
-                    cmd.Parameters.AddWithValue("@cust_membership", membership);
 
                     try
                     {
@@ -72,36 +65,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                         MessageBox.Show("Member registered successfully!");
 
-                        // Apply discount message based on membership
-                        string discountMessage = "";
-                        switch (membership)
-                        {
-                            case "Premium":
-                                discountMessage = "You are eligible for a 20% discount!";
-                                break;
-                            case "Gold":
-                                discountMessage = "You are eligible for a 15% discount!";
-                                break;
-                            case "Silver":
-                                discountMessage = "You are eligible for a 10% discount!";
-                                break;
-                            default:
-                                discountMessage = "No discount applied.";
-                                break;
-                        }
-
-                        MessageBox.Show(discountMessage);
-
-                        // Clear form fields
-                        textBoxID.Clear();
-                        textBoxName.Clear();
-                        textBoxPhone.Clear();
-                        textBoxUsername.Clear();
-                        textBoxPwd.Clear();
-                        checkBoxMembership.Checked = false;
-                        comboBoxType.SelectedIndex = -1;
-                        comboBoxType.Visible = false;
-                        labelTypeMembership.Visible = false;
+                        
 
                     }
                     catch (Exception ex)
@@ -120,16 +84,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void checkBoxMembership_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxMembership.Checked)
-            {
-                comboBoxType.Visible = true; // Show combo box when checked
-                labelTypeMembership.Visible = true;
-            }
-            else
-            {
-                comboBoxType.Visible = false; // Hide combo box when unchecked
-                labelTypeMembership.Visible = false;
-            }
+           
         }
 
         private void labelTypeMembership_Click(object sender, EventArgs e){ }

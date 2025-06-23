@@ -42,7 +42,6 @@
             this.numericUpDownFood = new System.Windows.Forms.NumericUpDown();
             this.btnRemFood = new System.Windows.Forms.Button();
             this.menuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.menuDataSet = new ProjectKawaiiCafeOrderingSystem.MenuDataSet();
             this.labelMenu = new System.Windows.Forms.Label();
             this.groupBoxDessert = new System.Windows.Forms.GroupBox();
             this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
@@ -60,8 +59,6 @@
             this.imageListFood = new System.Windows.Forms.ImageList(this.components);
             this.imageListDessert = new System.Windows.Forms.ImageList(this.components);
             this.imageListDrink = new System.Windows.Forms.ImageList(this.components);
-            this.menuTableAdapter = new ProjectKawaiiCafeOrderingSystem.MenuDataSetTableAdapters.MenuTableAdapter();
-            this.tableAdapterManager = new ProjectKawaiiCafeOrderingSystem.MenuDataSetTableAdapters.TableAdapterManager();
             this.listBoxDrink = new System.Windows.Forms.ListBox();
             this.labelPriceDrink = new System.Windows.Forms.Label();
             this.listBoxDessert = new System.Windows.Forms.ListBox();
@@ -70,7 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuDataSet)).BeginInit();
             this.groupBoxDessert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDessert)).BeginInit();
@@ -199,16 +195,6 @@
             this.btnRemFood.Text = "Remove Food";
             this.btnRemFood.UseVisualStyleBackColor = false;
             this.btnRemFood.Click += new System.EventHandler(this.btnRemFood_Click);
-            // 
-            // menuBindingSource
-            // 
-            this.menuBindingSource.DataMember = "Menu";
-            this.menuBindingSource.DataSource = this.menuDataSet;
-            // 
-            // menuDataSet
-            // 
-            this.menuDataSet.DataSetName = "MenuDataSet";
-            this.menuDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelMenu
             // 
@@ -408,16 +394,6 @@
             this.imageListDrink.Images.SetKeyName(5, "Buttercreme.jpg");
             this.imageListDrink.Images.SetKeyName(6, "Ice Viatnamese Latte.jpg");
             // 
-            // menuTableAdapter
-            // 
-            this.menuTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.MenuTableAdapter = this.menuTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ProjectKawaiiCafeOrderingSystem.MenuDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // listBoxDrink
             // 
             this.listBoxDrink.FormattingEnabled = true;
@@ -477,7 +453,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuDataSet)).EndInit();
             this.groupBoxDessert.ResumeLayout(false);
             this.groupBoxDessert.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDessert)).EndInit();
@@ -518,10 +493,7 @@
         private System.Windows.Forms.ImageList imageListFood;
         private System.Windows.Forms.ImageList imageListDessert;
         private System.Windows.Forms.ImageList imageListDrink;
-        private MenuDataSet menuDataSet;
         private System.Windows.Forms.BindingSource menuBindingSource;
-        private MenuDataSetTableAdapters.MenuTableAdapter menuTableAdapter;
-        private MenuDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label labelPriceFood;
         private System.Windows.Forms.ListBox listBoxFood;
         private System.Windows.Forms.ListBox listBoxDrink;

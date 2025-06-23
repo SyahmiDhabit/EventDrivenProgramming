@@ -13,7 +13,7 @@ namespace ProjectKawaiiCafeOrderingSystem
     public partial class receiptForm : Form
     {
 
-        public receiptForm()
+        public receiptForm(int orderID)
         {
             InitializeComponent();
         }

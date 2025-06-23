@@ -144,10 +144,10 @@
     <Compile Include="checkoutForm.Designer.cs">
       <DependentUpon>checkoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerDataSet.Designer.cs">
+    <Compile Include="DataSetDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerDataSet.xsd</DependentUpon>
+      <DependentUpon>DataSetDatabase.xsd</DependentUpon>
     </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
@@ -179,11 +179,6 @@
     </Compile>
     <Compile Include="adminForm.Designer.cs">
       <DependentUpon>adminForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MenuDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,27 +224,16 @@
     <EmbeddedResource Include="registerForm.resx">
       <DependentUpon>registerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CustomerDataSet.xsc">
-      <DependentUpon>CustomerDataSet.xsd</DependentUpon>
+    <None Include="DataSetDatabase.xsc">
+      <DependentUpon>DataSetDatabase.xsd</DependentUpon>
     </None>
-    <None Include="CustomerDataSet.xsd">
+    <None Include="DataSetDatabase.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CustomerDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetDatabase.Designer.cs</LastGenOutput>
     </None>
-    <None Include="CustomerDataSet.xss">
-      <DependentUpon>CustomerDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MenuDataSet.xsc">
-      <DependentUpon>MenuDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MenuDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MenuDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="MenuDataSet.xss">
-      <DependentUpon>MenuDataSet.xsd</DependentUpon>
+    <None Include="DataSetDatabase.xss">
+      <DependentUpon>DataSetDatabase.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -292,13 +276,6 @@
     <Content Include="Database_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
-    <Content Include="OrderItems.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="OrderItems_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>OrderItems.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

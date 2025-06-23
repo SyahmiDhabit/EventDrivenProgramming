@@ -20,7 +20,6 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -43,21 +42,23 @@ namespace ProjectKawaiiCafeOrderingSystem
                 {
                     conn.Open();
 
-                    string query = "SELECT COUNT(*) FROM Customer WHERE cust_username = @cust_username AND cust_password = @cust_password";
+                    string query = "SELECT cust_ID FROM Customer WHERE cust_username = @cust_username AND cust_password = @cust_password";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@cust_username", username);
                     cmd.Parameters.AddWithValue("@cust_password", password);
 
-                    int count = (int)cmd.ExecuteScalar();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (count == 1)
+                    if (reader.Read())
                     {
+                        int custID = Convert.ToInt32(reader["cust_ID"]);
+                        OrderSession.custID = custID;  
+
                         MessageBox.Show("Welcome! Login successful.", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        OrderSession.CurrentUsername = username;
+
                         menuForm menuform = new menuForm();
                         this.Hide();
                         menuform.Show();
-                        this.Hide();
                     }
                     else
                     {
@@ -73,22 +74,18 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void CheckBoxMembership_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBoxNoHP_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
@@ -96,7 +93,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string username = textBoxUsername.Text.Trim();
             string password = textBoxPwd.Text.Trim();
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pirat\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -132,7 +129,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             }
         }
 
-            private void btnRegisteration_Click(object sender, EventArgs e)
+        private void btnRegisteration_Click(object sender, EventArgs e)
         {
             this.Hide();               // Don't close this form
             registerForm register = new registerForm();
@@ -142,12 +139,10 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void labelKawaiTittle_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
