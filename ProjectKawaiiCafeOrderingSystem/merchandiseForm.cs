@@ -15,8 +15,10 @@ namespace ProjectKawaiiCafeOrderingSystem
             _menuForm = menu;
             this.Load += merchandiseForm_Load;
         }
+
         private class Product
         {
+            public int MerchID { get; set; }
             public string Name { get; set; }
             public decimal Price { get; set; }
             public string Description { get; set; }
@@ -30,7 +32,6 @@ namespace ProjectKawaiiCafeOrderingSystem
             "Kawaii Totebag - Eco-friendly canvas bag with kawaii design."
         };
         private readonly List<string> colorOptions = new List<string>() { "Black", "Beige", "Blue" };
-
         private int currentIndex = 0;
 
         private void merchandiseForm_Load(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void LoadMerchandiseFromDatabase()
         {
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
-            string query = "SELECT merch_name, merch_price FROM Merchandise";
+            string query = "SELECT merch_ID, merch_name, merch_price FROM Merchandise";
 
             try
             {
@@ -63,6 +64,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                     {
                         Product p = new Product
                         {
+                            MerchID = Convert.ToInt32(reader["merch_ID"]),
                             Name = reader["merch_name"].ToString(),
                             Price = Convert.ToDecimal(reader["merch_price"]),
                             Description = descriptions[products.Count % descriptions.Count]
@@ -144,31 +146,34 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                 decimal totalPrice = selectedProduct.Price * quantity;
 
-                // Save to session
-                OrderSession.OrderedItems.Add(new OrderItem
+                // Tambah item terus ke OrderSession.OrderedMerchandise
+                OrderSession.OrderedMerchandise.Add(new OrderItem
                 {
-                    MenuID = 0,  // 0 or -1 to indicate it's merchandise, no menu item
+                    MenuID = 0,
                     Name = itemDescription,
                     Price = selectedProduct.Price,
                     Quantity = quantity,
                     TotalPrice = totalPrice,
                     IsMerchandise = true,
-                    MerchID = currentIndex + 1  // Assuming merchID in your DB is 1-based and matches list order
+                    MerchID = selectedProduct.MerchID
                 });
 
-                MessageBox.Show($"{quantity} x {itemDescription} added to your order.", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{quantity} x {itemDescription} added to your order.", "Added",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("You did not select any merchandise. Proceeding to checkout.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You did not select any merchandise. Proceeding to checkout.",
+                    "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Go to checkout regardless of quantity
+            // Terus ke checkout
             checkoutForm checkout = new checkoutForm(_menuForm);
             this.Hide();
             checkout.Show();
         }
 
+        // Event handlers kosong
         private void labelMerchTittle_Click(object sender, EventArgs e) { }
         private void pictureBoxMerch_Click(object sender, EventArgs e) { }
         private void labelProName_Click(object sender, EventArgs e) { }

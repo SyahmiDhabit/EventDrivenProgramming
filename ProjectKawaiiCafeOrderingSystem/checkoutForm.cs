@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
@@ -35,6 +27,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             InitializeComponent();
         }
+
         public checkoutForm(menuForm menu)
         {
             InitializeComponent();
@@ -46,9 +39,16 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             listItem.Items.Clear();
 
+            // ✅ List Menu Items
             foreach (var item in OrderSession.OrderedItems)
             {
-                listItem.Items.Add(item.ToString());
+                listItem.Items.Add($"Menu: {item.Name} x{item.Quantity}");
+            }
+
+            // ➕ ADDED: List Merchandise Items
+            foreach (var merch in OrderSession.OrderedMerchandise)
+            {
+                listItem.Items.Add($"Merch: {merch.Name} x{merch.Quantity}");
             }
 
             foreach (var item in OrderSession.OrderedMerchandise)
@@ -69,37 +69,32 @@ namespace ProjectKawaiiCafeOrderingSystem
         private decimal CalculateTotal()
         {
             decimal total = 0;
+
             foreach (var item in OrderSession.OrderedItems)
             {
                 total += item.TotalPrice;
             }
+
+
+            // ➕ ADDED: Calculate total for merchandise
+            foreach (var merch in OrderSession.OrderedMerchandise)
+            {
+                total += merch.TotalPrice;
+            }
+
+
             foreach (var item in OrderSession.OrderedMerchandise)
             {
                 total += item.TotalPrice;
             }
+
             return total;
         }
 
-
-        private void listItem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCalculate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDisPercen_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelTotalPrice_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void listItem_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void buttonCalculate_Click(object sender, EventArgs e) { }
+        private void labelDisPercen_Click(object sender, EventArgs e) { }
+        private void labelTotalPrice_Click(object sender, EventArgs e) { }
 
         private void radioButtonDebit_CheckedChanged(object sender, EventArgs e)
         {
@@ -116,6 +111,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 textBoxCVV.Enabled = true;
             }
         }
+
         private void radioButtonCash_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonCash.Checked)
@@ -132,41 +128,22 @@ namespace ProjectKawaiiCafeOrderingSystem
             }
         }
 
-        private void labelCardNum_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxCardNum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelCVV_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxCVV_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelAmount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void labelCardNum_Click(object sender, EventArgs e) { }
+        private void textBoxCardNum_TextChanged(object sender, EventArgs e) { }
+        private void labelCVV_Click(object sender, EventArgs e) { }
+        private void textBoxCVV_TextChanged(object sender, EventArgs e) { }
+        private void labelAmount_Click(object sender, EventArgs e) { }
+        private void textBoxAmount_TextChanged(object sender, EventArgs e) { }
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
             try
             {
+
+                MessageBox.Show("Customer ID: " + OrderSession.custID);
+
                 using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
+
                 {
                     connection.Open();
 
@@ -185,6 +162,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                         }
                     }
 
+                    // ⿡ INSERT into [Order]
                     string insertOrderQuery = "INSERT INTO [Order] (order_date, cust_ID) VALUES (@date, @custID); SELECT SCOPE_IDENTITY();";
                     SqlCommand cmd = new SqlCommand(insertOrderQuery, connection);
                     cmd.Parameters.AddWithValue("@date", DateTime.Now);
@@ -192,8 +170,18 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     int orderID = Convert.ToInt32(cmd.ExecuteScalar());
 
+                    MessageBox.Show("Order ID generated: " + orderID);
+
+                    // ⿢ INSERT into Order_Menu (skip if MenuID <= 0)
+
                     foreach (var item in OrderSession.OrderedItems)
                     {
+                        if (item.MenuID <= 0)
+                        {
+                            // Kalau MenuID tak valid, skip
+                            continue;
+                        }
+
                         string insertOrderMenuQuery = "INSERT INTO Order_Menu (order_ID, menu_ID, quantity) VALUES (@orderID, @menuID, @quantity)";
                         SqlCommand menuCmd = new SqlCommand(insertOrderMenuQuery, connection);
                         menuCmd.Parameters.AddWithValue("@orderID", orderID);
@@ -202,8 +190,15 @@ namespace ProjectKawaiiCafeOrderingSystem
                         menuCmd.ExecuteNonQuery();
                     }
 
+                    // ⿣ INSERT into Order_Merchandise
                     foreach (var merch in OrderSession.OrderedMerchandise)
                     {
+                        // Sekadar contoh kalau perlu juga buat check
+                        if (merch.MerchID <= 0)
+                        {
+                            continue;
+                        }
+
                         string insertOrderMerchQuery = "INSERT INTO Order_Merchandise (order_ID, merch_ID, quantity) VALUES (@orderID, @merchID, @quantity)";
                         SqlCommand merchCmd = new SqlCommand(insertOrderMerchQuery, connection);
                         merchCmd.Parameters.AddWithValue("@orderID", orderID);
@@ -243,8 +238,5 @@ namespace ProjectKawaiiCafeOrderingSystem
                 main.Show();
             }
         }
-
-
-
     }
 }
