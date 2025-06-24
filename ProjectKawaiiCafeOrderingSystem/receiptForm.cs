@@ -13,11 +13,15 @@ namespace ProjectKawaiiCafeOrderingSystem
     public partial class receiptForm : Form
     {
 
+        private int orderID;
+
         public receiptForm(int orderID)
         {
             InitializeComponent();
-        }
+            this.orderID = orderID;
 
+            // Kamu boleh guna this.orderID untuk query atau paparan
+        }
 
         private void receiptForm_Load(object sender, EventArgs e)
         {

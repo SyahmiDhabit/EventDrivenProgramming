@@ -28,7 +28,6 @@ namespace ProjectKawaiiCafeOrderingSystem
             string custPhone = textBoxPhone.Text.Trim();
             string username = textBoxUsername.Text.Trim();
             string password = textBoxPwd.Text.Trim();
- 
 
             // Validation
             if (string.IsNullOrWhiteSpace(custID) || string.IsNullOrWhiteSpace(custName) ||
@@ -39,39 +38,64 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-           
-
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"
-                INSERT INTO Customer (cust_ID, cust_name, cust_phone, cust_username, cust_password, cust_membertype)
+                try
+                {
+                    conn.Open();
+
+                    // Check if customer ID exists
+                    string checkIDQuery = "SELECT COUNT(*) FROM Customer WHERE cust_ID = @custID";
+                    using (SqlCommand checkIDCmd = new SqlCommand(checkIDQuery, conn))
+                    {
+                        checkIDCmd.Parameters.AddWithValue("@custID", custID);
+                        int idCount = (int)checkIDCmd.ExecuteScalar();
+
+                        if (idCount > 0)
+                        {
+                            MessageBox.Show("Customer ID already exists. Please enter a different ID.");
+                            return;
+                        }
+                    }
+
+                    // Check if username exists
+                    string checkUsernameQuery = "SELECT COUNT(*) FROM Customer WHERE cust_username = @username";
+                    using (SqlCommand checkUsernameCmd = new SqlCommand(checkUsernameQuery, conn))
+                    {
+                        checkUsernameCmd.Parameters.AddWithValue("@username", username);
+                        int usernameCount = (int)checkUsernameCmd.ExecuteScalar();
+
+                        if (usernameCount > 0)
+                        {
+                            MessageBox.Show("Username already exists. Please choose a different username.");
+                            return;
+                        }
+                    }
+
+                    // Insert new customer
+                    string insertQuery = @"
+                INSERT INTO Customer (cust_ID, cust_name, cust_phone, cust_username, cust_password)
                 VALUES (@cust_ID, @cust_name, @cust_phone, @cust_username, @cust_password)";
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@cust_ID", custID);
-                    cmd.Parameters.AddWithValue("@cust_name", custName);
-                    cmd.Parameters.AddWithValue("@cust_phone", custPhone);
-                    cmd.Parameters.AddWithValue("@cust_username", username);
-                    cmd.Parameters.AddWithValue("@cust_password", password);
-
-                    try
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
-                        conn.Open();
+                        cmd.Parameters.AddWithValue("@cust_ID", custID);
+                        cmd.Parameters.AddWithValue("@cust_name", custName);
+                        cmd.Parameters.AddWithValue("@cust_phone", custPhone);
+                        cmd.Parameters.AddWithValue("@cust_username", username);
+                        cmd.Parameters.AddWithValue("@cust_password", password);
+
                         cmd.ExecuteNonQuery();
-                        conn.Close();
-
-                        MessageBox.Show("Member registered successfully!");
-
-                        
-
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
+
+                    MessageBox.Show("Member registered successfully!");
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }

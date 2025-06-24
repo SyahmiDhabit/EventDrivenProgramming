@@ -33,7 +33,6 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonPay = new System.Windows.Forms.Button();
-            this.buttonCalculate = new System.Windows.Forms.Button();
             this.textBoxCVV = new System.Windows.Forms.TextBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.textBoxCardNum = new System.Windows.Forms.TextBox();
@@ -46,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.radioButtonDebit = new System.Windows.Forms.RadioButton();
             this.radioButtonCash = new System.Windows.Forms.RadioButton();
+            this.buttonCalculate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listItem
@@ -98,17 +98,6 @@
             this.buttonPay.Text = "Pay";
             this.buttonPay.UseVisualStyleBackColor = true;
             this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
-            // 
-            // buttonCalculate
-            // 
-            this.buttonCalculate.Location = new System.Drawing.Point(806, 448);
-            this.buttonCalculate.Name = "buttonCalculate";
-            this.buttonCalculate.Size = new System.Drawing.Size(113, 38);
-            this.buttonCalculate.TabIndex = 5;
-            this.buttonCalculate.Text = "Calculate";
-            this.buttonCalculate.UseVisualStyleBackColor = true;
-            this.buttonCalculate.Visible = false;
-            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             // 
             // textBoxCVV
             // 
@@ -239,6 +228,17 @@
             this.radioButtonCash.UseVisualStyleBackColor = false;
             this.radioButtonCash.CheckedChanged += new System.EventHandler(this.radioButtonCash_CheckedChanged);
             // 
+            // buttonCalculate
+            // 
+            this.buttonCalculate.Location = new System.Drawing.Point(806, 448);
+            this.buttonCalculate.Name = "buttonCalculate";
+            this.buttonCalculate.Size = new System.Drawing.Size(113, 38);
+            this.buttonCalculate.TabIndex = 5;
+            this.buttonCalculate.Text = "Calculate";
+            this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Visible = false;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
+            // 
             // checkoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,7 +279,6 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonPay;
-        private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.TextBox textBoxCVV;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.TextBox textBoxCardNum;
@@ -292,5 +291,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioButtonDebit;
         private System.Windows.Forms.RadioButton radioButtonCash;
+        private System.Windows.Forms.Button buttonCalculate;
     }
 }

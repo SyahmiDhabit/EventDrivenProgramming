@@ -16,10 +16,19 @@ namespace ProjectKawaiiCafeOrderingSystem
     {
         public class OrderItem
         {
-            public int menuID { get; set; }
-            public string Name { get; set; }
+            public int MenuID { get; set; }
             public int Quantity { get; set; }
+            public string Name { get; set; }
+            public decimal UnitPrice { get; set; }
+
+            public decimal TotalPrice => Quantity * UnitPrice;
+
+            public override string ToString()
+            {
+                return $"{Name} x{Quantity} - RM {TotalPrice:F2}";
+            }
         }
+
         private menuForm _menuForm;
 
         public checkoutForm()
@@ -42,9 +51,13 @@ namespace ProjectKawaiiCafeOrderingSystem
                 listItem.Items.Add(item.ToString());
             }
 
+            foreach (var item in OrderSession.OrderedMerchandise)
+            {
+                listItem.Items.Add(item.ToString());
+            }
+
             labelTotalPrice.Text = "Total: RM " + CalculateTotal().ToString("F2");
 
-            // Hide everything by default
             labelCardNum.Visible = false;
             textBoxCardNum.Visible = false;
             labelCVV.Visible = false;
@@ -57,6 +70,10 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             decimal total = 0;
             foreach (var item in OrderSession.OrderedItems)
+            {
+                total += item.TotalPrice;
+            }
+            foreach (var item in OrderSession.OrderedMerchandise)
             {
                 total += item.TotalPrice;
             }
@@ -149,14 +166,9 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
             try
             {
-                MessageBox.Show("Customer ID: " + OrderSession.custID);
-
                 using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
                 {
                     connection.Open();
-
-                    MessageBox.Show("Menu Items Count: " + OrderSession.OrderedItems.Count);
-                    MessageBox.Show("Merchandise Count: " + OrderSession.OrderedMerchandise.Count);
 
                     if (OrderSession.OrderedItems.Count == 0 && OrderSession.OrderedMerchandise.Count == 0)
                     {
@@ -180,8 +192,6 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     int orderID = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    MessageBox.Show("Order ID generated: " + orderID);
-
                     foreach (var item in OrderSession.OrderedItems)
                     {
                         string insertOrderMenuQuery = "INSERT INTO Order_Menu (order_ID, menu_ID, quantity) VALUES (@orderID, @menuID, @quantity)";
@@ -195,19 +205,18 @@ namespace ProjectKawaiiCafeOrderingSystem
                     foreach (var merch in OrderSession.OrderedMerchandise)
                     {
                         string insertOrderMerchQuery = "INSERT INTO Order_Merchandise (order_ID, merch_ID, quantity) VALUES (@orderID, @merchID, @quantity)";
-                        SqlCommand merchCmd = new SqlCommand(insertOrderMerchQuery, connection); // SILAP, patut guna insertOrderMerchQuery
+                        SqlCommand merchCmd = new SqlCommand(insertOrderMerchQuery, connection);
                         merchCmd.Parameters.AddWithValue("@orderID", orderID);
-                        merchCmd.Parameters.AddWithValue("@merchID", merch.MerchID);
+                        merchCmd.Parameters.AddWithValue("@merchID", merch.MenuID); // assume MenuID reused for merch
                         merchCmd.Parameters.AddWithValue("@quantity", merch.Quantity);
                         merchCmd.ExecuteNonQuery();
                     }
 
                     MessageBox.Show("Payment successful and order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Terus buka ReceiptForm
                     receiptForm receipt = new receiptForm(orderID);
                     receipt.Show();
-                    this.Close(); // Tutup checkoutForm
+                    this.Close();
                 }
             }
             catch (Exception ex)
