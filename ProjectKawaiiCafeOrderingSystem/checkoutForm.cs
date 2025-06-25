@@ -233,6 +233,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
+            OrderSession.OrderedMerchandise.Clear(); // Clear merchandise sahaja
             this.Hide();
             _menuForm.Show();
         }

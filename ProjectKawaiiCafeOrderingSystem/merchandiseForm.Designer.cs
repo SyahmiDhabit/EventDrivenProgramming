@@ -101,7 +101,7 @@
             // labelQty
             // 
             this.labelQty.AutoSize = true;
-            this.labelQty.BackColor = System.Drawing.Color.Gainsboro;
+            this.labelQty.BackColor = System.Drawing.Color.Transparent;
             this.labelQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelQty.Location = new System.Drawing.Point(560, 281);
             this.labelQty.Name = "labelQty";
@@ -113,7 +113,7 @@
             // labelColor
             // 
             this.labelColor.AutoSize = true;
-            this.labelColor.BackColor = System.Drawing.Color.Gainsboro;
+            this.labelColor.BackColor = System.Drawing.Color.Transparent;
             this.labelColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelColor.Location = new System.Drawing.Point(583, 330);
             this.labelColor.Name = "labelColor";
@@ -162,10 +162,11 @@
             // checkBoxCustName
             // 
             this.checkBoxCustName.AutoSize = true;
-            this.checkBoxCustName.BackColor = System.Drawing.Color.Gainsboro;
+            this.checkBoxCustName.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxCustName.Location = new System.Drawing.Point(589, 380);
             this.checkBoxCustName.Name = "checkBoxCustName";
-            this.checkBoxCustName.Size = new System.Drawing.Size(142, 20);
+            this.checkBoxCustName.Size = new System.Drawing.Size(156, 22);
             this.checkBoxCustName.TabIndex = 18;
             this.checkBoxCustName.Text = "Add Custom Name";
             this.checkBoxCustName.UseVisualStyleBackColor = false;
