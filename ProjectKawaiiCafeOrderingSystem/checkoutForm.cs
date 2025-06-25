@@ -142,7 +142,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                 MessageBox.Show("Customer ID: " + OrderSession.custID);
 
-                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True"))
 
                 {
                     connection.Open();
@@ -176,18 +176,18 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     foreach (var item in OrderSession.OrderedItems)
                     {
-                        if (item.MenuID <= 0)
-                        {
-                            // Kalau MenuID tak valid, skip
-                            continue;
-                        }
+                        //if (item.MenuID <= 0)
+                        //{
+                        //    // Kalau MenuID tak valid, skip
+                        //    continue;
+                        //}
 
-                        string insertOrderMenuQuery = "INSERT INTO Order_Menu (order_ID, menu_ID, quantity) VALUES (@orderID, @menuID, @quantity)";
-                        SqlCommand menuCmd = new SqlCommand(insertOrderMenuQuery, connection);
-                        menuCmd.Parameters.AddWithValue("@orderID", orderID);
-                        menuCmd.Parameters.AddWithValue("@menuID", item.MenuID);
-                        menuCmd.Parameters.AddWithValue("@quantity", item.Quantity);
-                        menuCmd.ExecuteNonQuery();
+                        //string insertOrderMenuQuery = "INSERT INTO Order_Menu (order_ID, menu_ID, quantity) VALUES (@orderID, @menuID, @quantity)";
+                        //SqlCommand menuCmd = new SqlCommand(insertOrderMenuQuery, connection);
+                        //menuCmd.Parameters.AddWithValue("@orderID", orderID);
+                        //menuCmd.Parameters.AddWithValue("@menuID", item.MenuID);
+                        //menuCmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                        //menuCmd.ExecuteNonQuery();
                     }
 
                     // ⿣ INSERT into Order_Merchandise
@@ -209,9 +209,9 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     MessageBox.Show("Payment successful and order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    receiptForm receipt = new receiptForm(orderID);
-                    receipt.Show();
-                    this.Close();
+                    //receiptForm receipt = new receiptForm(orderID);
+                    //receipt.Show();
+                    //this.Close();
                 }
             }
             catch (Exception ex)

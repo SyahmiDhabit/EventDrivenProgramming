@@ -8,28 +8,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class menuForm : Form
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Ryuji Goda\\OneDrive\\Documents\\GitHub\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf\";Integrated Security=True");
         private Dictionary<string, decimal> foodPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> drinkPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> dessertPrices = new Dictionary<string, decimal>();
-
-        public menuForm()
+        public int custId;
+        public int orderId;
+        public menuForm(int custId)
         {
+            this.custId = custId;
             InitializeComponent();
 
         }
 
+        private bool orderCreated = false;
+
         private void menuForm_Load(object sender, EventArgs e)
         {
+            if (orderCreated) return;
+            orderCreated = true;
+
+            DateTime orderDateTime = DateTime.Now;
+            conn.Open();
+
+            SqlCommand sqlCommand = new SqlCommand(
+                "INSERT INTO [dbo].[Order] (order_date, cust_ID) VALUES (@orderDateTime, @custId);SELECT SCOPE_IDENTITY();", conn);
+            sqlCommand.Parameters.AddWithValue("@orderDateTime", orderDateTime);
+            sqlCommand.Parameters.AddWithValue("@custId", custId);
+
+            this.orderId = Convert.ToInt32(sqlCommand.ExecuteScalar());
+            conn.Close();
+
             LoadFoodList();
             LoadDrinkList();
             LoadDessertList();
         }
+
 
         private void LoadFoodList()
         {
@@ -54,23 +74,21 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void LoadMenuItems(string type, Dictionary<string, decimal> priceDict, ListBox listBox)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT menu_name, menu_price FROM Menu WHERE menu_type = @type";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@type", type);
-                SqlDataReader reader = cmd.ExecuteReader();
+            conn.Open();
+            string query = "SELECT menu_name, menu_price FROM Menu WHERE menu_type = @type";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@type", type);
+            SqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    string name = reader["menu_name"].ToString();
-                    decimal price = Convert.ToDecimal(reader["menu_price"]);
-                    priceDict[name] = price;
-                    listBox.Items.Add(name);
-                }
-                reader.Close();
+            while (reader.Read())
+            {
+                string name = reader["menu_name"].ToString();
+                decimal price = Convert.ToDecimal(reader["menu_price"]);
+                priceDict[name] = price;
+                listBox.Items.Add(name);
             }
+            reader.Close();
+            conn.Close();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) { }
@@ -96,25 +114,10 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void RemoveItem(ListBox orderListBox)
         {
-            int index = orderListBox.SelectedIndex;
-            if (index >= 0)
-            {
-                string itemText = orderListBox.Items[index].ToString();
-                string name = itemText.Split(new[] { " x" }, StringSplitOptions.None)[0].Trim();
-
-                orderListBox.Items.RemoveAt(index);
-
-                var itemToRemove = OrderSession.OrderedItems
-                    .FirstOrDefault(i => i.Name == name);
-                if (itemToRemove != null)
-                {
-                    OrderSession.OrderedItems.Remove(itemToRemove);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select an item to remove.");
-            }
+            orderListBox.Items.Clear();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Order_Menu JOIN Menu ON Order_Menu.menu_ID = Menu.menu_ID WHERE Order_Menu.order_ID = @order_ID AND Menu.menu_type = 'Food'");
+            conn.Close();
         }
 
         private void AddItem(ListBox menuListBox, NumericUpDown qtyControl, Dictionary<string, decimal> priceDict, ListBox orderListBox)
@@ -137,15 +140,55 @@ namespace ProjectKawaiiCafeOrderingSystem
             decimal total = qty * price;
 
             orderListBox.Items.Add($"{selected} x{qty} - RM {total:F2}");
+
             OrderSession.OrderedItems.Add(new OrderItem
             {
                 Name = selected,
                 Quantity = qty,
                 TotalPrice = total
             });
+
+
+            int menuId = 0; // initialized value 
+
+            conn.Open();
+            // menu_ID query form 
+            
+
+            SqlCommand menuIdQuery = new SqlCommand(
+            "SELECT menu_ID FROM Menu WHERE RTRIM(LTRIM(menu_name)) = @selected", conn);
+            menuIdQuery.Parameters.AddWithValue("@selected", selected.Trim());
+
+            menuIdQuery.Connection = conn;
+
+            // query result
+            object result = menuIdQuery.ExecuteScalar();
+
+            if (result != null && int.TryParse(result.ToString(), out menuId))
+            {
+                MessageBox.Show($"Inserting menu_ID={menuId}, order_ID={orderId}, qty={qty}");
+                if (menuId > 0)
+                {
+                    // insert to database
+                    SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Order_Menu] (order_ID, menu_ID, quantity) VALUES(@order_id, @menu_id, @qty)", conn);
+                    cmd.Parameters.AddWithValue("@order_id", orderId);
+                    cmd.Parameters.AddWithValue("@menu_id", menuId);
+                    cmd.Parameters.AddWithValue("@qty", qty);
+                    cmd.Connection = conn;
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Menu ID not found. Result was: {result}");
+            }
+
+            MessageBox.Show($"Selected = '{selected}'");
+
+
+            conn.Close();
         }
-
-
         private void groupBoxFood_Enter(object sender, EventArgs e) { }
 
         private void ListDessert_SelectedIndexChanged(object sender, EventArgs e) { }
