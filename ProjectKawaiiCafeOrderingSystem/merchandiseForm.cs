@@ -49,7 +49,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void LoadMerchandiseFromDatabase()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
             string query = "SELECT merch_ID, merch_name, merch_price FROM Merchandise";
 
             try

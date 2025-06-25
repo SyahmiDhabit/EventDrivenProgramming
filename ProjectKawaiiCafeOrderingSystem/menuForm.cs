@@ -14,7 +14,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class menuForm : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Ryuji Goda\\OneDrive\\Documents\\GitHub\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf\";Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\SCSM11\\Documents\\GitHub\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf\";Integrated Security=True");
         private Dictionary<string, decimal> foodPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> drinkPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> dessertPrices = new Dictionary<string, decimal>();

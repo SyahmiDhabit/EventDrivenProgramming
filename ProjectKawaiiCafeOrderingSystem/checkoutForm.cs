@@ -142,7 +142,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                 MessageBox.Show("Customer ID: " + OrderSession.custID);
 
-                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True"))
 
                 {
                     connection.Open();
@@ -218,6 +218,31 @@ namespace ProjectKawaiiCafeOrderingSystem
             {
                 MessageBox.Show("Error processing payment: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            receiptForm receipt = new receiptForm();
+            receipt.CustomerName = OrderSession.username; // Replace with actual user name if available in session
+            receipt.PaymentMethod = radioButtonDebit.Checked ? "Debit Card" : "Cash";
+            receipt.FinalPrice = CalculateTotal(); // Or pass discounted price if available
+
+            if (radioButtonCash.Checked && decimal.TryParse(textBoxAmount.Text, out decimal amountPaid))
+            {
+                decimal change = amountPaid - CalculateTotal();
+                if (change < 0)
+                {
+                    MessageBox.Show("Insufficient cash amount entered.", "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                receipt.ChangeAmount = change;
+            }
+            else
+            {
+                receipt.ChangeAmount = 0;
+            }
+
+            receipt.Show();
+
+            this.Close();
         }
 
 
@@ -236,6 +261,8 @@ namespace ProjectKawaiiCafeOrderingSystem
                 OrderSession.Clear();
                 this.Hide();
                 main.Show();
+
+
             }
         }
     }

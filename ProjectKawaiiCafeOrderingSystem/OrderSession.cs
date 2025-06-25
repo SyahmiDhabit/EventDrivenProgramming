@@ -20,6 +20,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
     public static class OrderSession
     {
+      
         // For food, drinks, desserts
         public static List<OrderItem> OrderedItems = new List<OrderItem>();
 

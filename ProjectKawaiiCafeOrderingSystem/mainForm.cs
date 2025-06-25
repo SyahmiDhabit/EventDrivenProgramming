@@ -34,7 +34,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -42,7 +42,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 {
                     conn.Open();
 
-                    string query = "SELECT cust_ID FROM Customer WHERE cust_username = @cust_username AND cust_password = @cust_password";
+                    string query = "SELECT cust_ID, cust_name FROM Customer WHERE cust_username = @cust_username AND cust_password = @cust_password";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@cust_username", username);
                     cmd.Parameters.AddWithValue("@cust_password", password);
@@ -52,7 +52,9 @@ namespace ProjectKawaiiCafeOrderingSystem
                     if (reader.Read())
                     {
                         int custID = Convert.ToInt32(reader["cust_ID"]);
-                        OrderSession.custID = custID;  
+                        string custName = reader["cust_name"].ToString();
+                        OrderSession.custID = custID;
+                        OrderSession.username = custName;
 
                         MessageBox.Show("Welcome! Login successful.", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
