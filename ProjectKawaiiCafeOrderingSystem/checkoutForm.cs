@@ -29,13 +29,13 @@ namespace ProjectKawaiiCafeOrderingSystem
             // ✅ List Menu Items
             foreach (var item in OrderSession.OrderedItems)
             {
-                listItem.Items.Add($"Menu: {item.Name} x{item.Quantity}");
+                listItem.Items.Add($"Menu: {item.Name} x{item.Quantity} - RM {item.TotalPrice:F2}");
             }
 
             // ➕ ADDED: List Merchandise Items
             foreach (var item in OrderSession.OrderedMerchandise)
             {
-                listItem.Items.Add($"Merch: {item.Name} x{item.Quantity}");
+                listItem.Items.Add($"Merch: {item.Name} x{item.Quantity} - RM {item.TotalPrice:F2}");
             }
 
             labelTotalPrice.Text = "Total: RM " + CalculateTotal().ToString("F2");
@@ -190,6 +190,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                     {
                         if (item.MenuID <= 0)
                         {
+                            MessageBox.Show($"Item skipped: {item.Name}, MenuID: {item.MenuID}");
                             continue;
                         }
 

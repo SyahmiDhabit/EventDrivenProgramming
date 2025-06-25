@@ -136,13 +136,43 @@ namespace ProjectKawaiiCafeOrderingSystem
             decimal price = priceDict[selected];
             decimal total = qty * price;
 
+            int menuID = GetMenuIDByName(selected);
+            if (menuID <= 0)
+            {
+                MessageBox.Show("Failed to get Menu ID for selected item.");
+                return;
+            }
+
             orderListBox.Items.Add($"{selected} x{qty} - RM {total:F2}");
+
             OrderSession.OrderedItems.Add(new OrderItem
             {
+                MenuID = menuID,
                 Name = selected,
                 Quantity = qty,
                 TotalPrice = total
             });
+        }
+
+        private int GetMenuIDByName(string menuName)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT menu_ID FROM Menu WHERE menu_name = @name";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@name", menuName);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int menuID))
+                {
+                    return menuID;
+                }
+                else
+                {
+                    return -1; // Return -1 kalau tak jumpa
+                }
+            }
         }
 
 
