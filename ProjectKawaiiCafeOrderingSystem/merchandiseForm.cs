@@ -27,9 +27,9 @@ namespace ProjectKawaiiCafeOrderingSystem
         private readonly List<Product> products = new List<Product>();
         private readonly List<string> descriptions = new List<string>()
         {
-            "Kawaii Tumblr - Limited edition pastel tumbler for cold & hot drinks.",
-            "Kawaii T-Shirt - Soft cotton shirt with cute character print.",
-            "Kawaii Totebag - Eco-friendly canvas bag with kawaii design."
+            "Limited edition pastel tumbler for cold & hot drinks.",
+            "Soft cotton shirt with cute character print.",
+            "Eco-friendly canvas bag with kawaii design."
         };
         private readonly List<string> colorOptions = new List<string>() { "Black", "Beige", "Blue" };
         private int currentIndex = 0;
@@ -88,10 +88,19 @@ namespace ProjectKawaiiCafeOrderingSystem
                 labelProPrice.Text = "RM " + p.Price.ToString("F2");
                 labelDescription.Text = p.Description;
 
-                if (imageListMerch.Images.Count > index)
+                // ✅ Fix image indexing:
+                if (imageListMerch.Images.Count >= products.Count)
+                {
                     pictureBoxMerch.Image = imageListMerch.Images[index];
+                }
+                else if (imageListMerch.Images.Count >= 3)
+                {
+                    pictureBoxMerch.Image = imageListMerch.Images[index % 3];
+                }
                 else
+                {
                     pictureBoxMerch.Image = null;
+                }
 
                 comboBoxColor.Items.Clear();
                 comboBoxColor.Items.AddRange(colorOptions.ToArray());

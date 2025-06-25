@@ -44,12 +44,16 @@
             this.menuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelMenu = new System.Windows.Forms.Label();
             this.groupBoxDessert = new System.Windows.Forms.GroupBox();
+            this.labelPriceDessert = new System.Windows.Forms.Label();
+            this.listBoxDessert = new System.Windows.Forms.ListBox();
             this.pictureBoxDessert = new System.Windows.Forms.PictureBox();
             this.labelQtyDessert = new System.Windows.Forms.Label();
             this.numericUpDownDessert = new System.Windows.Forms.NumericUpDown();
             this.btnRemDessert = new System.Windows.Forms.Button();
             this.btnAddDessert = new System.Windows.Forms.Button();
             this.groupBoxDrink = new System.Windows.Forms.GroupBox();
+            this.labelPriceDrink = new System.Windows.Forms.Label();
+            this.listBoxDrink = new System.Windows.Forms.ListBox();
             this.pictureBoxDrink = new System.Windows.Forms.PictureBox();
             this.labelQtyDrink = new System.Windows.Forms.Label();
             this.btnRemDrink = new System.Windows.Forms.Button();
@@ -59,10 +63,6 @@
             this.imageListFood = new System.Windows.Forms.ImageList(this.components);
             this.imageListDessert = new System.Windows.Forms.ImageList(this.components);
             this.imageListDrink = new System.Windows.Forms.ImageList(this.components);
-            this.listBoxDrink = new System.Windows.Forms.ListBox();
-            this.labelPriceDrink = new System.Windows.Forms.Label();
-            this.listBoxDessert = new System.Windows.Forms.ListBox();
-            this.labelPriceDessert = new System.Windows.Forms.Label();
             this.groupBoxFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFood)).BeginInit();
@@ -227,6 +227,25 @@
             this.groupBoxDessert.Text = "Menu Dessert";
             this.groupBoxDessert.Enter += new System.EventHandler(this.groupBoxDessert_Enter);
             // 
+            // labelPriceDessert
+            // 
+            this.labelPriceDessert.AutoSize = true;
+            this.labelPriceDessert.Location = new System.Drawing.Point(606, 123);
+            this.labelPriceDessert.Name = "labelPriceDessert";
+            this.labelPriceDessert.Size = new System.Drawing.Size(38, 16);
+            this.labelPriceDessert.TabIndex = 32;
+            this.labelPriceDessert.Text = "Price";
+            // 
+            // listBoxDessert
+            // 
+            this.listBoxDessert.FormattingEnabled = true;
+            this.listBoxDessert.ItemHeight = 16;
+            this.listBoxDessert.Location = new System.Drawing.Point(42, 48);
+            this.listBoxDessert.Name = "listBoxDessert";
+            this.listBoxDessert.Size = new System.Drawing.Size(320, 180);
+            this.listBoxDessert.TabIndex = 32;
+            this.listBoxDessert.SelectedIndexChanged += new System.EventHandler(this.listBoxDessert_SelectedIndexChanged);
+            // 
             // pictureBoxDessert
             // 
             this.pictureBoxDessert.BackColor = System.Drawing.SystemColors.Control;
@@ -295,6 +314,25 @@
             this.groupBoxDrink.TabStop = false;
             this.groupBoxDrink.Text = "Drink Menu";
             this.groupBoxDrink.Enter += new System.EventHandler(this.groupBoxDrink_Enter);
+            // 
+            // labelPriceDrink
+            // 
+            this.labelPriceDrink.AutoSize = true;
+            this.labelPriceDrink.Location = new System.Drawing.Point(604, 143);
+            this.labelPriceDrink.Name = "labelPriceDrink";
+            this.labelPriceDrink.Size = new System.Drawing.Size(38, 16);
+            this.labelPriceDrink.TabIndex = 31;
+            this.labelPriceDrink.Text = "Price";
+            // 
+            // listBoxDrink
+            // 
+            this.listBoxDrink.FormattingEnabled = true;
+            this.listBoxDrink.ItemHeight = 16;
+            this.listBoxDrink.Location = new System.Drawing.Point(42, 62);
+            this.listBoxDrink.Name = "listBoxDrink";
+            this.listBoxDrink.Size = new System.Drawing.Size(320, 180);
+            this.listBoxDrink.TabIndex = 31;
+            this.listBoxDrink.SelectedIndexChanged += new System.EventHandler(this.listBoxDrink_SelectedIndexChanged);
             // 
             // pictureBoxDrink
             // 
@@ -393,44 +431,6 @@
             this.imageListDrink.Images.SetKeyName(4, "Ice Spanish Latte.jpg");
             this.imageListDrink.Images.SetKeyName(5, "Buttercreme.jpg");
             this.imageListDrink.Images.SetKeyName(6, "Ice Viatnamese Latte.jpg");
-            // 
-            // listBoxDrink
-            // 
-            this.listBoxDrink.FormattingEnabled = true;
-            this.listBoxDrink.ItemHeight = 16;
-            this.listBoxDrink.Location = new System.Drawing.Point(42, 62);
-            this.listBoxDrink.Name = "listBoxDrink";
-            this.listBoxDrink.Size = new System.Drawing.Size(320, 180);
-            this.listBoxDrink.TabIndex = 31;
-            this.listBoxDrink.SelectedIndexChanged += new System.EventHandler(this.listBoxDrink_SelectedIndexChanged);
-            // 
-            // labelPriceDrink
-            // 
-            this.labelPriceDrink.AutoSize = true;
-            this.labelPriceDrink.Location = new System.Drawing.Point(604, 143);
-            this.labelPriceDrink.Name = "labelPriceDrink";
-            this.labelPriceDrink.Size = new System.Drawing.Size(38, 16);
-            this.labelPriceDrink.TabIndex = 31;
-            this.labelPriceDrink.Text = "Price";
-            // 
-            // listBoxDessert
-            // 
-            this.listBoxDessert.FormattingEnabled = true;
-            this.listBoxDessert.ItemHeight = 16;
-            this.listBoxDessert.Location = new System.Drawing.Point(42, 48);
-            this.listBoxDessert.Name = "listBoxDessert";
-            this.listBoxDessert.Size = new System.Drawing.Size(320, 180);
-            this.listBoxDessert.TabIndex = 32;
-            this.listBoxDessert.SelectedIndexChanged += new System.EventHandler(this.listBoxDessert_SelectedIndexChanged);
-            // 
-            // labelPriceDessert
-            // 
-            this.labelPriceDessert.AutoSize = true;
-            this.labelPriceDessert.Location = new System.Drawing.Point(606, 123);
-            this.labelPriceDessert.Name = "labelPriceDessert";
-            this.labelPriceDessert.Size = new System.Drawing.Size(38, 16);
-            this.labelPriceDessert.TabIndex = 32;
-            this.labelPriceDessert.Text = "Price";
             // 
             // menuForm
             // 

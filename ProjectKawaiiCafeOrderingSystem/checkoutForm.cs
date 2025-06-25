@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjectKawaiiCafeOrderingSystem
@@ -46,14 +47,9 @@ namespace ProjectKawaiiCafeOrderingSystem
             }
 
             // ➕ ADDED: List Merchandise Items
-            foreach (var merch in OrderSession.OrderedMerchandise)
-            {
-                listItem.Items.Add($"Merch: {merch.Name} x{merch.Quantity}");
-            }
-
             foreach (var item in OrderSession.OrderedMerchandise)
             {
-                listItem.Items.Add(item.ToString());
+                listItem.Items.Add($"Merch: {item.Name} x{item.Quantity}");
             }
 
             labelTotalPrice.Text = "Total: RM " + CalculateTotal().ToString("F2");
@@ -140,8 +136,6 @@ namespace ProjectKawaiiCafeOrderingSystem
             try
             {
 
-                MessageBox.Show("Customer ID: " + OrderSession.custID);
-
                 using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
 
                 {
@@ -160,9 +154,45 @@ namespace ProjectKawaiiCafeOrderingSystem
                             MessageBox.Show("Please enter card number and CVV.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
+
+                        if (textBoxCardNum.Text.Length != 16 || !textBoxCardNum.Text.All(char.IsDigit))
+                        {
+                            MessageBox.Show("Please enter a valid 16-digit debit card number.", "Invalid Card Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        if (textBoxCVV.Text.Length != 3 || !textBoxCVV.Text.All(char.IsDigit))
+                        {
+                            MessageBox.Show("Please enter a valid 3-digit CVV.", "Invalid CVV", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
 
-                    // ⿡ INSERT into [Order]
+                    if (radioButtonCash.Checked)
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxAmount.Text))
+                        {
+                            MessageBox.Show("Please enter cash amount.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        decimal cashAmount;
+                        decimal totalAmount = CalculateTotal();
+
+                        if (!decimal.TryParse(textBoxAmount.Text, out cashAmount))
+                        {
+                            MessageBox.Show("Please enter a valid cash amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        if (cashAmount <= totalAmount)
+                        {
+                            MessageBox.Show("Cash amount must be greater than total amount (RM " + totalAmount.ToString("F2") + ").", "Insufficient Cash", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    // Existing SQL logic below - untouched
                     string insertOrderQuery = "INSERT INTO [Order] (order_date, cust_ID) VALUES (@date, @custID); SELECT SCOPE_IDENTITY();";
                     SqlCommand cmd = new SqlCommand(insertOrderQuery, connection);
                     cmd.Parameters.AddWithValue("@date", DateTime.Now);
@@ -170,15 +200,10 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     int orderID = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    MessageBox.Show("Order ID generated: " + orderID);
-
-                    // ⿢ INSERT into Order_Menu (skip if MenuID <= 0)
-
                     foreach (var item in OrderSession.OrderedItems)
                     {
                         if (item.MenuID <= 0)
                         {
-                            // Kalau MenuID tak valid, skip
                             continue;
                         }
 
@@ -190,10 +215,8 @@ namespace ProjectKawaiiCafeOrderingSystem
                         menuCmd.ExecuteNonQuery();
                     }
 
-                    // ⿣ INSERT into Order_Merchandise
                     foreach (var merch in OrderSession.OrderedMerchandise)
                     {
-                        // Sekadar contoh kalau perlu juga buat check
                         if (merch.MerchID <= 0)
                         {
                             continue;
@@ -202,7 +225,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                         string insertOrderMerchQuery = "INSERT INTO Order_Merchandise (order_ID, merch_ID, quantity) VALUES (@orderID, @merchID, @quantity)";
                         SqlCommand merchCmd = new SqlCommand(insertOrderMerchQuery, connection);
                         merchCmd.Parameters.AddWithValue("@orderID", orderID);
-                        merchCmd.Parameters.AddWithValue("@merchID", merch.MenuID); // assume MenuID reused for merch
+                        merchCmd.Parameters.AddWithValue("@merchID", merch.MenuID);
                         merchCmd.Parameters.AddWithValue("@quantity", merch.Quantity);
                         merchCmd.ExecuteNonQuery();
                     }

@@ -45,7 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.radioButtonDebit = new System.Windows.Forms.RadioButton();
             this.radioButtonCash = new System.Windows.Forms.RadioButton();
-            this.buttonCalculate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listItem
@@ -228,17 +227,6 @@
             this.radioButtonCash.UseVisualStyleBackColor = false;
             this.radioButtonCash.CheckedChanged += new System.EventHandler(this.radioButtonCash_CheckedChanged);
             // 
-            // buttonCalculate
-            // 
-            this.buttonCalculate.Location = new System.Drawing.Point(806, 448);
-            this.buttonCalculate.Name = "buttonCalculate";
-            this.buttonCalculate.Size = new System.Drawing.Size(113, 38);
-            this.buttonCalculate.TabIndex = 5;
-            this.buttonCalculate.Text = "Calculate";
-            this.buttonCalculate.UseVisualStyleBackColor = true;
-            this.buttonCalculate.Visible = false;
-            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
-            // 
             // checkoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,7 +246,6 @@
             this.Controls.Add(this.textBoxCardNum);
             this.Controls.Add(this.textBoxAmount);
             this.Controls.Add(this.textBoxCVV);
-            this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.buttonPay);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonBack);
@@ -291,6 +278,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioButtonDebit;
         private System.Windows.Forms.RadioButton radioButtonCash;
-        private System.Windows.Forms.Button buttonCalculate;
     }
 }

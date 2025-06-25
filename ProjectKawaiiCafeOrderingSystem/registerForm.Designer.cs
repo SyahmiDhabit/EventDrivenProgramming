@@ -46,6 +46,7 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
+            this.labelName.BackColor = System.Drawing.Color.Transparent;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(283, 148);
             this.labelName.Name = "labelName";
@@ -56,6 +57,7 @@
             // labelPwd
             // 
             this.labelPwd.AutoSize = true;
+            this.labelPwd.BackColor = System.Drawing.Color.Transparent;
             this.labelPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPwd.Location = new System.Drawing.Point(249, 265);
             this.labelPwd.Name = "labelPwd";
@@ -66,6 +68,7 @@
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
+            this.labelPhone.BackColor = System.Drawing.Color.Transparent;
             this.labelPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPhone.Location = new System.Drawing.Point(279, 185);
             this.labelPhone.Name = "labelPhone";
@@ -76,6 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(245, 225);
             this.label1.Name = "label1";
@@ -146,6 +150,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
+            this.lblID.BackColor = System.Drawing.Color.Transparent;
             this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.Location = new System.Drawing.Point(316, 111);
             this.lblID.Name = "lblID";
@@ -176,6 +181,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(949, 529);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.textBoxID);
@@ -192,6 +199,7 @@
             this.Controls.Add(this.labelName);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "registerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "~ Customer Registration";
             this.Load += new System.EventHandler(this.registerForm_Load);
             this.ResumeLayout(false);
