@@ -1,73 +1,160 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 
 namespace ProjectKawaiiCafeOrderingSystem
 {
+
     public partial class receiptForm : Form
     {
-        private int orderID;
+        public string CustomerName { get; set; }
+        public string PaymentMethod { get; set; }
+        public decimal FinalPrice { get; set; }
 
-        public receiptForm(int orderID)
+        public decimal ChangeAmount { get; set; }
+
+
+        public receiptForm()
         {
             InitializeComponent();
-            this.orderID = orderID;
         }
 
         private void receiptForm_Load(object sender, EventArgs e)
         {
-            LoadReceiptData();
+            lblNameValue.Text = CustomerName;
+            lblPaymentMethodValue.Text = PaymentMethod;
+            lblTotalValue.Text = "RM " + FinalPrice.ToString("F2");
+            labelChangeAmount.Text = "RM " + ChangeAmount.ToString("F2");
+
+
+
+            listBoxOrderItem.Items.Clear();
+            foreach (var item in OrderSession.OrderedItems)
+            {
+                listBoxOrderItem.Items.Add(item.ToString());
+            }
+            foreach (var merch in OrderSession.OrderedMerchandise)
+            {
+                listBoxOrderItem.Items.Add(merch.ToString());
+            }
         }
 
-        private void LoadReceiptData()
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainForm main = new mainForm();
+            main.Show();
+            this.Close();
+        }
+
+        
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnExportPDF_Click_1(object sender, EventArgs e)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(
-                    @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
-                    connection.Open();
+                    saveFileDialog.Filter = "PDF file (*.pdf)|*.pdf";
+                    saveFileDialog.Title = "Save Receipt As PDF";
+                    saveFileDialog.FileName = "KawaiiCafe_Receipt.pdf";
 
-                    string query = @"
-                -- Menu Items
-                SELECT 
-                    m.menu_name AS [Item Name], 
-                    om.quantity AS [Quantity], 
-                    m.menu_price AS [Unit Price], 
-                    (m.menu_price * om.quantity) AS [Total Price]
-                FROM [Order_Menu] om
-                JOIN [Menu] m ON om.menu_ID = m.menu_ID
-                WHERE om.order_ID = @orderID
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        PdfDocument doc = new PdfDocument();
+                        doc.Info.Title = "Kawaii Cafe Receipt";
+                        PdfPage page = doc.AddPage();
+                        XGraphics gfx = XGraphics.FromPdfPage(page);
 
-                UNION ALL
+                        XFont titleFont = new XFont("Arial", 16, XFontStyle.Bold);
+                        XFont regularFont = new XFont("Arial", 12, XFontStyle.Regular);
+                        XFont boldFont = new XFont("Arial", 12, XFontStyle.Bold);
 
-                -- Merchandise Items
-                SELECT 
-                    merch.merch_name AS [Item Name], 
-                    om.quantity AS [Quantity], 
-                    merch.merch_price AS [Unit Price], 
-                    (merch.merch_price * om.quantity) AS [Total Price]
-                FROM [Order_Merchandise] om
-                JOIN [Merchandise] merch ON om.merch_ID = merch.merch_ID
-                WHERE om.order_ID = @orderID
-            ";
+                        double yPoint = 40;
 
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@orderID", orderID);
+                        // 🧋 Title
+                        gfx.DrawString(lblTitle.Text, titleFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 30;
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                        // 🏠 Address Information
+                        gfx.DrawString(lblAddress.Text, regularFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 20;
+                        gfx.DrawString(lblCityIndex.Text, regularFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 20;
+                        gfx.DrawString(lblTelphone.Text, regularFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 30;
 
+                        // 👤 Customer Details
+                        gfx.DrawString(lblName.Text + " " + lblNameValue.Text, boldFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 30;
+
+                        // 📦 Ordered Items
+                        gfx.DrawString(lblOrderTitle.Text, boldFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 25;
+
+                        foreach (var item in listBoxOrderItem.Items)
+                        {
+                            gfx.DrawString(item.ToString(), regularFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                            yPoint += 20;
+                        }
+
+                        yPoint += 20;
+
+                        // 💰 Total, Payment, Change
+                        gfx.DrawString(lblTotal.Text + " " + lblTotalValue.Text, boldFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 20;
+                        gfx.DrawString(lblPaymentMethod.Text + " " + lblPaymentMethodValue.Text, boldFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 20;
+                        gfx.DrawString(labelChangeTitle.Text + " " + labelChangeAmount.Text, boldFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 20), XStringFormats.TopCenter);
+                        yPoint += 30;
+
+                        // 🙏 Thank You
+                        gfx.DrawString(lblThanks.Text, boldFont, XBrushes.Black, new XRect(0, yPoint, page.Width, 30), XStringFormats.TopCenter);
+
+                        // 💾 Save
+                        doc.Save(saveFileDialog.FileName);
+                        MessageBox.Show("Receipt exported successfully!", "Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading receipt data: " + ex.Message);
+                MessageBox.Show("Error exporting receipt: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-      
     }
 }

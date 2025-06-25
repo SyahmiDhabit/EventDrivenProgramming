@@ -13,7 +13,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class menuForm : Form
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
         private Dictionary<string, decimal> foodPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> drinkPrices = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> dessertPrices = new Dictionary<string, decimal>();

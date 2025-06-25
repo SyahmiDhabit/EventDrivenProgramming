@@ -108,6 +108,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 labelAmount.Visible = true;
                 textBoxAmount.Visible = true;
             }
+
         }
 
         private void labelCardNum_Click(object sender, EventArgs e) { }
@@ -119,10 +120,19 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
+            decimal totalAmount = CalculateTotal();
+            decimal cashAmount = 0;
+            decimal changeAmount = 0;
+
+            if (radioButtonCash.Checked)
+            {
+                decimal.TryParse(textBoxAmount.Text, out cashAmount);
+                changeAmount = cashAmount - totalAmount;
+            }
             try
             {
 
-                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
 
                 {
                     connection.Open();
@@ -161,9 +171,6 @@ namespace ProjectKawaiiCafeOrderingSystem
                             MessageBox.Show("Please enter cash amount.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
-
-                        decimal cashAmount;
-                        decimal totalAmount = CalculateTotal();
 
                         if (!decimal.TryParse(textBoxAmount.Text, out cashAmount))
                         {
@@ -219,7 +226,11 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     MessageBox.Show("Payment successful and order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    receiptForm receipt = new receiptForm(orderID);
+                    receiptForm receipt = new receiptForm();
+                    receipt.CustomerName = OrderSession.username;
+                    receipt.PaymentMethod = radioButtonDebit.Checked ? "Debit Card" : "Cash";
+                    receipt.FinalPrice = totalAmount;
+                    receipt.ChangeAmount = changeAmount;
                     receipt.Show();
                     this.Close();
                 }
