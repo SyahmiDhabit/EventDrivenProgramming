@@ -7,20 +7,6 @@ namespace ProjectKawaiiCafeOrderingSystem
 {
     public partial class checkoutForm : Form
     {
-        public class OrderItem
-        {
-            public int MenuID { get; set; }
-            public int Quantity { get; set; }
-            public string Name { get; set; }
-            public decimal UnitPrice { get; set; }
-
-            public decimal TotalPrice => Quantity * UnitPrice;
-
-            public override string ToString()
-            {
-                return $"{Name} x{Quantity} - RM {TotalPrice:F2}";
-            }
-        }
 
         private menuForm _menuForm;
 
@@ -225,7 +211,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                         string insertOrderMerchQuery = "INSERT INTO Order_Merchandise (order_ID, merch_ID, quantity) VALUES (@orderID, @merchID, @quantity)";
                         SqlCommand merchCmd = new SqlCommand(insertOrderMerchQuery, connection);
                         merchCmd.Parameters.AddWithValue("@orderID", orderID);
-                        merchCmd.Parameters.AddWithValue("@merchID", merch.MenuID);
+                        merchCmd.Parameters.AddWithValue("@merchID", merch.MerchID);
                         merchCmd.Parameters.AddWithValue("@quantity", merch.Quantity);
                         merchCmd.ExecuteNonQuery();
                     }

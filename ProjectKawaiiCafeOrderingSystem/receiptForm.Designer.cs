@@ -32,6 +32,8 @@
             this.lblD4 = new System.Windows.Forms.Label();
             this.lblD3 = new System.Windows.Forms.Label();
             this.gbOrder = new System.Windows.Forms.GroupBox();
+            this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.receiptDataSet = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSet();
             this.lblOrderTitle = new System.Windows.Forms.Label();
             this.lblD2 = new System.Windows.Forms.Label();
             this.lblD = new System.Windows.Forms.Label();
@@ -55,19 +57,12 @@
             this.lblNameValue = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnExportPDF = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceRMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.receiptDataSet = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSet();
             this.receiptTableAdapter = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSetTableAdapters.ReceiptTableAdapter();
             this.tableAdapterManager = new ProjectKawaiiCafeOrderingSystem.ReceiptDataSetTableAdapters.TableAdapterManager();
             this.gbOrder.SuspendLayout();
-            this.gbCustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptDataSet)).BeginInit();
+            this.gbCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblD4
@@ -93,7 +88,6 @@
             // 
             // gbOrder
             // 
-            this.gbOrder.Controls.Add(this.dataGridView1);
             this.gbOrder.Controls.Add(this.lblOrderTitle);
             this.gbOrder.Location = new System.Drawing.Point(93, 377);
             this.gbOrder.Name = "gbOrder";
@@ -101,6 +95,16 @@
             this.gbOrder.TabIndex = 89;
             this.gbOrder.TabStop = false;
             this.gbOrder.Text = "Order Details";
+            // 
+            // receiptBindingSource
+            // 
+            this.receiptBindingSource.DataMember = "Receipt";
+            this.receiptBindingSource.DataSource = this.receiptDataSet;
+            // 
+            // receiptDataSet
+            // 
+            this.receiptDataSet.DataSetName = "ReceiptDataSet";
+            this.receiptDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblOrderTitle
             // 
@@ -329,57 +333,6 @@
             this.btnExportPDF.Text = "Export to PDF";
             this.btnExportPDF.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.itemNameDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
-            this.priceRMDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.receiptBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 94);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(605, 150);
-            this.dataGridView1.TabIndex = 34;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "Item Name";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "Item Name";
-            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // priceRMDataGridViewTextBoxColumn
-            // 
-            this.priceRMDataGridViewTextBoxColumn.DataPropertyName = "Price(RM)";
-            this.priceRMDataGridViewTextBoxColumn.HeaderText = "Price(RM)";
-            this.priceRMDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceRMDataGridViewTextBoxColumn.Name = "priceRMDataGridViewTextBoxColumn";
-            this.priceRMDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // receiptBindingSource
-            // 
-            this.receiptBindingSource.DataMember = "Receipt";
-            this.receiptBindingSource.DataSource = this.receiptDataSet;
-            // 
-            // receiptDataSet
-            // 
-            this.receiptDataSet.DataSetName = "ReceiptDataSet";
-            this.receiptDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // receiptTableAdapter
             // 
             this.receiptTableAdapter.ClearBeforeFill = true;
@@ -422,11 +375,10 @@
             this.Load += new System.EventHandler(this.receiptForm_Load);
             this.gbOrder.ResumeLayout(false);
             this.gbOrder.PerformLayout();
-            this.gbCustomer.ResumeLayout(false);
-            this.gbCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptDataSet)).EndInit();
+            this.gbCustomer.ResumeLayout(false);
+            this.gbCustomer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,13 +412,9 @@
         private System.Windows.Forms.Label lblNameValue;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnExportPDF;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private ReceiptDataSet receiptDataSet;
         private System.Windows.Forms.BindingSource receiptBindingSource;
         private ReceiptDataSetTableAdapters.ReceiptTableAdapter receiptTableAdapter;
         private ReceiptDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceRMDataGridViewTextBoxColumn;
     }
 }
