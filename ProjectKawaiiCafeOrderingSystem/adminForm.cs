@@ -14,7 +14,7 @@ namespace ProjectKawaiiCafeOrderingSystem
     public partial class adminForm : Form
     {
 
-        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ssyah\\source\\repos\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Ryuji Goda\\OneDrive\\Documents\\GitHub\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf\";Integrated Security=True");
 
         public adminForm()
         {
@@ -119,7 +119,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string searchText = textBox3.Text.Trim();
             string selectedType = comboBox1.SelectedItem?.ToString() ?? "All";
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -308,11 +308,9 @@ namespace ProjectKawaiiCafeOrderingSystem
                 else if (totalSold == 0)
                 {
                     // Never sold - red highlight
-                    gridRow.DefaultCellStyle.BackColor = Color.MistyRose;
+                    gridRow.DefaultCellStyle.BackColor = Color.IndianRed;
                 }
             }
         }
-
-
     }
 }
