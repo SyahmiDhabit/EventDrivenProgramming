@@ -14,7 +14,7 @@ namespace ProjectKawaiiCafeOrderingSystem
     public partial class adminForm : Form
     {
 
-        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\ssyah\\source\\repos\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Ryuji Goda\\OneDrive\\Documents\\GitHub\\EventDrivenProgramming\\ProjectKawaiiCafeOrderingSystem\\Database.mdf\";Integrated Security=True");
 
         public adminForm()
         {
@@ -33,6 +33,8 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void Form6_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetDatabase.Menu' table. You can move, or remove it, as needed.
+            this.menuTableAdapter.Fill(this.dataSetDatabase.Menu);
             //// TODO: This line of code loads data into the 'dataSetDatabase.Menu' table. You can move, or remove it, as needed.
             //this.menuTableAdapter.Fill(this.dataSetDatabase.Menu);
             //// TODO: This line of code loads data into the 'dataSetDatabase.Customer' table. You can move, or remove it, as needed.
@@ -43,20 +45,21 @@ namespace ProjectKawaiiCafeOrderingSystem
 
             try
             {
-                using (conn)
-                {
-                    conn.Open();
-                    // Load Menu data
-                    SqlDataAdapter menuAdapter = new SqlDataAdapter("SELECT * FROM Menu", conn);
-                    DataTable menuTable = new DataTable();
-                    menuAdapter.Fill(menuTable);
-                    adminDataGridView.DataSource = menuTable;
-                }
+                conn.Open();
+                SqlDataAdapter menuAdapter = new SqlDataAdapter("SELECT * FROM Menu", conn);
+                DataTable menuTable = new DataTable();
+                menuAdapter.Fill(menuTable);
+                adminDataGridView.DataSource = menuTable;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading admin data:\n\n" + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
+                conn.Close(); // <-- Just close, don't dispose
+            }
+
         }
 
 
@@ -116,7 +119,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             string searchText = textBox3.Text.Trim();
             string selectedType = comboBox1.SelectedItem?.ToString() ?? "All";
 
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -186,5 +189,94 @@ namespace ProjectKawaiiCafeOrderingSystem
         {
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Menu (menu_ID, menu_type, menu_name, menu_price) VALUES (@menu_ID, @menu_type, @menu_name, @menu_price)", conn);
+            cmd.Parameters.AddWithValue("@menu_ID", menu_IDTextBox.Text);
+            cmd.Parameters.AddWithValue("@menu_type", menu_typeTextBox.Text);
+            cmd.Parameters.AddWithValue("@menu_name", menu_nameTextBox.Text);
+            cmd.Parameters.AddWithValue("@menu_price", menu_priceTextBox.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Menu added successfully!");
+
+            conn.Close();
+
+            menu_IDTextBox.Text = "";
+            menu_typeTextBox.Text = "";
+            menu_nameTextBox.Text = "";
+            menu_priceTextBox.Text = "";
+        }
+
+        private void menu_IDTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menu_typeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE menu SET menu_type = @menu_type, menu_name = @menu_name, menu_price = @menu_price WHERE menu_ID = @menu_ID", conn);
+                cmd.Parameters.AddWithValue("@menu_ID", menu_IDTextBox.Text);
+                cmd.Parameters.AddWithValue("@menu_type", menu_typeTextBox.Text);
+                cmd.Parameters.AddWithValue("@menu_name", menu_nameTextBox.Text);
+                cmd.Parameters.AddWithValue("@menu_price", menu_priceTextBox.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Menu updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating menu:\n" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            menu_IDTextBox.Clear();
+            menu_typeTextBox.Clear();
+            menu_nameTextBox.Clear();
+            menu_priceTextBox.Clear();
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM menu WHERE menu_ID = @menu_ID", conn);
+                cmd.Parameters.AddWithValue("@menu_ID", menu_IDTextBox.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Menu deleted successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting menu:\n" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            menu_IDTextBox.Clear();
+            menu_typeTextBox.Clear();
+            menu_nameTextBox.Clear();
+            menu_priceTextBox.Clear();
+        }
+
     }
 }
