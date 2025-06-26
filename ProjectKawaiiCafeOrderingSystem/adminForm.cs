@@ -117,6 +117,14 @@ namespace ProjectKawaiiCafeOrderingSystem
             DateTime fromDate = dateTimePicker3.Value.Date;
             DateTime toDate = dateTimePicker4.Value.Date.AddDays(1).AddSeconds(-1);
             string searchText = textBox3.Text.Trim();
+
+            // Check: only allow letters and spaces in search
+            if (!System.Text.RegularExpressions.Regex.IsMatch(searchText, @"^[a-zA-Z\s]*$"))
+            {
+                MessageBox.Show("Search text can only contain letters and spaces. Numbers and special characters are not allowed.", "Invalid Search", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string selectedType = comboBox1.SelectedItem?.ToString() ?? "All";
 
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Ryuji Goda\OneDrive\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf"";Integrated Security=True";
@@ -202,22 +210,51 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Menu (menu_ID, menu_type, menu_name, menu_price) VALUES (@menu_ID, @menu_type, @menu_name, @menu_price)", conn);
-            cmd.Parameters.AddWithValue("@menu_ID", menu_IDTextBox.Text);
-            cmd.Parameters.AddWithValue("@menu_type", menu_typeTextBox.Text);
-            cmd.Parameters.AddWithValue("@menu_name", menu_nameTextBox.Text);
-            cmd.Parameters.AddWithValue("@menu_price", menu_priceTextBox.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Menu added successfully!");
+            string menuName = menu_nameTextBox.Text;
 
-            conn.Close();
+            // Allow only letters and spaces (no numbers or symbols)
+            if (!System.Text.RegularExpressions.Regex.IsMatch(menuName, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Menu name can only contain letters and spaces. No numbers or special characters are allowed.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            menu_IDTextBox.Text = "";
-            menu_typeTextBox.Text = "";
-            menu_nameTextBox.Text = "";
-            menu_priceTextBox.Text = "";
+            string menuType = menu_typeTextBox.Text.Trim();
+
+            // Check if menu_type is valid
+            if (menuType != "Food" && menuType != "Drink" && menuType != "Dessert")
+            {
+                MessageBox.Show("Menu type must be one of the following: Food, Drink, or Dessert.", "Invalid Menu Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO Menu (menu_ID, menu_type, menu_name, menu_price) VALUES (@menu_ID, @menu_type, @menu_name, @menu_price)", conn);
+                cmd.Parameters.AddWithValue("@menu_ID", menu_IDTextBox.Text);
+                cmd.Parameters.AddWithValue("@menu_type", menu_typeTextBox.Text);
+                cmd.Parameters.AddWithValue("@menu_name", menuName);
+                cmd.Parameters.AddWithValue("@menu_price", menu_priceTextBox.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Menu added successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding menu:\n" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            menu_IDTextBox.Clear();
+            menu_typeTextBox.Clear();
+            menu_nameTextBox.Clear();
+            menu_priceTextBox.Clear();
         }
+
 
         private void menu_IDTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -231,13 +268,32 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string menuName = menu_nameTextBox.Text;
+
+            // Validate: only letters and spaces allowed
+            if (!System.Text.RegularExpressions.Regex.IsMatch(menuName, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Menu name can only contain letters and spaces. No numbers or special characters are allowed.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string menuType = menu_typeTextBox.Text.Trim();
+
+            // Check if menu_type is valid
+            if (menuType != "Food" && menuType != "Drink" && menuType != "Dessert")
+            {
+                MessageBox.Show("Menu type must be one of the following: Food, Drink, or Dessert.", "Invalid Menu Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             try
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE menu SET menu_type = @menu_type, menu_name = @menu_name, menu_price = @menu_price WHERE menu_ID = @menu_ID", conn);
                 cmd.Parameters.AddWithValue("@menu_ID", menu_IDTextBox.Text);
                 cmd.Parameters.AddWithValue("@menu_type", menu_typeTextBox.Text);
-                cmd.Parameters.AddWithValue("@menu_name", menu_nameTextBox.Text);
+                cmd.Parameters.AddWithValue("@menu_name", menuName);
                 cmd.Parameters.AddWithValue("@menu_price", menu_priceTextBox.Text);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Menu updated successfully!");
@@ -256,6 +312,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             menu_nameTextBox.Clear();
             menu_priceTextBox.Clear();
         }
+
 
 
         private void button4_Click(object sender, EventArgs e)
