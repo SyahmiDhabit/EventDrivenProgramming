@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             System.Windows.Forms.Label menu_IDLabel;
             System.Windows.Forms.Label menu_typeLabel;
             System.Windows.Forms.Label menu_nameLabel;
             System.Windows.Forms.Label menu_priceLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             this.adminDataGridView = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -88,6 +88,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.menuDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // menu_IDLabel
+            // 
+            menu_IDLabel.AutoSize = true;
+            menu_IDLabel.Location = new System.Drawing.Point(84, 135);
+            menu_IDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            menu_IDLabel.Name = "menu_IDLabel";
+            menu_IDLabel.Size = new System.Drawing.Size(59, 16);
+            menu_IDLabel.TabIndex = 22;
+            menu_IDLabel.Text = "menu ID:";
+            // 
+            // menu_typeLabel
+            // 
+            menu_typeLabel.AutoSize = true;
+            menu_typeLabel.Location = new System.Drawing.Point(84, 167);
+            menu_typeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            menu_typeLabel.Name = "menu_typeLabel";
+            menu_typeLabel.Size = new System.Drawing.Size(72, 16);
+            menu_typeLabel.TabIndex = 24;
+            menu_typeLabel.Text = "menu type:";
+            // 
+            // menu_nameLabel
+            // 
+            menu_nameLabel.AutoSize = true;
+            menu_nameLabel.Location = new System.Drawing.Point(84, 199);
+            menu_nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            menu_nameLabel.Name = "menu_nameLabel";
+            menu_nameLabel.Size = new System.Drawing.Size(80, 16);
+            menu_nameLabel.TabIndex = 26;
+            menu_nameLabel.Text = "menu name:";
+            // 
+            // menu_priceLabel
+            // 
+            menu_priceLabel.AutoSize = true;
+            menu_priceLabel.Location = new System.Drawing.Point(84, 231);
+            menu_priceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            menu_priceLabel.Name = "menu_priceLabel";
+            menu_priceLabel.Size = new System.Drawing.Size(76, 16);
+            menu_priceLabel.TabIndex = 28;
+            menu_priceLabel.Text = "menu price:";
+            // 
             // adminDataGridView
             // 
             this.adminDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -95,10 +135,11 @@
             this.adminDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.adminDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adminDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.adminDataGridView.Location = new System.Drawing.Point(568, 231);
+            this.adminDataGridView.Location = new System.Drawing.Point(757, 284);
+            this.adminDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.adminDataGridView.Name = "adminDataGridView";
             this.adminDataGridView.RowHeadersWidth = 51;
-            this.adminDataGridView.Size = new System.Drawing.Size(635, 473);
+            this.adminDataGridView.Size = new System.Drawing.Size(847, 582);
             this.adminDataGridView.TabIndex = 1;
             this.adminDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -108,17 +149,19 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(565, 131);
+            this.label6.Location = new System.Drawing.Point(753, 161);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 16);
+            this.label6.Size = new System.Drawing.Size(120, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Menu Name :";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(668, 130);
+            this.textBox3.Location = new System.Drawing.Point(891, 160);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(133, 20);
+            this.textBox3.Size = new System.Drawing.Size(176, 22);
             this.textBox3.TabIndex = 13;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             // 
@@ -128,9 +171,10 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(611, 168);
+            this.label7.Location = new System.Drawing.Point(815, 207);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 16);
+            this.label7.Size = new System.Drawing.Size(61, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "Type :";
             // 
@@ -141,17 +185,19 @@
             "Food",
             "Dessert",
             "Drink"});
-            this.comboBox1.Location = new System.Drawing.Point(668, 167);
+            this.comboBox1.Location = new System.Drawing.Point(891, 206);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(133, 21);
+            this.comboBox1.Size = new System.Drawing.Size(176, 24);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1090, 130);
+            this.button2.Location = new System.Drawing.Point(1453, 160);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 58);
+            this.button2.Size = new System.Drawing.Size(151, 71);
             this.button2.TabIndex = 16;
             this.button2.Text = "Filter";
             this.button2.UseVisualStyleBackColor = true;
@@ -163,25 +209,28 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(748, 47);
+            this.label8.Location = new System.Drawing.Point(997, 58);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 25);
+            this.label8.Size = new System.Drawing.Size(107, 31);
             this.label8.TabIndex = 17;
             this.label8.Text = "ADMIN";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(873, 131);
+            this.dateTimePicker3.Location = new System.Drawing.Point(1164, 161);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker3.TabIndex = 18;
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(873, 168);
+            this.dateTimePicker4.Location = new System.Drawing.Point(1164, 207);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker4.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker4.TabIndex = 19;
             // 
             // label9
@@ -190,9 +239,10 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(817, 132);
+            this.label9.Location = new System.Drawing.Point(1089, 162);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 16);
+            this.label9.Size = new System.Drawing.Size(64, 20);
             this.label9.TabIndex = 20;
             this.label9.Text = "From :";
             // 
@@ -202,9 +252,10 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(833, 169);
+            this.label10.Location = new System.Drawing.Point(1111, 208);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 16);
+            this.label10.Size = new System.Drawing.Size(42, 20);
             this.label10.TabIndex = 21;
             this.label10.Text = "To :";
             // 
@@ -235,7 +286,7 @@
             this.customerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.customerBindingNavigator.Name = "customerBindingNavigator";
             this.customerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customerBindingNavigator.Size = new System.Drawing.Size(1480, 27);
+            this.customerBindingNavigator.Size = new System.Drawing.Size(1924, 31);
             this.customerBindingNavigator.TabIndex = 22;
             this.customerBindingNavigator.Text = "bindingNavigator1";
             this.customerBindingNavigator.RefreshItems += new System.EventHandler(this.customerBindingNavigator_RefreshItems);
@@ -246,13 +297,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -262,7 +313,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -271,7 +322,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -280,13 +331,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -294,14 +345,14 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(49, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -309,7 +360,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -318,20 +369,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // customerBindingNavigatorSaveItem
             // 
             this.customerBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.customerBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("customerBindingNavigatorSaveItem.Image")));
             this.customerBindingNavigatorSaveItem.Name = "customerBindingNavigatorSaveItem";
-            this.customerBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
+            this.customerBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.customerBindingNavigatorSaveItem.Text = "Save Data";
             this.customerBindingNavigatorSaveItem.Click += new System.EventHandler(this.customerBindingNavigatorSaveItem_Click);
             // 
@@ -371,111 +422,90 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.menuDataGridView.DataSource = this.menuBindingSource;
-            this.menuDataGridView.Location = new System.Drawing.Point(62, 231);
+            this.menuDataGridView.Location = new System.Drawing.Point(83, 284);
+            this.menuDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menuDataGridView.Name = "menuDataGridView";
-            this.menuDataGridView.Size = new System.Drawing.Size(441, 473);
+            this.menuDataGridView.RowHeadersWidth = 51;
+            this.menuDataGridView.Size = new System.Drawing.Size(588, 582);
             this.menuDataGridView.TabIndex = 22;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "menu_ID";
             this.dataGridViewTextBoxColumn4.HeaderText = "menu_ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "menu_type";
             this.dataGridViewTextBoxColumn6.HeaderText = "menu_type";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "menu_name";
             this.dataGridViewTextBoxColumn7.HeaderText = "menu_name";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "menu_price";
             this.dataGridViewTextBoxColumn8.HeaderText = "menu_price";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // menu_IDLabel
-            // 
-            menu_IDLabel.AutoSize = true;
-            menu_IDLabel.Location = new System.Drawing.Point(63, 110);
-            menu_IDLabel.Name = "menu_IDLabel";
-            menu_IDLabel.Size = new System.Drawing.Size(50, 13);
-            menu_IDLabel.TabIndex = 22;
-            menu_IDLabel.Text = "menu ID:";
+            this.dataGridViewTextBoxColumn8.Width = 125;
             // 
             // menu_IDTextBox
             // 
             this.menu_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.menuBindingSource, "menu_ID", true));
-            this.menu_IDTextBox.Location = new System.Drawing.Point(134, 107);
+            this.menu_IDTextBox.Location = new System.Drawing.Point(179, 132);
+            this.menu_IDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menu_IDTextBox.Name = "menu_IDTextBox";
-            this.menu_IDTextBox.Size = new System.Drawing.Size(150, 20);
+            this.menu_IDTextBox.Size = new System.Drawing.Size(199, 22);
             this.menu_IDTextBox.TabIndex = 23;
             this.menu_IDTextBox.TextChanged += new System.EventHandler(this.menu_IDTextBox_TextChanged);
-            // 
-            // menu_typeLabel
-            // 
-            menu_typeLabel.AutoSize = true;
-            menu_typeLabel.Location = new System.Drawing.Point(63, 136);
-            menu_typeLabel.Name = "menu_typeLabel";
-            menu_typeLabel.Size = new System.Drawing.Size(59, 13);
-            menu_typeLabel.TabIndex = 24;
-            menu_typeLabel.Text = "menu type:";
             // 
             // menu_typeTextBox
             // 
             this.menu_typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.menuBindingSource, "menu_type", true));
-            this.menu_typeTextBox.Location = new System.Drawing.Point(134, 133);
+            this.menu_typeTextBox.Location = new System.Drawing.Point(179, 164);
+            this.menu_typeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menu_typeTextBox.Name = "menu_typeTextBox";
-            this.menu_typeTextBox.Size = new System.Drawing.Size(150, 20);
+            this.menu_typeTextBox.Size = new System.Drawing.Size(199, 22);
             this.menu_typeTextBox.TabIndex = 25;
             this.menu_typeTextBox.TextChanged += new System.EventHandler(this.menu_typeTextBox_TextChanged);
-            // 
-            // menu_nameLabel
-            // 
-            menu_nameLabel.AutoSize = true;
-            menu_nameLabel.Location = new System.Drawing.Point(63, 162);
-            menu_nameLabel.Name = "menu_nameLabel";
-            menu_nameLabel.Size = new System.Drawing.Size(65, 13);
-            menu_nameLabel.TabIndex = 26;
-            menu_nameLabel.Text = "menu name:";
             // 
             // menu_nameTextBox
             // 
             this.menu_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.menuBindingSource, "menu_name", true));
-            this.menu_nameTextBox.Location = new System.Drawing.Point(134, 159);
+            this.menu_nameTextBox.Location = new System.Drawing.Point(179, 196);
+            this.menu_nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menu_nameTextBox.Name = "menu_nameTextBox";
-            this.menu_nameTextBox.Size = new System.Drawing.Size(150, 20);
+            this.menu_nameTextBox.Size = new System.Drawing.Size(199, 22);
             this.menu_nameTextBox.TabIndex = 27;
-            // 
-            // menu_priceLabel
-            // 
-            menu_priceLabel.AutoSize = true;
-            menu_priceLabel.Location = new System.Drawing.Point(63, 188);
-            menu_priceLabel.Name = "menu_priceLabel";
-            menu_priceLabel.Size = new System.Drawing.Size(62, 13);
-            menu_priceLabel.TabIndex = 28;
-            menu_priceLabel.Text = "menu price:";
             // 
             // menu_priceTextBox
             // 
             this.menu_priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.menuBindingSource, "menu_price", true));
-            this.menu_priceTextBox.Location = new System.Drawing.Point(134, 185);
+            this.menu_priceTextBox.Location = new System.Drawing.Point(179, 228);
+            this.menu_priceTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menu_priceTextBox.Name = "menu_priceTextBox";
-            this.menu_priceTextBox.Size = new System.Drawing.Size(150, 20);
+            this.menu_priceTextBox.Size = new System.Drawing.Size(199, 22);
             this.menu_priceTextBox.TabIndex = 29;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.Location = new System.Drawing.Point(428, 107);
+            this.button1.Location = new System.Drawing.Point(571, 132);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
+            this.button1.Size = new System.Drawing.Size(100, 34);
             this.button1.TabIndex = 30;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = false;
@@ -484,9 +514,10 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Cyan;
-            this.button3.Location = new System.Drawing.Point(428, 141);
+            this.button3.Location = new System.Drawing.Point(571, 174);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 28);
+            this.button3.Size = new System.Drawing.Size(100, 34);
             this.button3.TabIndex = 31;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = false;
@@ -495,9 +526,10 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(428, 177);
+            this.button4.Location = new System.Drawing.Point(571, 218);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 28);
+            this.button4.Size = new System.Drawing.Size(100, 34);
             this.button4.TabIndex = 32;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = false;
@@ -505,11 +537,11 @@
             // 
             // adminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1480, 724);
+            this.ClientSize = new System.Drawing.Size(1924, 891);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
@@ -534,6 +566,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.adminDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "adminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "~ Admin";
