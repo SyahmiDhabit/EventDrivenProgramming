@@ -91,6 +91,8 @@
             // menu_IDLabel
             // 
             menu_IDLabel.AutoSize = true;
+            menu_IDLabel.BackColor = System.Drawing.Color.Transparent;
+            menu_IDLabel.ForeColor = System.Drawing.Color.White;
             menu_IDLabel.Location = new System.Drawing.Point(63, 110);
             menu_IDLabel.Name = "menu_IDLabel";
             menu_IDLabel.Size = new System.Drawing.Size(50, 13);
@@ -100,6 +102,8 @@
             // menu_typeLabel
             // 
             menu_typeLabel.AutoSize = true;
+            menu_typeLabel.BackColor = System.Drawing.Color.Transparent;
+            menu_typeLabel.ForeColor = System.Drawing.Color.White;
             menu_typeLabel.Location = new System.Drawing.Point(63, 136);
             menu_typeLabel.Name = "menu_typeLabel";
             menu_typeLabel.Size = new System.Drawing.Size(59, 13);
@@ -109,6 +113,8 @@
             // menu_nameLabel
             // 
             menu_nameLabel.AutoSize = true;
+            menu_nameLabel.BackColor = System.Drawing.Color.Transparent;
+            menu_nameLabel.ForeColor = System.Drawing.Color.White;
             menu_nameLabel.Location = new System.Drawing.Point(63, 162);
             menu_nameLabel.Name = "menu_nameLabel";
             menu_nameLabel.Size = new System.Drawing.Size(65, 13);
@@ -118,6 +124,8 @@
             // menu_priceLabel
             // 
             menu_priceLabel.AutoSize = true;
+            menu_priceLabel.BackColor = System.Drawing.Color.Transparent;
+            menu_priceLabel.ForeColor = System.Drawing.Color.White;
             menu_priceLabel.Location = new System.Drawing.Point(63, 188);
             menu_priceLabel.Name = "menu_priceLabel";
             menu_priceLabel.Size = new System.Drawing.Size(62, 13);
