@@ -62,6 +62,7 @@
             this.labelkawaii.AutoSize = true;
             this.labelkawaii.BackColor = System.Drawing.Color.Transparent;
             this.labelkawaii.Font = new System.Drawing.Font("Monotype Corsiva", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelkawaii.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.labelkawaii.Location = new System.Drawing.Point(-6, 9);
             this.labelkawaii.Name = "labelkawaii";
             this.labelkawaii.Size = new System.Drawing.Size(309, 52);
