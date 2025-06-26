@@ -57,17 +57,10 @@ namespace ProjectKawaiiCafeOrderingSystem
                 total += item.TotalPrice;
             }
 
-
-            // ➕ ADDED: Calculate total for merchandise
+            // Betul - cuma sekali loop untuk merchandise
             foreach (var merch in OrderSession.OrderedMerchandise)
             {
                 total += merch.TotalPrice;
-            }
-
-
-            foreach (var item in OrderSession.OrderedMerchandise)
-            {
-                total += item.TotalPrice;
             }
 
             return total;
@@ -132,7 +125,7 @@ namespace ProjectKawaiiCafeOrderingSystem
             try
             {
 
-                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True"))
 
                 {
                     connection.Open();
@@ -178,9 +171,9 @@ namespace ProjectKawaiiCafeOrderingSystem
                             return;
                         }
 
-                        if (cashAmount <= totalAmount)
+                        if (cashAmount < totalAmount)
                         {
-                            MessageBox.Show("Cash amount must be greater than total amount (RM " + totalAmount.ToString("F2") + ").", "Insufficient Cash", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Cash amount must be at least equal to total amount (RM " + totalAmount.ToString("F2") + ").", "Insufficient Cash", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                     }
@@ -244,9 +237,8 @@ namespace ProjectKawaiiCafeOrderingSystem
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            OrderSession.OrderedMerchandise.Clear(); // Clear merchandise sahaja
             this.Hide();
-            _menuForm.Show();
+            _menuForm.ShowDialog();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

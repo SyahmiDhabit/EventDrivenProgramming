@@ -41,15 +41,27 @@ namespace ProjectKawaiiCafeOrderingSystem
             textBoxCustName.MaxLength = 15;
             textBoxCustName.Visible = false;
 
-            LoadMerchandiseFromDatabase();
+            if (products.Count == 0)
+                LoadMerchandiseFromDatabase();
 
             if (products.Count > 0)
                 DisplayProduct(currentIndex);
+
+            // ✅ Repopulate listBoxMerchandise from OrderedMerchandise
+            listBoxMerchandise.Items.Clear();
+            foreach (var item in OrderSession.OrderedMerchandise)
+            {
+                if (item.IsMerchandise)
+                {
+                    string itemDescription = $"{item.Quantity} x {item.Name}";
+                    listBoxMerchandise.Items.Add(itemDescription);
+                }
+            }
         }
 
         private void LoadMerchandiseFromDatabase()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SCSM11\Documents\GitHub\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ssyah\source\repos\EventDrivenProgramming\ProjectKawaiiCafeOrderingSystem\Database.mdf;Integrated Security=True";
             string query = "SELECT merch_ID, merch_name, merch_price FROM Merchandise";
 
             try
@@ -139,47 +151,76 @@ namespace ProjectKawaiiCafeOrderingSystem
                 return;
             }
 
-            int quantity = (int)numericUpDownQty.Value;
+            // Clear semua ordered merchandise sebelum proses semula
+            OrderSession.OrderedMerchandise.RemoveAll(item => item.IsMerchandise);
 
-            if (quantity > 0)
-            {
-                var selectedProduct = products[currentIndex];
-                string color = comboBoxColor.SelectedItem.ToString();
-                string customName = checkBoxCustName.Checked ? textBoxCustName.Text.Trim() : "";
-
-                string itemDescription = $"{selectedProduct.Name} ({color})";
-                if (!string.IsNullOrEmpty(customName))
-                {
-                    itemDescription += $" - {customName}";
-                }
-
-                decimal totalPrice = selectedProduct.Price * quantity;
-
-                // Tambah item terus ke OrderSession.OrderedMerchandise
-                OrderSession.OrderedMerchandise.Add(new OrderItem
-                {
-                    MenuID = 0,
-                    Name = itemDescription,
-                    Price = selectedProduct.Price,
-                    Quantity = quantity,
-                    TotalPrice = totalPrice,
-                    IsMerchandise = true,
-                    MerchID = selectedProduct.MerchID
-                });
-
-                MessageBox.Show($"{quantity} x {itemDescription} added to your order.", "Added",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
+            if (listBoxMerchandise.Items.Count == 0)
             {
                 MessageBox.Show("You did not select any merchandise. Proceeding to checkout.",
                     "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                foreach (var item in listBoxMerchandise.Items)
+                {
+                    string itemText = item.ToString();
 
-            // Terus ke checkout
+                    try
+                    {
+                        int xIndex = itemText.IndexOf('x');
+                        string qtyPart = itemText.Substring(0, xIndex).Trim();
+                        int quantity = int.Parse(qtyPart);
+
+                        string rest = itemText.Substring(xIndex + 1).Trim();
+
+                        int colorStart = rest.IndexOf('(');
+                        int colorEnd = rest.IndexOf(')');
+
+                        string name = rest.Substring(0, colorStart).Trim();
+                        string color = rest.Substring(colorStart + 1, colorEnd - colorStart - 1).Trim();
+
+                        string customName = "";
+                        int dashIndex = rest.IndexOf('-', colorEnd);
+                        if (dashIndex != -1)
+                        {
+                            customName = rest.Substring(dashIndex + 1).Trim();
+                        }
+
+                        Product selectedProduct = products.Find(p => p.Name == name);
+
+                        if (selectedProduct != null)
+                        {
+                            string itemDescription = $"{selectedProduct.Name} ({color})";
+                            if (!string.IsNullOrEmpty(customName))
+                            {
+                                itemDescription += $" - {customName}";
+                            }
+
+                            decimal totalPrice = selectedProduct.Price * quantity;
+
+                            OrderSession.OrderedMerchandise.Add(new OrderItem
+                            {
+                                MenuID = 0,
+                                Name = itemDescription,
+                                Price = selectedProduct.Price,
+                                Quantity = quantity,
+                                TotalPrice = totalPrice,
+                                IsMerchandise = true,
+                                MerchID = selectedProduct.MerchID
+                            });
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show($"Failed to process item: {itemText}");
+                    }
+                }
+            }
+
+            // Proceed to checkout
             checkoutForm checkout = new checkoutForm(_menuForm);
             this.Hide();
-            checkout.Show();
+            checkout.ShowDialog();
         }
 
         // Event handlers kosong
@@ -193,5 +234,56 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e) { }
         private void textBoxCustName_TextChanged(object sender, EventArgs e) { }
         private void labelColor_Click(object sender, EventArgs e) { }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (products.Count == 0)
+            {
+                MessageBox.Show("No merchandise available.");
+                return;
+            }
+
+            int quantity = (int)numericUpDownQty.Value;
+
+            if (quantity <= 0)
+            {
+                MessageBox.Show("Please select a quantity greater than 0.");
+                return;
+            }
+
+            var selectedProduct = products[currentIndex];
+            string color = comboBoxColor.SelectedItem.ToString();
+            string customName = checkBoxCustName.Checked ? textBoxCustName.Text.Trim() : "";
+
+            string itemDescription = $"{quantity} x {selectedProduct.Name} ({color})";
+            if (!string.IsNullOrEmpty(customName))
+            {
+                itemDescription += $" - {customName}";
+            }
+
+            listBoxMerchandise.Items.Add(itemDescription);
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (listBoxMerchandise.SelectedIndex != -1)
+            {
+                listBoxMerchandise.Items.RemoveAt(listBoxMerchandise.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Please select an item to remove.");
+            }
+        }
+
+        private void listBoxMerchandise_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

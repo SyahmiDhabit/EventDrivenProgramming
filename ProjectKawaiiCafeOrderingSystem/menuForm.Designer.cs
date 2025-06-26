@@ -97,7 +97,7 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.BackColor = System.Drawing.Color.LightGray;
+            this.btnAddFood.BackColor = System.Drawing.Color.Lime;
             this.btnAddFood.Location = new System.Drawing.Point(713, 194);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(108, 42);
@@ -187,7 +187,7 @@
             // 
             // btnRemFood
             // 
-            this.btnRemFood.BackColor = System.Drawing.Color.LightGray;
+            this.btnRemFood.BackColor = System.Drawing.Color.Red;
             this.btnRemFood.Location = new System.Drawing.Point(599, 194);
             this.btnRemFood.Name = "btnRemFood";
             this.btnRemFood.Size = new System.Drawing.Size(108, 42);
@@ -276,7 +276,7 @@
             // 
             // btnRemDessert
             // 
-            this.btnRemDessert.BackColor = System.Drawing.Color.LightGray;
+            this.btnRemDessert.BackColor = System.Drawing.Color.Red;
             this.btnRemDessert.Location = new System.Drawing.Point(598, 186);
             this.btnRemDessert.Name = "btnRemDessert";
             this.btnRemDessert.Size = new System.Drawing.Size(108, 42);
@@ -287,7 +287,7 @@
             // 
             // btnAddDessert
             // 
-            this.btnAddDessert.BackColor = System.Drawing.Color.LightGray;
+            this.btnAddDessert.BackColor = System.Drawing.Color.Lime;
             this.btnAddDessert.Location = new System.Drawing.Point(713, 186);
             this.btnAddDessert.Name = "btnAddDessert";
             this.btnAddDessert.Size = new System.Drawing.Size(108, 42);
@@ -357,7 +357,7 @@
             // 
             // btnRemDrink
             // 
-            this.btnRemDrink.BackColor = System.Drawing.Color.LightGray;
+            this.btnRemDrink.BackColor = System.Drawing.Color.Red;
             this.btnRemDrink.Location = new System.Drawing.Point(599, 200);
             this.btnRemDrink.Name = "btnRemDrink";
             this.btnRemDrink.Size = new System.Drawing.Size(108, 42);
@@ -375,7 +375,7 @@
             // 
             // btnAddDrink
             // 
-            this.btnAddDrink.BackColor = System.Drawing.Color.LightGray;
+            this.btnAddDrink.BackColor = System.Drawing.Color.Lime;
             this.btnAddDrink.Location = new System.Drawing.Point(713, 200);
             this.btnAddDrink.Name = "btnAddDrink";
             this.btnAddDrink.Size = new System.Drawing.Size(108, 42);

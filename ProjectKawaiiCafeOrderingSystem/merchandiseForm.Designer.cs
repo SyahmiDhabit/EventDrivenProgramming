@@ -45,6 +45,9 @@
             this.buttonNextForm = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.listBoxMerchandise = new System.Windows.Forms.ListBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMerch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQty)).BeginInit();
             this.SuspendLayout();
@@ -184,7 +187,7 @@
             // 
             this.buttonNextForm.BackColor = System.Drawing.Color.Gainsboro;
             this.buttonNextForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNextForm.Location = new System.Drawing.Point(1029, 520);
+            this.buttonNextForm.Location = new System.Drawing.Point(1041, 611);
             this.buttonNextForm.Name = "buttonNextForm";
             this.buttonNextForm.Size = new System.Drawing.Size(118, 53);
             this.buttonNextForm.TabIndex = 20;
@@ -216,6 +219,38 @@
             this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // listBoxMerchandise
+            // 
+            this.listBoxMerchandise.FormattingEnabled = true;
+            this.listBoxMerchandise.ItemHeight = 16;
+            this.listBoxMerchandise.Location = new System.Drawing.Point(589, 448);
+            this.listBoxMerchandise.Name = "listBoxMerchandise";
+            this.listBoxMerchandise.Size = new System.Drawing.Size(304, 100);
+            this.listBoxMerchandise.TabIndex = 23;
+            this.listBoxMerchandise.SelectedIndexChanged += new System.EventHandler(this.listBoxMerchandise_SelectedIndexChanged);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Lime;
+            this.btnAdd.Location = new System.Drawing.Point(899, 458);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(104, 42);
+            this.btnAdd.TabIndex = 24;
+            this.btnAdd.Text = "Add\r\nMerchandise\r\n";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.Red;
+            this.btnRemove.Location = new System.Drawing.Point(899, 506);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(104, 42);
+            this.btnRemove.TabIndex = 25;
+            this.btnRemove.Text = "Remove\r\nMerchandise\r\n";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // merchandiseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -223,7 +258,10 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1182, 598);
+            this.ClientSize = new System.Drawing.Size(1203, 693);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.listBoxMerchandise);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonNextForm);
@@ -265,5 +303,8 @@
         private System.Windows.Forms.Button buttonNextForm;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.ListBox listBoxMerchandise;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
