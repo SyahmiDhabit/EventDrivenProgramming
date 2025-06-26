@@ -115,7 +115,7 @@ namespace ProjectKawaiiCafeOrderingSystem
         private void button2_Click_1(object sender, EventArgs e)
         {
             DateTime fromDate = dateTimePicker3.Value.Date;
-            DateTime toDate = dateTimePicker4.Value.Date.AddDays(1).AddSeconds(-1); // include full end date
+            DateTime toDate = dateTimePicker4.Value.Date.AddDays(1).AddSeconds(-1);
             string searchText = textBox3.Text.Trim();
             string selectedType = comboBox1.SelectedItem?.ToString() ?? "All";
 
@@ -127,22 +127,24 @@ namespace ProjectKawaiiCafeOrderingSystem
                 {
                     conn.Open();
 
-                    // Start query with date and name filter
                     string query = @"
                 SELECT 
                     m.menu_ID,
                     m.menu_name,
                     m.menu_price,
                     m.menu_type,
-                    SUM(om.quantity) AS total_sold,
-                    SUM(om.quantity * m.menu_price) AS total_income
+                    ISNULL(SUM(CASE 
+                        WHEN o.order_date BETWEEN @fromDate AND @toDate THEN om.quantity 
+                        ELSE 0 END), 0) AS total_sold,
+                    ISNULL(SUM(CASE 
+                        WHEN o.order_date BETWEEN @fromDate AND @toDate THEN om.quantity * m.menu_price 
+                        ELSE 0 END), 0) AS total_income
                 FROM Menu m
-                JOIN Order_Menu om ON m.menu_ID = om.menu_ID
-                JOIN [Order] o ON om.order_ID = o.order_ID
-                WHERE o.order_date BETWEEN @fromDate AND @toDate
+                LEFT JOIN Order_Menu om ON m.menu_ID = om.menu_ID
+                LEFT JOIN [Order] o ON om.order_ID = o.order_ID
+                WHERE (o.order_date BETWEEN @fromDate AND @toDate OR o.order_date IS NULL)
                   AND m.menu_name LIKE @search";
 
-                    // Add menu type filter if not "All"
                     if (selectedType != "All")
                     {
                         query += " AND m.menu_type = @type";
@@ -150,8 +152,7 @@ namespace ProjectKawaiiCafeOrderingSystem
 
                     query += @"
                 GROUP BY m.menu_ID, m.menu_name, m.menu_price, m.menu_type
-                ORDER BY total_sold DESC;
-            ";
+                ORDER BY total_sold DESC;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -171,6 +172,9 @@ namespace ProjectKawaiiCafeOrderingSystem
                         adminDataGridView.DataSource = null;
                         adminDataGridView.AutoGenerateColumns = true;
                         adminDataGridView.DataSource = table;
+
+                        // Highlighting logic
+                        HighlightRows(table);
                     }
                 }
                 catch (Exception ex)
@@ -179,6 +183,7 @@ namespace ProjectKawaiiCafeOrderingSystem
                 }
             }
         }
+
 
         private void textBox3_TextChanged_1(object sender, EventArgs e)
         {
@@ -277,6 +282,37 @@ namespace ProjectKawaiiCafeOrderingSystem
             menu_nameTextBox.Clear();
             menu_priceTextBox.Clear();
         }
+
+        private void HighlightRows(DataTable table)
+        {
+            int totalSoldColumnIndex = adminDataGridView.Columns["total_sold"].Index;
+
+            int maxTotalSold = 0;
+
+            foreach (DataRow row in table.Rows)
+            {
+                int totalSold = Convert.ToInt32(row["total_sold"]);
+                if (totalSold > maxTotalSold)
+                    maxTotalSold = totalSold;
+            }
+
+            foreach (DataGridViewRow gridRow in adminDataGridView.Rows)
+            {
+                int totalSold = Convert.ToInt32(gridRow.Cells["total_sold"].Value);
+
+                if (totalSold == maxTotalSold && maxTotalSold > 0)
+                {
+                    // Most sold - green highlight
+                    gridRow.DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                else if (totalSold == 0)
+                {
+                    // Never sold - red highlight
+                    gridRow.DefaultCellStyle.BackColor = Color.MistyRose;
+                }
+            }
+        }
+
 
     }
 }

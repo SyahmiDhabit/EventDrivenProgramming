@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             System.Windows.Forms.Label menu_IDLabel;
             System.Windows.Forms.Label menu_typeLabel;
             System.Windows.Forms.Label menu_nameLabel;
             System.Windows.Forms.Label menu_priceLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             this.adminDataGridView = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -87,6 +87,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // menu_IDLabel
+            // 
+            menu_IDLabel.AutoSize = true;
+            menu_IDLabel.Location = new System.Drawing.Point(63, 110);
+            menu_IDLabel.Name = "menu_IDLabel";
+            menu_IDLabel.Size = new System.Drawing.Size(50, 13);
+            menu_IDLabel.TabIndex = 22;
+            menu_IDLabel.Text = "menu ID:";
+            // 
+            // menu_typeLabel
+            // 
+            menu_typeLabel.AutoSize = true;
+            menu_typeLabel.Location = new System.Drawing.Point(63, 136);
+            menu_typeLabel.Name = "menu_typeLabel";
+            menu_typeLabel.Size = new System.Drawing.Size(59, 13);
+            menu_typeLabel.TabIndex = 24;
+            menu_typeLabel.Text = "menu type:";
+            // 
+            // menu_nameLabel
+            // 
+            menu_nameLabel.AutoSize = true;
+            menu_nameLabel.Location = new System.Drawing.Point(63, 162);
+            menu_nameLabel.Name = "menu_nameLabel";
+            menu_nameLabel.Size = new System.Drawing.Size(65, 13);
+            menu_nameLabel.TabIndex = 26;
+            menu_nameLabel.Text = "menu name:";
+            // 
+            // menu_priceLabel
+            // 
+            menu_priceLabel.AutoSize = true;
+            menu_priceLabel.Location = new System.Drawing.Point(63, 188);
+            menu_priceLabel.Name = "menu_priceLabel";
+            menu_priceLabel.Size = new System.Drawing.Size(62, 13);
+            menu_priceLabel.TabIndex = 28;
+            menu_priceLabel.Text = "menu price:";
             // 
             // adminDataGridView
             // 
@@ -163,7 +199,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(748, 47);
+            this.label8.Location = new System.Drawing.Point(593, 47);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 25);
             this.label8.TabIndex = 17;
@@ -235,7 +271,7 @@
             this.customerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.customerBindingNavigator.Name = "customerBindingNavigator";
             this.customerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customerBindingNavigator.Size = new System.Drawing.Size(1480, 27);
+            this.customerBindingNavigator.Size = new System.Drawing.Size(1263, 27);
             this.customerBindingNavigator.TabIndex = 22;
             this.customerBindingNavigator.Text = "bindingNavigator1";
             this.customerBindingNavigator.RefreshItems += new System.EventHandler(this.customerBindingNavigator_RefreshItems);
@@ -400,15 +436,6 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "menu_price";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // menu_IDLabel
-            // 
-            menu_IDLabel.AutoSize = true;
-            menu_IDLabel.Location = new System.Drawing.Point(63, 110);
-            menu_IDLabel.Name = "menu_IDLabel";
-            menu_IDLabel.Size = new System.Drawing.Size(50, 13);
-            menu_IDLabel.TabIndex = 22;
-            menu_IDLabel.Text = "menu ID:";
-            // 
             // menu_IDTextBox
             // 
             this.menu_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.menuBindingSource, "menu_ID", true));
@@ -417,15 +444,6 @@
             this.menu_IDTextBox.Size = new System.Drawing.Size(150, 20);
             this.menu_IDTextBox.TabIndex = 23;
             this.menu_IDTextBox.TextChanged += new System.EventHandler(this.menu_IDTextBox_TextChanged);
-            // 
-            // menu_typeLabel
-            // 
-            menu_typeLabel.AutoSize = true;
-            menu_typeLabel.Location = new System.Drawing.Point(63, 136);
-            menu_typeLabel.Name = "menu_typeLabel";
-            menu_typeLabel.Size = new System.Drawing.Size(59, 13);
-            menu_typeLabel.TabIndex = 24;
-            menu_typeLabel.Text = "menu type:";
             // 
             // menu_typeTextBox
             // 
@@ -436,15 +454,6 @@
             this.menu_typeTextBox.TabIndex = 25;
             this.menu_typeTextBox.TextChanged += new System.EventHandler(this.menu_typeTextBox_TextChanged);
             // 
-            // menu_nameLabel
-            // 
-            menu_nameLabel.AutoSize = true;
-            menu_nameLabel.Location = new System.Drawing.Point(63, 162);
-            menu_nameLabel.Name = "menu_nameLabel";
-            menu_nameLabel.Size = new System.Drawing.Size(65, 13);
-            menu_nameLabel.TabIndex = 26;
-            menu_nameLabel.Text = "menu name:";
-            // 
             // menu_nameTextBox
             // 
             this.menu_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.menuBindingSource, "menu_name", true));
@@ -452,15 +461,6 @@
             this.menu_nameTextBox.Name = "menu_nameTextBox";
             this.menu_nameTextBox.Size = new System.Drawing.Size(150, 20);
             this.menu_nameTextBox.TabIndex = 27;
-            // 
-            // menu_priceLabel
-            // 
-            menu_priceLabel.AutoSize = true;
-            menu_priceLabel.Location = new System.Drawing.Point(63, 188);
-            menu_priceLabel.Name = "menu_priceLabel";
-            menu_priceLabel.Size = new System.Drawing.Size(62, 13);
-            menu_priceLabel.TabIndex = 28;
-            menu_priceLabel.Text = "menu price:";
             // 
             // menu_priceTextBox
             // 
@@ -509,7 +509,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjectKawaiiCafeOrderingSystem.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1480, 724);
+            this.ClientSize = new System.Drawing.Size(1263, 724);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
